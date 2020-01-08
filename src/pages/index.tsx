@@ -84,17 +84,19 @@ const Profile = () => {
 const SectionStyle = styled.section`
   ${tw`flex flex-row my-4`}
 
-  h1 {
+  & > h1 {
     ${tw`flex-none w-40 uppercase tracking-widest text-right text-gray-600`}
   }
 
   & > p {
-    ${tw`flex-auto px-4`}
+    ${tw`flex-auto flex flex-row`}
     p {
       ${tw`mb-2`}
     }
   }
 `
+
+const Subsection = styled.section``
 
 const Section = ({ children, title }) => {
   return (
@@ -128,7 +130,12 @@ const IndexPage = () => (
     </Section>
 
     <Section title={resumeData.skills.title}>
-      {JSON.stringify(resumeData.skills.data)}
+      {resumeData.skills.data.map(skill => (
+        <Subsection>
+          <h2>{skill.category}</h2>
+          <p>{skill.related}</p>
+        </Subsection>
+      ))}
     </Section>
     <Section title={resumeData.languages.title}>
       {JSON.stringify(resumeData.languages.data)}
