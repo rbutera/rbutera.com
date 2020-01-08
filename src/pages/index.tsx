@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import tw from "tailwind.macro"
+import { Heart } from "react-feather"
 
 const Anchor = styled.a`
   ${tw`font-bold text-blue-600 hover:text-blue-300 mx-1`}
@@ -12,8 +13,28 @@ const ResumeHeader = ({ children }) => {
   return <>{children}</>
 }
 
-const Heart = () => {
-  return <>love</>
+const Portrait = styled.div`
+  ${tw`w-40 h-40 bg-green-400 block`}
+`
+
+const Caption = styled.span`
+  ${tw`bg-white w-100 p-8`}
+
+  p {
+    ${tw`flex flex-row text-4xl items-center m-0 p-0`};
+  }
+`
+
+const LoveStyle = styled.span`
+  ${tw`inline-block mx-1 text-red-400`};
+`
+
+const Love = () => {
+  return (
+    <LoveStyle>
+      <Heart size={32} />
+    </LoveStyle>
+  )
 }
 
 const Profile = () => {
@@ -38,10 +59,13 @@ const IndexPage = () => (
     <SEO title="CV / Resume" />
 
     <ResumeHeader>
-      <p>Hi, I'm Rai,</p>
-      <p>
-        and I <Heart /> innovation
-      </p>
+      <Portrait />
+      <Caption>
+        <p>Hi, I'm Rai,</p>
+        <p>
+          and I <Love /> innovation.
+        </p>
+      </Caption>
     </ResumeHeader>
 
     <Profile />
