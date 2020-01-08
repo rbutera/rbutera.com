@@ -85,11 +85,11 @@ const SectionStyle = styled.section`
   ${tw`flex flex-row my-4`}
 
   h1 {
-    ${tw`flex-none w-40 uppercase tracking-widest text-right px-4`}
+    ${tw`flex-none w-40 uppercase tracking-widest text-right text-gray-600`}
   }
 
   p {
-    ${tw`flex-auto`}
+    ${tw`flex-auto px-4`}
   }
 `
 

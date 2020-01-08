@@ -66,7 +66,7 @@
     ]
   },
   "libraries": {
-    "title": "Libraries and Frameworks",
+    "title": "Libraries + Frameworks",
     "data": [
       "React",
       "RxJS",
@@ -151,7 +151,7 @@
     ]
   },
   "passions": {
-    "title": "Languages",
+    "title": "Passions + Interests",
     "data": [
       "The Web",
       "Design Trends",
