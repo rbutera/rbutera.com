@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Raimondo Butera - Designer, Developer, Entrepreneur - CV and Resume `,
+    title: `Raimondo Butera - Designer, Developer, Entrepreneur from London, UK`,
     description: `Curriculum Vitae and Resume for Raimondo 'Rai' Butera, a designer and developer based out of London, UK`,
     author: `@rbutera`,
   },

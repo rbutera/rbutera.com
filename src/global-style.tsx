@@ -6,7 +6,7 @@ export default createGlobalStyle`
   /* apply a natural box layout model to all elements, but allowing components to change */
   
   body {
-    ${tw`m-0 p-0 font-sans bg-yellow-400 text-gray-900`};
+    ${tw`m-0 p-0 font-sans bg-white text-gray-900`};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     -webkit-text-size-adjust: 100%;
     width: 100vw;
