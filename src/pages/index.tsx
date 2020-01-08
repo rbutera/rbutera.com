@@ -88,8 +88,11 @@ const SectionStyle = styled.section`
     ${tw`flex-none w-40 uppercase tracking-widest text-right text-gray-600`}
   }
 
-  p {
+  & > p {
     ${tw`flex-auto px-4`}
+    p {
+      ${tw`mb-2`}
+    }
   }
 `
 
@@ -119,8 +122,11 @@ const IndexPage = () => (
     </ResumeHeader>
 
     <Section title={resumeData.bio.title}>
-      {JSON.stringify(resumeData.bio.data)}
+      {resumeData.bio.data.map(line => (
+        <p>{line}</p>
+      ))}
     </Section>
+
     <Section title={resumeData.skills.title}>
       {JSON.stringify(resumeData.skills.data)}
     </Section>
