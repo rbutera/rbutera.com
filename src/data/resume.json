@@ -1,0 +1,163 @@
+{
+  "profile": {
+    "name": "Raimondo Butera",
+    "telephone": "+447780688428",
+    "email": "rai@rbutera.com"
+  },
+  "bio": {
+    "title": "Bio",
+    "data": [
+      "I have been designing and developing websites since 2001… but for many years it was always a hobby, a side-hustle, a ‘distraction’.",
+      "I founded Cloakroom (a nightlife PWA + iOS app) in 2013 after I decided to stop fighting and start embracing that distraction.",
+      "I’ve been hooked on JavaScript and building the next generation of the web ever since.",
+      "In 2016 I decided to go back to university to get a formal qualification… but I ultimately decided to suspend my studies indefinitely.",
+      "That means I’m ready and available to channel my energy into creativity and problem solving again, and truly excited to help build great apps and ultimately create value for innovative startups."
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "data": [
+      {
+        "category": "App Development",
+        "related": [
+          "Front End Development (React)",
+          "Full - Stack Development (MERN / MEAN / Meteor)",
+          "Unit Testing",
+          "Test / Behaviour Driven Development (TDD / BDD)",
+          "Progressive Web Apps",
+          "Functional Programming",
+          "Hybrid Apps (React Native / Cordova)",
+          "Serverless Applications / Cloud Functions",
+          "API Design",
+          "Design Systems"
+        ]
+      },
+      {
+        "category": "Design",
+        "related": [
+          "UX Design",
+          "UI Design",
+          "Brand and Logo Design",
+          "Typography"
+        ]
+      },
+      {
+        "category": "Innovation",
+        "related": [
+          "Lean/Agile Methodology",
+          "Customer Development",
+          "Business Modeling",
+          "Task Management and GTD",
+          "Project Planning",
+          "Ideation",
+          "A/B Testing"
+        ]
+      }
+    ]
+  },
+  "languages": {
+    "title": "Languages",
+    "data": [
+      "JavaScript / ECMAScript / TypeScript",
+      "C",
+      "Java",
+      "Haskell",
+      "Ruby"
+    ]
+  },
+  "libraries": {
+    "title": "Libraries and Frameworks",
+    "data": [
+      "React",
+      "RxJS",
+      "Redux",
+      "Ramda",
+      "Vue",
+      "Angular",
+      "Meteor",
+      "Tailwind / Bootstrap / Bulma",
+      "Sass / PostCSS",
+      "Express"
+    ]
+  },
+  "technologies": {
+    "title": "Technologies",
+    "data": [
+      "JAMStack",
+      "Node.js",
+      "Webpack",
+      "Babel",
+      "Git + Git Flow",
+      "MongoDB",
+      "Websockets"
+    ]
+  },
+  "tools": {
+    "title": "Tools",
+    "data": [
+      "vscode",
+      "Adobe Photoshop, Illustrator, Premiere Pro and XD",
+      "Sketch",
+      "Framer X",
+      "OBS",
+      "G Suite / MS Office"
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "data": [
+      { "heading": "GCSEs", "detail": ["6A*7A"] },
+      { "heading": "A-Level", "detail": ["AAAa"] },
+      { "heading": "Law", "detail": ["2010-2013", "University of Oxford"] },
+      {
+        "heading": "Computer Science and Innovation",
+        "detail": ["2016-2018", "University of Bristol"]
+      }
+    ]
+  },
+  "experience": {
+    "title": "Languages",
+    "data": [
+      {
+        "start": "2013",
+        "end": "2015",
+        "company": "Cloakroom Ltd",
+        "roles": ["Founder/CEO", "Designer", "Web Developer"]
+      },
+      {
+        "start": "2001",
+        "end": "Current",
+        "company": "Freelance",
+        "roles": ["Designer", "Web Developer"]
+      },
+      {
+        "start": "2015",
+        "end": "2016",
+        "company": "Twitch.tv",
+        "roles": ["Founder/CEO", "Designer", "Web Developer"]
+      },
+      {
+        "start": "2019",
+        "end": "current",
+        "company": "Codecamp",
+        "roles": ["Teacher (Web Development)"]
+      },
+      {
+        "start": "2019",
+        "end": "current",
+        "company": "RSTLSS.org",
+        "roles": ["Director", "Project Manager"]
+      }
+    ]
+  },
+  "passions": {
+    "title": "Languages",
+    "data": [
+      "The Web",
+      "Design Trends",
+      "Broadcasting/Livestreaming and Content Creation",
+      "Entrepreneurship and Startups",
+      "Blockchain and Cryptocurrencies"
+    ]
+  }
+}
