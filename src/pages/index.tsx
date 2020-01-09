@@ -52,7 +52,7 @@ const PersonalLogo = styled.img`
 `
 
 const Icon = styled.span`
-  ${tw`inline-block text-gray-500 mx-1`}
+  ${tw`inline-block mx-1`}
 `
 
 const Profile = styled.aside`
@@ -146,31 +146,31 @@ const IndexPage = () => {
           <ul>
             <li>{profile.name}</li>
             <li>
-              <Icon>
+              <Icon className="text-gray-400">
                 <FontAwesomeIcon icon={faEnvelope} />
               </Icon>
               {profile.email}
             </li>
             <li>
-              <Icon>
+              <Icon className="text-gray-400">
                 <FontAwesomeIcon icon={faPhone} />
               </Icon>
               {profile.phone}
             </li>
             <li>
-              <Icon>
+              <Icon className="text-gray-600">
                 <FontAwesomeIcon icon={faGithub} />
               </Icon>
-              {profile.github}
+              github.com/{profile.github}
             </li>
             <li>
-              <Icon>
+              <Icon className="text-gray-900">
                 <FontAwesomeIcon icon={faMedium} />
               </Icon>
-              {profile.medium}
+              medium.com/{profile.medium}
             </li>
             <li>
-              <Icon>
+              <Icon className="text-blue-300">
                 <FontAwesomeIcon icon={faTwitter} />
               </Icon>
               {profile.twitter}
