@@ -3,13 +3,20 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import tw from "tailwind.macro"
-import { Heart, Mail, Phone } from "react-feather"
-const resumeData = require("../data/resume.json")
-import Logo from "../images/logo/TikTokStyle.png"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHeart, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons"
+import {
+  faGithub,
+  faMedium,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons"
+import { sortBy, prop } from "rambda"
+import resumeData from "../data/resume.json"
+import Logo from "../images/logo/RBxo-emblem.svg"
 import profilePhoto from "../images/rai.jpg"
 
-const Anchor = styled.a`
-  ${tw`font-bold text-blue-600 hover:text-blue-300 mx-1`}
+const Container = styled.article`
+  ${tw`relative`}
 `
 
 const ResumeHeader = ({ children }) => {
@@ -35,7 +42,7 @@ const LoveStyle = styled.span`
 const Love = () => {
   return (
     <LoveStyle>
-      <Heart size={32} />
+      <FontAwesomeIcon icon={faHeart} />
     </LoveStyle>
   )
 }
@@ -45,11 +52,11 @@ const PersonalLogo = styled.img`
 `
 
 const Icon = styled.span`
-  ${tw`inline-block text-gray-500 mx-1`}
+  ${tw`inline-block mx-1`}
 `
 
-const ProfileStyle = styled.aside`
-  ${tw`w-auto`}
+const Profile = styled.aside`
+  ${tw`w-auto absolute top-0 right-0`}
   ul li {
     &:first-of-type {
       ${tw`text-xl font-bold`}
@@ -58,107 +65,194 @@ const ProfileStyle = styled.aside`
   }
 `
 
-const Profile = () => {
-  return (
-    <ProfileStyle>
-      <PersonalLogo src={Logo} alt="Raimondo Butera personal logo" />
-      <ul>
-        <li>Raimondo Butera</li>
-        <li>
-          <Icon>
-            <Mail />
-          </Icon>
-          rai@rbutera.com
-        </li>
-        <li>
-          <Icon>
-            <Phone />
-          </Icon>
-          +447780688428
-        </li>
-      </ul>
-    </ProfileStyle>
-  )
-}
-
 const SectionStyle = styled.section`
-  ${tw`flex flex-row my-4`}
+  ${tw`flex flex-col md:flex-row my-4`}
 
   & > h1 {
-    ${tw`flex-none w-40 uppercase tracking-widest text-right text-gray-600`}
-  }
-
-  & > p {
-    ${tw`flex-auto flex flex-row`}
-    p {
-      ${tw`mb-2`}
-    }
+    ${tw`flex-none uppercase tracking-widest text-center w-100 md:w-40 md:text-right text-gray-600 text-xl`}
   }
 `
 
-const Subsection = styled.section``
+const SectionContent = styled.p`
+  ${tw`flex-auto px-4`}
+  & > p {
+    ${tw`mb-2`}
+  }
+`
+const Columns = styled.div`
+  ${tw`flex flex-row`}
+`
+
+const Column = styled.div`
+  ${tw`inline-block flex-auto`}
+
+  & > h2 {
+    ${tw`text-lg`}
+  }
+`
+
+const ListStyle = styled.ul`
+  display: grid;
+  grid-auto-flow: row dense;
+  /* grid-template-rows: repeat(1fr); */
+
+  li {
+    ${tw`inline-block`}
+  }
+`
+
+const List = ({ items }) => {
+  return (
+    <ListStyle>
+      {items.map(item => (
+        <li>{item}</li>
+      ))}
+    </ListStyle>
+  )
+}
 
 const Section = ({ children, title }) => {
   return (
     <SectionStyle>
       <h1>{title}</h1>
-      <p>{children}</p>
+      <SectionContent>{children}</SectionContent>
     </SectionStyle>
   )
 }
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="CV / Resume" />
+const IndexPage = () => {
+  const {
+    profile,
+    bio,
+    skills,
+    tools,
+    languages,
+    libraries,
+    technologies,
+    education,
+    experience,
+    passions,
+  } = resumeData
 
-    <Profile />
+  const sortByStartDate = sortBy(prop("start"))
+  const sortedExperience = sortByStartDate(experience.data)
 
-    <ResumeHeader>
-      <Portrait src={profilePhoto} alt="a photo of Rai" />
-      <Caption>
-        <p>Hi, I'm Rai,</p>
-        <p>
-          and I <Love /> innovation.
-        </p>
-      </Caption>
-    </ResumeHeader>
+  return (
+    <Layout>
+      <SEO title="CV / Resume" />
+      <Container className="container">
+        <Profile>
+          <PersonalLogo src={Logo} alt="Raimondo Butera personal logo" />
+          <ul>
+            <li>{profile.name}</li>
+            <li>
+              <Icon className="text-gray-400">
+                <FontAwesomeIcon icon={faEnvelope} />
+              </Icon>
+              {profile.email}
+            </li>
+            <li>
+              <Icon className="text-gray-400">
+                <FontAwesomeIcon icon={faPhone} />
+              </Icon>
+              {profile.phone}
+            </li>
+            <li>
+              <Icon className="text-gray-600">
+                <FontAwesomeIcon icon={faGithub} />
+              </Icon>
+              github.com/{profile.github}
+            </li>
+            <li>
+              <Icon className="text-gray-900">
+                <FontAwesomeIcon icon={faMedium} />
+              </Icon>
+              medium.com/{profile.medium}
+            </li>
+            <li>
+              <Icon className="text-blue-300">
+                <FontAwesomeIcon icon={faTwitter} />
+              </Icon>
+              {profile.twitter}
+            </li>
+          </ul>
+        </Profile>
 
-    <Section title={resumeData.bio.title}>
-      {resumeData.bio.data.map(line => (
-        <p>{line}</p>
-      ))}
-    </Section>
+        <ResumeHeader>
+          <Portrait src={profilePhoto} alt="a photo of Rai" />
+          <Caption>
+            <p>Hi, I'm Rai,</p>
+            <p>
+              and I <Love /> innovation.
+            </p>
+          </Caption>
+        </ResumeHeader>
 
-    <Section title={resumeData.skills.title}>
-      {resumeData.skills.data.map(skill => (
-        <Subsection>
-          <h2>{skill.category}</h2>
-          <p>{skill.related}</p>
-        </Subsection>
-      ))}
-    </Section>
-    <Section title={resumeData.languages.title}>
-      {JSON.stringify(resumeData.languages.data)}
-    </Section>
-    <Section title={resumeData.libraries.title}>
-      {JSON.stringify(resumeData.libraries.data)}
-    </Section>
-    <Section title={resumeData.technologies.title}>
-      {JSON.stringify(resumeData.technologies.data)}
-    </Section>
-    <Section title={resumeData.tools.title}>
-      {JSON.stringify(resumeData.tools.data)}
-    </Section>
-    <Section title={resumeData.education.title}>
-      {JSON.stringify(resumeData.education.data)}
-    </Section>
-    <Section title={resumeData.experience.title}>
-      {JSON.stringify(resumeData.experience.data)}
-    </Section>
-    <Section title={resumeData.passions.title}>
-      {JSON.stringify(resumeData.passions.data)}
-    </Section>
-  </Layout>
-)
+        <Section title={bio.title}>
+          {bio.data.map(line => (
+            <p>{line}</p>
+          ))}
+        </Section>
+
+        <Section title={skills.title}>
+          <Columns>
+            {skills.data.map(skill => (
+              <Column>
+                <h2>{skill.category}</h2>
+                <ul>
+                  {skill.related.map(item => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </Column>
+            ))}
+          </Columns>
+        </Section>
+        <Section title={languages.title}>
+          <List items={languages.data} />
+        </Section>
+        <Section title={libraries.title}>
+          <List items={libraries.data} />
+        </Section>
+        <Section title={technologies.title}>
+          <List items={technologies.data} />
+        </Section>
+        <Section title={tools.title}>
+          <List items={tools.data} />
+        </Section>
+        <Section title={education.title}>
+          <Columns>
+            {education.data.map(educationLevel => (
+              <Column>
+                <h2>{educationLevel.heading}</h2>
+                {educationLevel.detail.map(line => (
+                  <p>{line}</p>
+                ))}
+              </Column>
+            ))}
+          </Columns>
+        </Section>
+        <Section title={experience.title}>
+          <Columns>
+            {sortedExperience.map(item => (
+              <Column>
+                <p>
+                  {item.start} - {item.end}
+                </p>
+                <h2>{item.company}</h2>
+                {item.roles.map(line => (
+                  <p>{line}</p>
+                ))}
+              </Column>
+            ))}
+          </Columns>
+        </Section>
+        <Section title={passions.title}>
+          <List items={passions.data} />
+        </Section>
+      </Container>
+    </Layout>
+  )
+}
 
 export default IndexPage

@@ -1,8 +1,11 @@
 {
   "profile": {
     "name": "Raimondo Butera",
-    "telephone": "+447780688428",
-    "email": "rai@rbutera.com"
+    "phone": "+447780688428",
+    "email": "rai@rbutera.com",
+    "github": "rbutera",
+    "medium": "@rbutera",
+    "twitter": "@rai_butera"
   },
   "bio": {
     "title": "Bio",
@@ -18,7 +21,7 @@
     "title": "Skills",
     "data": [
       {
-        "category": "App Development",
+        "category": "Web/App Development",
         "related": [
           "Front End Development (React)",
           "Full - Stack Development (MERN / MEAN / Meteor)",
@@ -96,7 +99,11 @@
     "title": "Tools",
     "data": [
       "vscode",
-      "Adobe Photoshop, Illustrator, Premiere Pro and XD",
+      "Photoshop",
+      "Illustrator",
+      "Premiere Pro",
+      "XD",
+      "Figma",
       "Sketch",
       "Framer X",
       "OBS",
@@ -107,16 +114,16 @@
     "title": "Education",
     "data": [
       { "heading": "GCSEs", "detail": ["6A*7A"] },
-      { "heading": "A-Level", "detail": ["AAAa"] },
-      { "heading": "Law", "detail": ["2010-2013", "University of Oxford"] },
+      { "heading": "A-Levels", "detail": ["AAAa"] },
+      { "heading": "Law", "detail": ["University of Oxford", "2010-2013"] },
       {
         "heading": "Computer Science and Innovation",
-        "detail": ["2016-2018", "University of Bristol"]
+        "detail": ["University of Bristol", "2016-2018"]
       }
     ]
   },
   "experience": {
-    "title": "Languages",
+    "title": "Experience",
     "data": [
       {
         "start": "2013",
@@ -134,7 +141,13 @@
         "start": "2015",
         "end": "2016",
         "company": "Twitch.tv",
-        "roles": ["Founder/CEO", "Designer", "Web Developer"]
+        "roles": ["Affiliate Broadcaster"]
+      },
+      {
+        "start": "2018",
+        "end": "2018",
+        "company": "True AI Ltd",
+        "roles": ["Front-End Developer"]
       },
       {
         "start": "2019",
