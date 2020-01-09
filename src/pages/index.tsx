@@ -5,7 +5,7 @@ import styled from "styled-components"
 import tw from "tailwind.macro"
 import { Heart, Mail, Phone } from "react-feather"
 const resumeData = require("../data/resume.json")
-import Logo from "../images/logo/letter-R.svg"
+import Logo from "../images/logo/TikTokStyle.png"
 import profilePhoto from "../images/rai.jpg"
 
 const Anchor = styled.a`
