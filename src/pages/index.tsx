@@ -35,11 +35,11 @@ const Container = styled.article`
   }
 
   h2 {
-    ${tw`text-gray-800 leading-tight`}
+    ${tw`text-gray-800 leading-none`}
   }
 
   ul li {
-    ${tw`text-gray-800 md:text-gray-700`};
+    ${tw`text-gray-800`};
   }
 `
 
@@ -296,9 +296,11 @@ const IndexPage = () => {
             <Columns>
               {education.data.map(educationLevel => (
                 <Column>
-                  <h2 className="text-xl">{educationLevel.heading}</h2>
+                  <h2 className="text-xl leading-none">
+                    {educationLevel.heading}
+                  </h2>
                   {educationLevel.detail.map(line => (
-                    <p className="leading-tight">{line}</p>
+                    <p className="leading-tight text-gray-800">{line}</p>
                   ))}
                 </Column>
               ))}
@@ -314,7 +316,7 @@ const IndexPage = () => {
                   </p>
                   <h2 className="mb-1 leading-none ">{item.company}</h2>
                   {item.roles.map(line => (
-                    <p className="leading-none mb-1">{line}</p>
+                    <p className="leading-none mb-1 text-gray-800">{line}</p>
                   ))}
                 </Column>
               ))}
