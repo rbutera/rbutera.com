@@ -17,21 +17,36 @@ import profilePhoto from "../images/rai.jpg"
 
 const Container = styled.article`
   ${tw`relative`}
+  display: grid;
+  grid-template-areas: "content sidebar";
+  grid-template-rows: auto;
+  grid-template-rows: 1fr auto;
 `
 
-const ResumeHeader = ({ children }) => {
-  return <>{children}</>
-}
+const ResumeBody = styled.div`
+  grid-area: "content";
+`
+
+const ResumeHeader = styled.header`
+  ${tw`relative`} /* height: 400px; */
+  height: 256px;
+`
 
 const Portrait = styled.img`
   ${tw`w-48 h-48 bg-gray-200 block select-none`}
 `
 
 const Caption = styled.span`
-  ${tw`inline-block h-auto w-64 bg-white w-100 p-5`}
+  ${tw`absolute inline-block h-auto w-64 bg-white w-100 p-5`}
+
+  left: 150px;
+  bottom: 0px;
 
   p {
     ${tw`flex flex-row text-4xl items-center m-0 p-0`};
+    &:first-of-type {
+      ${tw`text-2xl text-gray-600`}
+    }
   }
 `
 
@@ -51,12 +66,9 @@ const PersonalLogo = styled.img`
   ${tw`w-40 pb-1`}
 `
 
-const Icon = styled.span`
-  ${tw`inline-block mx-2`}
-`
-
 const Profile = styled.aside`
-  ${tw`w-auto absolute top-0 right-0`}
+  /* ${tw`w-auto absolute top-0 right-0`} */
+  grid-area: sidebar;
   ul {
     ${tw`px-2`};
   }
@@ -87,7 +99,7 @@ const Columns = styled.div`
 `
 
 const Column = styled.div`
-  ${tw`inline-block flex-auto`}
+  ${tw`inline-block flex-auto mx-4`}
 
   & > h2 {
     ${tw`text-lg`}
@@ -178,78 +190,80 @@ const IndexPage = () => {
           </ul>
         </Profile>
 
-        <ResumeHeader>
-          <Portrait src={profilePhoto} alt="a photo of Rai" />
-          <Caption>
-            <p>Hi, I'm Rai,</p>
-            <p>
-              and I <Love /> innovation.
-            </p>
-          </Caption>
-        </ResumeHeader>
+        <ResumeBody>
+          <ResumeHeader>
+            <Portrait src={profilePhoto} alt="a photo of Rai" />
+            <Caption>
+              <p>Hi, I'm Rai,</p>
+              <p>
+                and I <Love /> innovation.
+              </p>
+            </Caption>
+          </ResumeHeader>
 
-        <Section title={bio.title}>
-          {bio.data.map(line => (
-            <p>{line}</p>
-          ))}
-        </Section>
+          <Section title={bio.title}>
+            {bio.data.map(line => (
+              <p>{line}</p>
+            ))}
+          </Section>
 
-        <Section title={skills.title}>
-          <Columns>
-            {skills.data.map(skill => (
-              <Column>
-                <h2>{skill.category}</h2>
-                <ul>
-                  {skill.related.map(item => (
-                    <li>{item}</li>
+          <Section title={skills.title}>
+            <Columns>
+              {skills.data.map(skill => (
+                <Column>
+                  <h2>{skill.category}</h2>
+                  <ul>
+                    {skill.related.map(item => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </Column>
+              ))}
+            </Columns>
+          </Section>
+          <Section title={languages.title}>
+            <List items={languages.data} />
+          </Section>
+          <Section title={libraries.title}>
+            <List items={libraries.data} />
+          </Section>
+          <Section title={technologies.title}>
+            <List items={technologies.data} />
+          </Section>
+          <Section title={tools.title}>
+            <List items={tools.data} />
+          </Section>
+          <Section title={education.title}>
+            <Columns>
+              {education.data.map(educationLevel => (
+                <Column>
+                  <h2>{educationLevel.heading}</h2>
+                  {educationLevel.detail.map(line => (
+                    <p>{line}</p>
                   ))}
-                </ul>
-              </Column>
-            ))}
-          </Columns>
-        </Section>
-        <Section title={languages.title}>
-          <List items={languages.data} />
-        </Section>
-        <Section title={libraries.title}>
-          <List items={libraries.data} />
-        </Section>
-        <Section title={technologies.title}>
-          <List items={technologies.data} />
-        </Section>
-        <Section title={tools.title}>
-          <List items={tools.data} />
-        </Section>
-        <Section title={education.title}>
-          <Columns>
-            {education.data.map(educationLevel => (
-              <Column>
-                <h2>{educationLevel.heading}</h2>
-                {educationLevel.detail.map(line => (
-                  <p>{line}</p>
-                ))}
-              </Column>
-            ))}
-          </Columns>
-        </Section>
-        <Section title={experience.title}>
-          <Columns>
-            {sortedExperience.map(item => (
-              <Column>
-                <p>
-                  {item.start} - {item.end}
-                </p>
-                <h2>{item.company}</h2>
-                {item.roles.map(line => (
-                  <p>{line}</p>
-                ))}
-              </Column>
-            ))}
-          </Columns>
-        </Section>
-        <Section title={passions.title}>
-          <List items={passions.data} />
-        </Section>
+                </Column>
+              ))}
+            </Columns>
+          </Section>
+          <Section title={experience.title}>
+            <Columns>
+              {sortedExperience.map(item => (
+                <Column>
+                  <p>
+                    {item.start} - {item.end}
+                  </p>
+                  <h2>{item.company}</h2>
+                  {item.roles.map(line => (
+                    <p>{line}</p>
+                  ))}
+                </Column>
+              ))}
+            </Columns>
+          </Section>
+          <Section title={passions.title}>
+            <List items={passions.data} />
+          </Section>
+        </ResumeBody>
       </Container>
     </Layout>
   )
