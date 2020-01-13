@@ -29,7 +29,7 @@ const Container = styled.article`
   grid-template-rows: auto;
   grid-template-columns: auto;
   grid-template-areas: "sidebar" "content";
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     grid-template-areas: "content sidebar";
     grid-template-columns: 1fr auto;
   }
@@ -109,11 +109,18 @@ const Columns = styled.div`
       auto
     );
     grid-template-rows: auto;
+    justify-content: space-between;
+    grid-row-gap: 1em;
+    grid-column-gap: 10%;
   }
 `
 
 const Column = styled.div`
   ${tw`inline-block flex-auto mb-4`}
+  @media screen and (min-width: 768px) {
+    max-width: ${({ size = "full" }: { size: string }) =>
+      size === "compact" ? "10rem" : "100%"};
+  }
   ${tw``}
   & > h2 {
     ${tw`text-lg`}
@@ -161,7 +168,7 @@ const SectionStyle = styled.section`
 `
 
 const SectionContent = styled.div`
-  ${tw`flex-auto mx-4 lg:mx-8`}
+  ${tw`flex-auto mx-4`}
   & > p {
     ${tw`mb-2 leading-tight`}
     &:first-child {
@@ -186,6 +193,15 @@ const Section = ({ children, title }: { children: any; title: string }) => {
     </SectionStyle>
   )
 }
+
+const ResponsiveLists = styled.section`
+  @media screen and (min-width: 768px) {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+  }
+`
 
 const IndexPage = () => {
   const {
@@ -296,22 +312,24 @@ const IndexPage = () => {
               ))}
             </Columns>
           </Section>
-          <Section title={languages.title}>
-            <List items={languages.data} />
-          </Section>
-          <Section title={libraries.title}>
-            <List items={libraries.data} />
-          </Section>
-          <Section title={technologies.title}>
-            <List items={technologies.data} />
-          </Section>
+          <ResponsiveLists>
+            <Section title={languages.title}>
+              <List items={languages.data} />
+            </Section>
+            <Section title={libraries.title}>
+              <List items={libraries.data} />
+            </Section>
+            <Section title={technologies.title}>
+              <List items={technologies.data} />
+            </Section>
+          </ResponsiveLists>
           <Section title={tools.title}>
-            <List items={tools.data} />
+            <List horizontal items={tools.data} />
           </Section>
           <Section title={education.title}>
-            <Columns columns="2">
+            <Columns>
               {education.data.map(educationLevel => (
-                <Column>
+                <Column size="compact">
                   <Dates
                     start={educationLevel.start}
                     end={educationLevel.end}
@@ -330,7 +348,7 @@ const IndexPage = () => {
           <Section title={experience.title}>
             <Columns>
               {sortedExperience.map(item => (
-                <Column>
+                <Column size="compact">
                   <Dates start={item.start} end={item.end} />
                   <h2 className="mb-1 leading-none ">{item.company}</h2>
                   {item.roles.map(line => (
@@ -341,7 +359,7 @@ const IndexPage = () => {
             </Columns>
           </Section>
           <Section title={passions.title}>
-            <List items={passions.data} />
+            <List horizontal items={passions.data} />
           </Section>
         </ResumeBody>
       </Container>
