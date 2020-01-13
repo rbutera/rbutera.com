@@ -52,16 +52,19 @@ const PersonalLogo = styled.img`
 `
 
 const Icon = styled.span`
-  ${tw`inline-block mx-1`}
+  ${tw`inline-block mx-2`}
 `
 
 const Profile = styled.aside`
   ${tw`w-auto absolute top-0 right-0`}
+  ul {
+    ${tw`px-2`};
+  }
   ul li {
     &:first-of-type {
-      ${tw`text-xl font-bold`}
+      ${tw`text-lg font-bold text-gray-800`}
     }
-    ${tw`flex flex-row items-center`}
+    ${tw`flex flex-row items-center text-sm text-gray-700`}
   }
 `
 
@@ -92,12 +95,12 @@ const Column = styled.div`
 `
 
 const ListStyle = styled.ul`
-  display: grid;
-  grid-auto-flow: row dense;
+  /* display: grid; */
+  /* grid-auto-flow: row dense; */
   /* grid-template-rows: repeat(1fr); */
 
   li {
-    ${tw`inline-block`}
+    ${tw`inline-block mx-5`}
   }
 `
 
@@ -146,33 +149,30 @@ const IndexPage = () => {
           <ul>
             <li>{profile.name}</li>
             <li>
-              <Icon className="text-gray-400">
-                <FontAwesomeIcon icon={faEnvelope} />
-              </Icon>
+              <FontAwesomeIcon
+                className="text-gray-500 mx-2"
+                icon={faEnvelope}
+              />
               {profile.email}
             </li>
             <li>
-              <Icon className="text-gray-400">
-                <FontAwesomeIcon icon={faPhone} />
-              </Icon>
+              <FontAwesomeIcon className="text-green-300 mx-2" icon={faPhone} />
+
               {profile.phone}
             </li>
             <li>
-              <Icon className="text-gray-600">
-                <FontAwesomeIcon icon={faGithub} />
-              </Icon>
+              <FontAwesomeIcon className="text-gray-600 mx-2" icon={faGithub} />
               github.com/{profile.github}
             </li>
             <li>
-              <Icon className="text-gray-900">
-                <FontAwesomeIcon icon={faMedium} />
-              </Icon>
+              <FontAwesomeIcon className="text-gray-900 mx-2" icon={faMedium} />
               medium.com/{profile.medium}
             </li>
             <li>
-              <Icon className="text-blue-300">
-                <FontAwesomeIcon icon={faTwitter} />
-              </Icon>
+              <FontAwesomeIcon
+                className="text-blue-300 mx-2"
+                icon={faTwitter}
+              />
               {profile.twitter}
             </li>
           </ul>
