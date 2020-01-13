@@ -102,6 +102,14 @@ const Profile = styled.aside`
 const Columns = styled.div`
   ${tw`flex flex-col`}
   ${tw`md:flex-row`}
+  @media screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(
+      ${({ columns = 3 }: { columns: Number }) => columns},
+      auto
+    );
+    grid-template-rows: auto;
+  }
 `
 
 const Column = styled.div`
@@ -161,6 +169,14 @@ const SectionContent = styled.div`
     }
   }
 `
+
+const Dates = ({ start, end }) => {
+  return (
+    <p className="text-sm uppercase leading-none tracking-wide font-bold text-gray-600">
+      {start} - {end}
+    </p>
+  )
+}
 
 const Section = ({ children, title }: { children: any; title: string }) => {
   return (
@@ -293,9 +309,13 @@ const IndexPage = () => {
             <List items={tools.data} />
           </Section>
           <Section title={education.title}>
-            <Columns>
+            <Columns columns="2">
               {education.data.map(educationLevel => (
                 <Column>
+                  <Dates
+                    start={educationLevel.start}
+                    end={educationLevel.end}
+                  />
                   <h2 className="text-xl leading-none">
                     {educationLevel.heading}
                   </h2>
@@ -311,9 +331,7 @@ const IndexPage = () => {
             <Columns>
               {sortedExperience.map(item => (
                 <Column>
-                  <p className="text-sm uppercase leading-none tracking-wide font-bold text-gray-600">
-                    {item.start} - {item.end}
-                  </p>
+                  <Dates start={item.start} end={item.end} />
                   <h2 className="mb-1 leading-none ">{item.company}</h2>
                   {item.roles.map(line => (
                     <p className="leading-none mb-1 text-gray-800">{line}</p>

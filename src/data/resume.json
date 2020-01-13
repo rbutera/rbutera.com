@@ -117,14 +117,28 @@
     "title": "Education",
     "data": [
       {
-        "heading": "GCSEs",
-        "detail": ["6A*7A", "Queen Elizabeth's Boys School"]
+        "start": 2002,
+        "end": 2007,
+        "heading": "Queen Elizabeth's Boys School",
+        "detail": ["GCSEs: 6A*7A"]
       },
-      { "heading": "A-Levels", "detail": ["AAAa", "Mill Hill School"] },
-      { "heading": "Law", "detail": ["University of Oxford", "2010-2013"] },
       {
-        "heading": "Computer Science & Innovation",
-        "detail": ["University of Bristol", "2016-2018"]
+        "start": 2007,
+        "end": 2009,
+        "heading": "Mill Hill School",
+        "detail": ["A-Levels: AAAa"]
+      },
+      {
+        "start": 2010,
+        "end": 2013,
+        "heading": "University of Oxford",
+        "detail": ["Law"]
+      },
+      {
+        "start": 2016,
+        "end": 2018,
+        "heading": "University of Bristol",
+        "detail": ["Computer Science & Innovation"]
       }
     ]
   },
