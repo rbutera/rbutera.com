@@ -21,6 +21,10 @@ const Container = styled.article`
   grid-template-areas: "content sidebar";
   grid-template-rows: auto;
   grid-template-rows: 1fr auto;
+
+  h2 {
+    ${tw`text-gray-700`}
+  }
 `
 
 const ResumeBody = styled.div`
@@ -28,8 +32,8 @@ const ResumeBody = styled.div`
 `
 
 const ResumeHeader = styled.header`
-  ${tw`relative`} /* height: 400px; */
-  height: 256px;
+  ${tw`relative flex flex-row items-center`} /* height: 400px; */
+  width: 100%;
 `
 
 const Portrait = styled.img`
@@ -37,28 +41,22 @@ const Portrait = styled.img`
 `
 
 const Caption = styled.span`
-  ${tw`absolute inline-block h-auto w-64 bg-white w-100 p-5`}
-
-  left: 150px;
-  bottom: 0px;
+  ${tw`h-auto bg-white p-5 relative`}
 
   p {
-    ${tw`flex flex-row text-4xl items-center m-0 p-0`};
+    ${tw`flex flex-row text-3xl items-center m-0 p-0 leading-tight`};
     &:first-of-type {
       ${tw`text-2xl text-gray-600`}
     }
   }
 `
 
-const LoveStyle = styled.span`
-  ${tw`inline-block mx-1 text-red-400`};
-`
-
 const Love = () => {
   return (
-    <LoveStyle>
-      <FontAwesomeIcon icon={faHeart} />
-    </LoveStyle>
+    <FontAwesomeIcon
+      className="inline-block mx-2 text-red-400 text-xl"
+      icon={faHeart}
+    />
   )
 }
 
@@ -112,7 +110,7 @@ const ListStyle = styled.ul`
   /* grid-template-rows: repeat(1fr); */
 
   li {
-    ${tw`inline-block mx-5`}
+    ${tw`inline-block mx-5 font-bold text-gray-700`}
   }
 `
 
@@ -192,7 +190,12 @@ const IndexPage = () => {
 
         <ResumeBody>
           <ResumeHeader>
-            <Portrait src={profilePhoto} alt="a photo of Rai" />
+            <Portrait
+              src={profilePhoto}
+              alt="a photo of Rai"
+              className="z-10"
+            />
+
             <Caption>
               <p>Hi, I'm Rai,</p>
               <p>
