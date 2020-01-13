@@ -1,20 +1,21 @@
 {
   "profile": {
     "name": "Raimondo Butera",
+    "homepage": "rbutera.com",
     "phone": "+447780688428",
     "email": "rai@rbutera.com",
     "github": "rbutera",
-    "medium": "@rbutera",
-    "twitter": "@rai_butera"
+    "medium": "rbutera",
+    "twitter": "rai_butera"
   },
   "bio": {
     "title": "Bio",
     "data": [
       "I have been designing and developing websites since 2001… but for many years it was always a hobby, a side-hustle, a ‘distraction’.",
-      "I founded Cloakroom (a nightlife PWA + iOS app) in 2013 after I decided to stop fighting and start embracing that distraction.",
+      "I founded **_Cloakroom_** (a nightlife SPA + iOS app) in 2013 after I decided to stop fighting and start embracing that distraction.",
       "I’ve been hooked on JavaScript and building the next generation of the web ever since.",
-      "In 2016 I decided to go back to university to get a formal qualification… but I ultimately decided to suspend my studies indefinitely.",
-      "That means I’m ready and available to channel my energy into creativity and problem solving again, and truly excited to help build great apps and ultimately create value for innovative startups."
+      "In 2016 I decided to go back to university to get a formal qualification… but in 2018 I ultimately decided to suspend my studies indefinitely.",
+      "That means I’m ready once again and available to channel my energy into creativity and problem solving again, and truly excited to help build great apps and ultimately create value for innovative startups."
     ]
   },
   "skills": {
@@ -61,63 +62,68 @@
   "languages": {
     "title": "Languages",
     "data": [
-      "JavaScript / ECMAScript / TypeScript",
-      "C",
-      "Java",
-      "Haskell",
-      "Ruby"
+      { "entry": "JavaScript / TypeScript", "heart": true },
+      { "entry": "C" },
+      { "entry": "Java" },
+      { "entry": "Haskell" },
+      { "entry": "Ruby" }
     ]
   },
   "libraries": {
     "title": "Libraries + Frameworks",
     "data": [
-      "React",
-      "RxJS",
-      "Redux",
-      "Ramda",
-      "Vue",
-      "Angular",
-      "Meteor",
-      "Tailwind / Bootstrap / Bulma",
-      "Sass / PostCSS",
-      "Express"
+      { "entry": "React", "heart": true },
+      { "entry": "RxJS", "heart": true },
+      { "entry": "Redux", "heart": true },
+      { "entry": "Ramda" },
+      { "entry": "Vue" },
+      { "entry": "Angular" },
+      { "entry": "Meteor" },
+      { "entry": "Tailwind", "heart": true },
+      { "entry": "Bootstrap / Bulma" },
+      { "entry": "Sass / PostCSS" },
+      { "entry": "GatsbyJS" },
+      { "entry": "Express" }
     ]
   },
   "technologies": {
-    "title": "Technologies",
+    "title": "Systems",
     "data": [
-      "JAMStack",
-      "Node.js",
-      "Webpack",
-      "Babel",
-      "Git + Git Flow",
-      "MongoDB",
-      "Websockets"
+      { "entry": "JAMStack" },
+      { "entry": "Node.js" },
+      { "entry": "Webpack" },
+      { "entry": "Babel" },
+      { "entry": "Git + Git Flow" },
+      { "entry": "MongoDB" },
+      { "entry": "Websockets" }
     ]
   },
   "tools": {
     "title": "Tools",
     "data": [
-      "vscode",
-      "Photoshop",
-      "Illustrator",
-      "Premiere Pro",
-      "XD",
-      "Figma",
-      "Sketch",
-      "Framer X",
-      "OBS",
-      "G Suite / MS Office"
+      { "entry": "vscode" },
+      { "entry": "Photoshop" },
+      { "entry": "Illustrator" },
+      { "entry": "Premiere Pro" },
+      { "entry": "XD" },
+      { "entry": "Figma" },
+      { "entry": "Sketch" },
+      { "entry": "Framer X" },
+      { "entry": "OBS" },
+      { "entry": "G Suite / MS Office" }
     ]
   },
   "education": {
     "title": "Education",
     "data": [
-      { "heading": "GCSEs", "detail": ["6A*7A"] },
-      { "heading": "A-Levels", "detail": ["AAAa"] },
+      {
+        "heading": "GCSEs",
+        "detail": ["6A*7A", "Queen Elizabeth's Boys School"]
+      },
+      { "heading": "A-Levels", "detail": ["AAAa", "Mill Hill School"] },
       { "heading": "Law", "detail": ["University of Oxford", "2010-2013"] },
       {
-        "heading": "Computer Science and Innovation",
+        "heading": "Computer Science & Innovation",
         "detail": ["University of Bristol", "2016-2018"]
       }
     ]
@@ -133,7 +139,7 @@
       },
       {
         "start": "2001",
-        "end": "Current",
+        "end": "now",
         "company": "Freelance",
         "roles": ["Designer", "Web Developer"]
       },
@@ -151,13 +157,13 @@
       },
       {
         "start": "2019",
-        "end": "current",
+        "end": "now",
         "company": "Codecamp",
         "roles": ["Teacher (Web Development)"]
       },
       {
         "start": "2019",
-        "end": "current",
+        "end": "now",
         "company": "RSTLSS.org",
         "roles": ["Director", "Project Manager"]
       }
@@ -166,11 +172,16 @@
   "passions": {
     "title": "Passions + Interests",
     "data": [
-      "The Web",
-      "Design Trends",
-      "Broadcasting/Livestreaming and Content Creation",
-      "Entrepreneurship and Startups",
-      "Blockchain and Cryptocurrencies"
+      { "entry": "The Web", "heart": true },
+      { "entry": "Design Trends", "heart": true },
+      { "entry": "Livestreaming" },
+      { "entry": "Content Creation" },
+      { "entry": "Entrepreneurship and Startups", "heart": true },
+      { "entry": "Blockchain and Cryptocurrencies" },
+      { "entry": "Dance", "heart": true },
+      { "entry": "Amateur Boxing" },
+      { "entry": "Fitness and Nutrition" },
+      { "entry": "eSports" }
     ]
   }
 }
