@@ -16,6 +16,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons"
 import { Link } from "gatsby"
+import ReactMarkdown from "react-markdown"
 import { sortBy, prop } from "rambda"
 import resumeData from "../data/resume.json"
 import Logo from "../images/logo/RBxo-emblem.svg"
@@ -259,7 +260,9 @@ const IndexPage = () => {
 
           <Section title={bio.title}>
             {bio.data.map(line => (
-              <p className="lg:text-lg">{line}</p>
+              <p>
+                <ReactMarkdown className="lg:text-lg">{line}</ReactMarkdown>
+              </p>
             ))}
           </Section>
 
