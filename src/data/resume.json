@@ -139,7 +139,7 @@
       },
       {
         "start": "2001",
-        "end": "Current",
+        "end": "now",
         "company": "Freelance",
         "roles": ["Designer", "Web Developer"]
       },
@@ -157,13 +157,13 @@
       },
       {
         "start": "2019",
-        "end": "current",
+        "end": "now",
         "company": "Codecamp",
         "roles": ["Teacher (Web Development)"]
       },
       {
         "start": "2019",
-        "end": "current",
+        "end": "now",
         "company": "RSTLSS.org",
         "roles": ["Director", "Project Manager"]
       }

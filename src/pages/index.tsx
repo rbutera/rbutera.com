@@ -47,7 +47,7 @@ const ResumeBody = styled.div`
 `
 
 const ResumeHeader = styled.header`
-  ${tw`flex flex-col relative items-center max-w-screen overflow-hidden`}
+  ${tw`flex flex-col relative items-center max-w-screen overflow-hidden w-full md:mx-32 lg:mx-48`}
   ${tw`md:flex-row`}
 `
 
@@ -147,7 +147,7 @@ const SectionStyle = styled.section`
   ${tw`flex flex-col md:flex-row my-8`}
 
   & > h1 {
-    ${tw`flex-none mb-4 md:mb-0 mx-3 md:mx-0 leading-none text-left text-3xl w-full md:w-40 lg:w-64 lg:text-2xl md:text-right md:text-xl text-gray-600 lg:text-gray-500`}
+    ${tw`flex-none mb-4 md:mb-0 mx-3 md:mx-0 leading-none text-left text-3xl w-full md:w-40 lg:w-64 lg:text-2xl md:text-right md:text-xl text-gray-800 lg:text-gray-800`}
   }
 `
 
@@ -268,7 +268,7 @@ const IndexPage = () => {
               {skills.data.map(skill => (
                 <Column>
                   <h2>{skill.category}</h2>
-                  <ul>
+                  <ul className="leading-snug">
                     {skill.related.map(item => (
                       <li>{item}</li>
                     ))}
