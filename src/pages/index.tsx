@@ -15,20 +15,30 @@ import {
   faMedium,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons"
+import { Link } from "gatsby"
 import { sortBy, prop } from "rambda"
 import resumeData from "../data/resume.json"
 import Logo from "../images/logo/RBxo-emblem.svg"
 import profilePhoto from "../images/rai.jpg"
 
 const Container = styled.article`
-  ${tw`relative`}
+  ${tw`relative w-full max-w-screen px-8`}
+
   display: grid;
-  grid-template-areas: "content sidebar";
   grid-template-rows: auto;
-  grid-template-rows: 1fr auto;
+  grid-template-columns: auto;
+  grid-template-areas: "sidebar" "content";
+  @media screen and (min-width: 700px) {
+    grid-template-areas: "content sidebar";
+    grid-template-columns: 1fr auto;
+  }
 
   h2 {
     ${tw`text-gray-800 leading-tight`}
+  }
+
+  ul li {
+    ${tw`text-gray-800 md:text-gray-700`};
   }
 `
 
@@ -37,17 +47,16 @@ const ResumeBody = styled.div`
 `
 
 const ResumeHeader = styled.header`
-  ${tw`relative flex flex-row items-center mx-5 mb-10 px-10`} /* height: 400px; */
-  width: 100%;
+  ${tw`flex flex-col relative items-center max-w-screen overflow-hidden`}
+  ${tw`md:flex-row`}
 `
 
 const Portrait = styled.img`
-  ${tw`w-32 h-32 bg-gray-200 block select-none rounded-full`}
+  ${tw`w-24 md:w-32 bg-gray-200 inline-block select-none rounded-full md:float-left md:mr-6`}
 `
 
 const Caption = styled.span`
-  ${tw`h-auto bg-white p-5 relative`}
-
+  ${tw`text-center flex flex-col items-center md:items-start`}
   p {
     ${tw`flex flex-row text-3xl items-center m-0 p-0 leading-none`};
     &:first-of-type {
@@ -66,46 +75,42 @@ const Love = () => {
 }
 
 const PersonalLogo = styled.img`
-  ${tw`w-24 pb-1`}
+  ${tw`inline-block w-16 md:w-24 pb-1 mx-1 md:mx-4`}
 `
 
 const Profile = styled.aside`
   /* ${tw`w-auto absolute top-0 right-0`} */
+  ${tw`w-full`};
+  /* TODO: responsive navbar */
   grid-area: sidebar;
+  text-align: right;
   ul {
-    ${tw`px-2`};
+    ${tw`px-2 text-right flex flex-col items-end`};
   }
   ul li {
     &:first-of-type {
-      ${tw`text-lg font-bold text-gray-800 mb-1`}
+      ${tw`text-lg font-bold text-gray-800 mb-1 text-right`};
     }
-    ${tw`flex flex-row items-center text-sm text-gray-700`}
+    ${tw`flex flex-row items-center text-sm text-gray-700`};
+    a {
+      ${tw`hover:text-blue-800`}
+    }
   }
 `
 
-const SectionStyle = styled.section`
-  ${tw`flex flex-col md:flex-row mb-8`}
-
-  & > h1 {
-    ${tw`flex-none uppercase leading-none tracking-widest text-center w-100 md:w-40 md:text-right text-gray-600 text-xl`}
-  }
-`
-
-const SectionContent = styled.p`
-  ${tw`flex-auto px-4`}
-  & > p {
-    ${tw`mb-2`}
-  }
-`
 const Columns = styled.div`
-  ${tw`flex flex-row`}
+  ${tw`flex flex-col`}
+  ${tw`md:flex-row`}
 `
 
 const Column = styled.div`
-  ${tw`inline-block flex-auto mx-4`}
-
+  ${tw`inline-block flex-auto mb-4`}
+  ${tw``}
   & > h2 {
     ${tw`text-lg`}
+    &:first-child {
+      ${tw`mb-1`}
+    }
   }
 `
 
@@ -115,13 +120,13 @@ const ListStyle = styled.ul`
   /* grid-template-rows: repeat(1fr); */
 
   li {
-    ${tw`inline-block mx-5 font-bold text-gray-700 text-lg`}
+    ${tw`leading-snug`}
   }
 `
 
 type ListEntry = { entry: string; heart?: boolean }
 
-const List = ({ items }: { items: ListEntry[] }) => {
+const List = ({ items }: { items: ListEntry }) => {
   return (
     <ListStyle>
       {items.map((item: ListEntry) => (
@@ -138,7 +143,25 @@ const List = ({ items }: { items: ListEntry[] }) => {
   )
 }
 
-const Section = ({ children, title }) => {
+const SectionStyle = styled.section`
+  ${tw`flex flex-col md:flex-row my-8`}
+
+  & > h1 {
+    ${tw`flex-none mb-4 md:mb-0 mx-3 md:mx-0 leading-none text-left text-3xl w-full md:w-40 lg:w-64 lg:text-2xl md:text-right md:text-xl text-gray-600 lg:text-gray-500`}
+  }
+`
+
+const SectionContent = styled.div`
+  ${tw`flex-auto mx-4 lg:mx-8`}
+  & > p {
+    ${tw`mb-2 leading-tight`}
+    &:first-child {
+      ${tw`relative bottom-1`}
+    }
+  }
+`
+
+const Section = ({ children, title }: { children: any; title: string }) => {
   return (
     <SectionStyle>
       <h1>{title}</h1>
@@ -168,7 +191,7 @@ const IndexPage = () => {
     <Layout>
       <SEO title="CV / Resume" />
       <Container className="container">
-        <Profile>
+        {/* <Profile>
           <PersonalLogo src={Logo} alt="Raimondo Butera personal logo" />
           <ul>
             <li>{profile.name}</li>
@@ -177,38 +200,54 @@ const IndexPage = () => {
                 className="text-gray-500 mr-2"
                 icon={faEnvelope}
               />
-              {profile.email}
+              <Link to={`contact`}>{profile.email}</Link>
             </li>
             <li>
               <FontAwesomeIcon className="text-gray-500 mr-2" icon={faGlobe} />
-              {profile.homepage}
+              <a target="_blank" href={`https://${profile.homepage}`}>
+                {profile.homepage}
+              </a>
             </li>
             <li>
               <FontAwesomeIcon className="text-green-300 mr-2" icon={faPhone} />
 
-              {profile.phone}
+              <a target="_blank" href={`tel:${profile.phone}`}>
+                {profile.phone}
+              </a>
             </li>
             <li>
               <FontAwesomeIcon className="text-gray-600 mr-2" icon={faGithub} />
-              github.com/{profile.github}
+              <a target="_blank" href={`https://github.com/${profile.github}`}>
+                github.com/{profile.github}
+              </a>
             </li>
             <li>
               <FontAwesomeIcon className="text-gray-900 mr-2" icon={faMedium} />
-              medium.com/{profile.medium}
+              <a target="_blank" href={`https://medium.com/@${profile.medium}`}>
+                medium.com/{profile.medium}
+              </a>
             </li>
             <li>
               <FontAwesomeIcon
                 className="text-blue-300 mr-2"
                 icon={faTwitter}
               />
-              {profile.twitter}
+              <a
+                target="_blank"
+                href={`https://twitter.com/${profile.twitter}`}
+              >
+                {profile.twitter}
+              </a>
             </li>
           </ul>
-        </Profile>
+        </Profile> */}
 
         <ResumeBody>
           <ResumeHeader>
-            <Portrait src={profilePhoto} alt="a photo of Rai" />
+            <Portrait
+              src={profilePhoto}
+              alt="a photo of Raimondo 'Rai' Butera"
+            />
 
             <Caption>
               <p>Hi, I'm Rai,</p>
@@ -220,7 +259,7 @@ const IndexPage = () => {
 
           <Section title={bio.title}>
             {bio.data.map(line => (
-              <p>{line}</p>
+              <p className="lg:text-lg">{line}</p>
             ))}
           </Section>
 
@@ -228,7 +267,7 @@ const IndexPage = () => {
             <Columns>
               {skills.data.map(skill => (
                 <Column>
-                  <h2 className="mb-2">{skill.category}</h2>
+                  <h2>{skill.category}</h2>
                   <ul>
                     {skill.related.map(item => (
                       <li>{item}</li>
@@ -254,7 +293,7 @@ const IndexPage = () => {
             <Columns>
               {education.data.map(educationLevel => (
                 <Column>
-                  <h2 className="mb-1">{educationLevel.heading}</h2>
+                  <h2 className="text-xl">{educationLevel.heading}</h2>
                   {educationLevel.detail.map(line => (
                     <p className="leading-tight">{line}</p>
                   ))}
@@ -262,14 +301,15 @@ const IndexPage = () => {
               ))}
             </Columns>
           </Section>
+
           <Section title={experience.title}>
             <Columns>
               {sortedExperience.map(item => (
                 <Column>
-                  <p className="text-sm uppercase leading-tight tracking-wide font-bold text-gray-600">
+                  <p className="text-sm uppercase leading-none tracking-wide font-bold text-gray-600">
                     {item.start} - {item.end}
                   </p>
-                  <h2 className="mb-2">{item.company}</h2>
+                  <h2 className="mb-1 leading-none ">{item.company}</h2>
                   {item.roles.map(line => (
                     <p className="leading-none mb-1">{line}</p>
                   ))}
