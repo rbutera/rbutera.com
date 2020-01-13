@@ -4,7 +4,12 @@ import SEO from "../components/seo"
 import styled from "styled-components"
 import tw from "tailwind.macro"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHeart, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons"
+import {
+  faHeart,
+  faEnvelope,
+  faPhone,
+  faGlobe,
+} from "@fortawesome/free-solid-svg-icons"
 import {
   faGithub,
   faMedium,
@@ -23,7 +28,7 @@ const Container = styled.article`
   grid-template-rows: 1fr auto;
 
   h2 {
-    ${tw`text-gray-700`}
+    ${tw`text-gray-800 leading-tight`}
   }
 `
 
@@ -32,19 +37,19 @@ const ResumeBody = styled.div`
 `
 
 const ResumeHeader = styled.header`
-  ${tw`relative flex flex-row items-center`} /* height: 400px; */
+  ${tw`relative flex flex-row items-center mx-5 mb-10 px-10`} /* height: 400px; */
   width: 100%;
 `
 
 const Portrait = styled.img`
-  ${tw`w-48 h-48 bg-gray-200 block select-none`}
+  ${tw`w-32 h-32 bg-gray-200 block select-none rounded-full`}
 `
 
 const Caption = styled.span`
   ${tw`h-auto bg-white p-5 relative`}
 
   p {
-    ${tw`flex flex-row text-3xl items-center m-0 p-0 leading-tight`};
+    ${tw`flex flex-row text-3xl items-center m-0 p-0 leading-none`};
     &:first-of-type {
       ${tw`text-2xl text-gray-600`}
     }
@@ -61,7 +66,7 @@ const Love = () => {
 }
 
 const PersonalLogo = styled.img`
-  ${tw`w-40 pb-1`}
+  ${tw`w-24 pb-1`}
 `
 
 const Profile = styled.aside`
@@ -72,17 +77,17 @@ const Profile = styled.aside`
   }
   ul li {
     &:first-of-type {
-      ${tw`text-lg font-bold text-gray-800`}
+      ${tw`text-lg font-bold text-gray-800 mb-1`}
     }
     ${tw`flex flex-row items-center text-sm text-gray-700`}
   }
 `
 
 const SectionStyle = styled.section`
-  ${tw`flex flex-col md:flex-row my-4`}
+  ${tw`flex flex-col md:flex-row mb-8`}
 
   & > h1 {
-    ${tw`flex-none uppercase tracking-widest text-center w-100 md:w-40 md:text-right text-gray-600 text-xl`}
+    ${tw`flex-none uppercase leading-none tracking-widest text-center w-100 md:w-40 md:text-right text-gray-600 text-xl`}
   }
 `
 
@@ -110,15 +115,24 @@ const ListStyle = styled.ul`
   /* grid-template-rows: repeat(1fr); */
 
   li {
-    ${tw`inline-block mx-5 font-bold text-gray-700`}
+    ${tw`inline-block mx-5 font-bold text-gray-700 text-lg`}
   }
 `
 
-const List = ({ items }) => {
+type ListEntry = { entry: string; heart?: boolean }
+
+const List = ({ items }: { items: ListEntry[] }) => {
   return (
     <ListStyle>
-      {items.map(item => (
-        <li>{item}</li>
+      {items.map((item: ListEntry) => (
+        <li>
+          {item.entry}{" "}
+          {item.heart ? (
+            <FontAwesomeIcon icon={faHeart} className="text-sm text-red-300" />
+          ) : (
+            ""
+          )}
+        </li>
       ))}
     </ListStyle>
   )
@@ -160,27 +174,31 @@ const IndexPage = () => {
             <li>{profile.name}</li>
             <li>
               <FontAwesomeIcon
-                className="text-gray-500 mx-2"
+                className="text-gray-500 mr-2"
                 icon={faEnvelope}
               />
               {profile.email}
             </li>
             <li>
-              <FontAwesomeIcon className="text-green-300 mx-2" icon={faPhone} />
+              <FontAwesomeIcon className="text-gray-500 mr-2" icon={faGlobe} />
+              {profile.homepage}
+            </li>
+            <li>
+              <FontAwesomeIcon className="text-green-300 mr-2" icon={faPhone} />
 
               {profile.phone}
             </li>
             <li>
-              <FontAwesomeIcon className="text-gray-600 mx-2" icon={faGithub} />
+              <FontAwesomeIcon className="text-gray-600 mr-2" icon={faGithub} />
               github.com/{profile.github}
             </li>
             <li>
-              <FontAwesomeIcon className="text-gray-900 mx-2" icon={faMedium} />
+              <FontAwesomeIcon className="text-gray-900 mr-2" icon={faMedium} />
               medium.com/{profile.medium}
             </li>
             <li>
               <FontAwesomeIcon
-                className="text-blue-300 mx-2"
+                className="text-blue-300 mr-2"
                 icon={faTwitter}
               />
               {profile.twitter}
@@ -190,11 +208,7 @@ const IndexPage = () => {
 
         <ResumeBody>
           <ResumeHeader>
-            <Portrait
-              src={profilePhoto}
-              alt="a photo of Rai"
-              className="z-10"
-            />
+            <Portrait src={profilePhoto} alt="a photo of Rai" />
 
             <Caption>
               <p>Hi, I'm Rai,</p>
@@ -214,7 +228,7 @@ const IndexPage = () => {
             <Columns>
               {skills.data.map(skill => (
                 <Column>
-                  <h2>{skill.category}</h2>
+                  <h2 className="mb-2">{skill.category}</h2>
                   <ul>
                     {skill.related.map(item => (
                       <li>{item}</li>
@@ -240,9 +254,9 @@ const IndexPage = () => {
             <Columns>
               {education.data.map(educationLevel => (
                 <Column>
-                  <h2>{educationLevel.heading}</h2>
+                  <h2 className="mb-1">{educationLevel.heading}</h2>
                   {educationLevel.detail.map(line => (
-                    <p>{line}</p>
+                    <p className="leading-tight">{line}</p>
                   ))}
                 </Column>
               ))}
@@ -252,12 +266,12 @@ const IndexPage = () => {
             <Columns>
               {sortedExperience.map(item => (
                 <Column>
-                  <p>
+                  <p className="text-sm uppercase leading-tight tracking-wide font-bold text-gray-600">
                     {item.start} - {item.end}
                   </p>
-                  <h2>{item.company}</h2>
+                  <h2 className="mb-2">{item.company}</h2>
                   {item.roles.map(line => (
-                    <p>{line}</p>
+                    <p className="leading-none mb-1">{line}</p>
                   ))}
                 </Column>
               ))}
