@@ -45,23 +45,24 @@ const Container = styled.article`
 
 const ResumeBody = styled.div`
   grid-area: "content";
+  ${tw`py-20`}
 `
 
 const ResumeHeader = styled.header`
-  ${tw`flex flex-col relative items-center max-w-screen overflow-hidden w-full md:mx-32 lg:mx-48`}
+  ${tw`flex flex-col relative items-center md:items-end max-w-screen overflow-hidden w-full md:mx-32 lg:mx-48`}
   ${tw`md:flex-row`}
 `
 
 const Portrait = styled.img`
-  ${tw`w-24 md:w-32 bg-gray-200 inline-block select-none rounded-full md:float-left md:mr-6`}
+  ${tw`w-24 md:w-32 bg-gray-200 inline-block select-none rounded-full md:float-left md:mr-3 lg:mr-4`}
 `
 
 const Caption = styled.span`
-  ${tw`text-center flex flex-col items-center md:items-start`}
+  ${tw`text-center flex flex-col items-center md:items-start md:pb-4 lg:pb-8 pt-4 md:pt-0`}
   p {
-    ${tw`flex flex-row text-3xl items-center m-0 p-0 leading-none`};
+    ${tw`flex flex-row text-2xl items-center m-0 p-0 leading-none`};
     &:first-of-type {
-      ${tw`text-2xl text-gray-600`}
+      ${tw`text-xl text-gray-600`}
     }
   }
 `
@@ -84,7 +85,6 @@ const Profile = styled.aside`
   ${tw`w-full`};
   /* TODO: responsive navbar */
   grid-area: sidebar;
-  text-align: right;
   ul {
     ${tw`px-2 text-right flex flex-col items-end`};
   }
@@ -148,7 +148,7 @@ const SectionStyle = styled.section`
   ${tw`flex flex-col md:flex-row my-8`}
 
   & > h1 {
-    ${tw`flex-none mb-4 md:mb-0 mx-3 md:mx-0 leading-none text-left text-3xl w-full md:w-40 lg:w-64 lg:text-2xl md:text-right md:text-xl text-gray-800 lg:text-gray-800`}
+    ${tw`flex-none mt-3 md:mt-0 mb-6 md:mb-0 mx-3 md:mx-0 leading-none text-left text-2xl w-full md:w-40 lg:w-64 lg:text-2xl md:text-right md:text-xl text-gray-800 lg:text-gray-800`}
   }
 `
 
