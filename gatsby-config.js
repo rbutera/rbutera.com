@@ -21,10 +21,10 @@ module.exports = {
         name: `rbutera.com`,
         short_name: `rbutera`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#000000`,
+        theme_color: `#FFFFFF`,
         display: `minimal-ui`,
-        icon: `src/images/logo/TikTokStyle.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo/RBxo-emblem.svg`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
