@@ -16,7 +16,7 @@ import Header from "./header"
 import "./layout.css"
 
 const Main = styled.main`
-  ${tw`p-0 m-0`}
+  ${tw`p-0 m-0 w-screen max-w-screen`}
 `
 
 const Layout = ({ children }) => {

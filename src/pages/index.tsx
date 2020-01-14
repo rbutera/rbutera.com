@@ -23,7 +23,7 @@ import Logo from "../images/logo/RBxo-emblem.svg"
 import Img from "gatsby-image"
 
 const Resume = styled.article`
-  ${tw`relative w-full mx-auto bg-white max-w-screen flex flex-col items-start lg:items-center px-8 md:px-4`}
+  ${tw`relative m-0 p-0 bg-green-200 px-8 md:px-4`}
 
   h2 {
     ${tw`text-gray-800 leading-none`}
@@ -34,7 +34,7 @@ const Resume = styled.article`
   }
 `
 const Header = styled.header`
-  ${tw`w-full flex flex-col md:flex-row items-center md:items-end justify-between max-w-4xl mb-2`}
+  ${tw`w-full flex flex-col md:flex-row items-center md:items-end justify-between mt-1 mb-2 px-4`}
 `
 
 const Greeting = styled.section`
@@ -158,7 +158,7 @@ const List = ({
 }
 
 const SectionStyle = styled.section`
-  ${tw`flex flex-col md:flex-row mb-8`}
+  ${tw`flex flex-col md:flex-row mb-8 bg-blue-500`}
 
   & > h1 {
     ${tw`flex-none mt-3 md:mt-0 mb-6 md:mb-0 mx-3 md:mx-0 leading-none tracking-tight text-left text-4xl w-full md:w-40 lg:text-2xl md:text-right md:text-2xl text-gray-800 lg:text-gray-800`}
@@ -167,6 +167,7 @@ const SectionStyle = styled.section`
 
 const SectionContent = styled.div`
   ${tw`flex-auto mx-4 max-w-3xl`}
+
   & > p {
     ${tw`mb-2 leading-tight`}
     &:first-child {
