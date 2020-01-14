@@ -48,8 +48,8 @@ const ResumeBody = styled.div`
   ${tw`py-20`}
 `
 
-const ResumeHeader = styled.header`
-  ${tw`flex flex-col relative items-center md:items-end max-w-screen overflow-hidden w-full md:mx-32 lg:mx-48`}
+const Banner = styled.section`
+  ${tw`flex flex-col relative items-center md:items-end max-w-screen overflow-hidden w-full md:ml-16 lg:ml-24 xl:ml-32`}
   ${tw`md:flex-row`}
 `
 
@@ -285,7 +285,7 @@ const IndexPage = () => {
         </Profile> */}
 
         <ResumeBody>
-          <ResumeHeader>
+          <Banner>
             <Portrait
               src={profilePhoto}
               alt="a photo of Raimondo 'Rai' Butera"
@@ -297,7 +297,7 @@ const IndexPage = () => {
                 and I <Love /> innovation.
               </p>
             </Caption>
-          </ResumeHeader>
+          </Banner>
 
           <Section title={bio.title}>
             {bio.data.map(line => (
