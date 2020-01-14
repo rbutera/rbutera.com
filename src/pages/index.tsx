@@ -23,16 +23,16 @@ import Logo from "../images/logo/RBxo-emblem.svg"
 import profilePhoto from "../images/rai.jpg"
 
 const Container = styled.article`
-  ${tw`relative w-full max-w-screen px-8`}
+  ${tw`relative w-full max-w-screen px-4`}
 
-  display: grid;
+  /* display: grid;
   grid-template-rows: auto;
   grid-template-columns: auto;
   grid-template-areas: "sidebar" "content";
   @media screen and (min-width: 768px) {
     grid-template-areas: "content sidebar";
     grid-template-columns: 1fr auto;
-  }
+  } */
 
   h2 {
     ${tw`text-gray-800 leading-none`}
@@ -122,7 +122,7 @@ const Column = styled.div`
     max-width: ${({ size = "full" }: { size: string }) =>
       size === "compact" ? "10rem" : "100%"};
   }
-  ${tw``}
+  ${tw`mb-6 md:mb-3 lg:mb-0`}
   & > h2 {
     ${tw`text-xl`}
     &:first-child {
@@ -181,7 +181,7 @@ const SectionStyle = styled.section`
   ${tw`flex flex-col md:flex-row my-8`}
 
   & > h1 {
-    ${tw`flex-none mt-3 md:mt-0 mb-6 md:mb-0 mx-3 md:mx-0 leading-none tracking-tight text-left text-2xl w-full md:w-40 lg:w-64 lg:text-2xl md:text-right md:text-xl text-gray-800 lg:text-gray-800`}
+    ${tw`flex-none mt-3 md:mt-0 mb-6 md:mb-0 mx-3 md:mx-0 leading-none tracking-tight text-left text-4xl w-full md:w-40 lg:text-2xl md:text-right md:text-xl text-gray-800 lg:text-gray-800`}
   }
 `
 

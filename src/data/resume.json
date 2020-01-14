@@ -184,7 +184,7 @@
     ]
   },
   "passions": {
-    "title": "Passions + Interests",
+    "title": "Passions",
     "data": [
       { "entry": "The Web", "heart": true },
       { "entry": "Design Trends", "heart": true },
