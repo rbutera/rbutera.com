@@ -31,9 +31,7 @@
           "Progressive Web Apps",
           "Functional Programming",
           "Hybrid Apps (React Native / Cordova)",
-          "Serverless Applications / Cloud Functions",
-          "API Design",
-          "Design Systems"
+          "Serverless Applications / Cloud Functions"
         ]
       },
       {
@@ -70,7 +68,8 @@
       { "entry": "C" },
       { "entry": "Java" },
       { "entry": "Haskell" },
-      { "entry": "Ruby" }
+      { "entry": "Ruby" },
+      { "entry": "CSS / Sass / PostCSS" }
     ]
   },
   "libraries": {
@@ -82,12 +81,8 @@
       { "entry": "Ramda" },
       { "entry": "Vue" },
       { "entry": "Angular" },
-      { "entry": "Meteor" },
       { "entry": "Tailwind", "heart": true },
-      { "entry": "Bootstrap / Bulma" },
-      { "entry": "Sass / PostCSS" },
-      { "entry": "GatsbyJS" },
-      { "entry": "Express" }
+      { "entry": "Bootstrap / Bulma" }
     ]
   },
   "technologies": {
@@ -99,7 +94,9 @@
       { "entry": "Babel" },
       { "entry": "Git + Git Flow" },
       { "entry": "MongoDB" },
-      { "entry": "Websockets" }
+      { "entry": "Websockets" },
+      { "entry": "GatsbyJS" },
+      { "entry": "Express" }
     ]
   },
   "tools": {
@@ -113,8 +110,7 @@
       { "entry": "Figma" },
       { "entry": "Sketch" },
       { "entry": "Framer X" },
-      { "entry": "OBS" },
-      { "entry": "G Suite / MS Office" }
+      { "entry": "OBS" }
     ]
   },
   "education": {

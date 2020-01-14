@@ -14,9 +14,10 @@ import GlobalStyle from "../global-style.tsx"
 
 import Header from "./header"
 import "./layout.css"
+import "../tailwind.css"
 
 const Main = styled.main`
-  ${tw`p-0 m-0 w-screen max-w-screen`}
+  ${tw`p-0 m-0`}
 `
 
 const Layout = ({ children }) => {
@@ -34,7 +35,7 @@ const Layout = ({ children }) => {
     <>
       <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Main>{children}</Main>
+      <Main className="container">{children}</Main>
     </>
   )
 }
