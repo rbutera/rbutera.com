@@ -87,7 +87,7 @@
     ]
   },
   "technologies": {
-    "title": "Systems",
+    "title": "Tools/Systems/Stacks",
     "data": [
       { "entry": "JAMStack" },
       { "entry": "Node.js" },
