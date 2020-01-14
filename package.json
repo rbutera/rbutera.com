@@ -2,7 +2,7 @@
   "name": "rbutera.com",
   "private": true,
   "description": "Curriculum Vitae and Resume for Raimondo 'Rai' Butera, a designer and developer based out of London, UK",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": "Rai Butera <rai@rbutera.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
@@ -66,9 +66,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/rbutera/rbutera.com"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/rbutera/rbutera.com/issues"
   }
 }

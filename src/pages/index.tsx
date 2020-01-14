@@ -21,6 +21,7 @@ import { sortBy, prop } from "rambda"
 import resumeData from "../data/resume.json"
 import Logo from "../images/logo/RBxo-emblem.svg"
 import profilePhoto from "../images/rai.jpg"
+import Img from "gatsby-image"
 
 const Resume = styled.article`
   ${tw`relative w-full mx-auto bg-white max-w-screen flex flex-col items-center`}
@@ -53,8 +54,8 @@ const Banner = styled.section`
   ${tw`md:flex-row`}
 `
 
-const Portrait = styled.img`
-  ${tw`w-24 md:w-32 bg-gray-200 inline-block select-none rounded-full md:float-left md:mr-3 lg:mr-4`}
+const Portrait = styled.aside`
+  ${tw`w-24 md:w-32 bg-gray-200 inline-block select-none rounded-full md:float-left md:mr-3 lg:mr-4 overflow-hidden`}
 `
 
 const Caption = styled.span`
@@ -212,7 +213,7 @@ const Section = ({ children, title }: { children: any; title: string }) => {
   )
 }
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
   const {
     profile,
     bio,
@@ -232,6 +233,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="CV / Resume" />
+
       <Resume>
         {/* <Profile>
           <PersonalLogo src={Logo} alt="Raimondo Butera personal logo" />
@@ -286,10 +288,12 @@ const IndexPage = () => {
 
         <ResumeBody>
           <Banner>
-            <Portrait
-              src={profilePhoto}
-              alt="a photo of Raimondo 'Rai' Butera"
-            />
+            <Portrait>
+              <Img
+                alt="a photo of Raimondo 'Rai' Butera"
+                fluid={data.portrait.childImageSharp.fluid}
+              />
+            </Portrait>
 
             <Caption>
               <p>Hi, I'm Rai,</p>
@@ -376,5 +380,17 @@ const IndexPage = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    portrait: file(relativePath: { eq: "rai.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
