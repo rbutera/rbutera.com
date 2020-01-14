@@ -22,8 +22,8 @@ import resumeData from "../data/resume.json"
 import Logo from "../images/logo/RBxo-emblem.svg"
 import profilePhoto from "../images/rai.jpg"
 
-const Container = styled.article`
-  ${tw`relative w-full max-w-screen px-4`}
+const Resume = styled.article`
+  ${tw`relative w-full mx-auto bg-white max-w-screen flex flex-col items-center`}
 
   /* display: grid;
   grid-template-rows: auto;
@@ -101,8 +101,8 @@ const Profile = styled.aside`
 
 const Columns = styled.div`
   ${tw`flex flex-col`}
-  ${tw`md:flex-row`}
-  @media screen and (min-width: 768px) {
+  ${tw`lg:flex-row`}
+  @media screen and (min-width: 1024px) {
     display: grid;
     grid-template-columns: repeat(
       ${({ columns = 3 }: { columns: Number }) => columns},
@@ -118,7 +118,7 @@ const Columns = styled.div`
 
 const Column = styled.div`
   ${tw`inline-block flex-auto`}
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1024px) {
     max-width: ${({ size = "full" }: { size: string }) =>
       size === "compact" ? "10rem" : "100%"};
   }
@@ -144,7 +144,7 @@ const ListStyle = styled.ul`
 
   > li {
     ${tw`leading-snug`}
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1024px) {
       ${({ horizontal }: { horizontal?: boolean }) => {
         return horizontal ? tw`inline-block mr-12 mb-1 text-gray-400` : ""
       }};
@@ -181,12 +181,12 @@ const SectionStyle = styled.section`
   ${tw`flex flex-col md:flex-row my-8`}
 
   & > h1 {
-    ${tw`flex-none mt-3 md:mt-0 mb-6 md:mb-0 mx-3 md:mx-0 leading-none tracking-tight text-left text-4xl w-full md:w-40 lg:text-2xl md:text-right md:text-xl text-gray-800 lg:text-gray-800`}
+    ${tw`flex-none mt-3 md:mt-0 mb-6 md:mb-0 mx-3 md:mx-0 leading-none tracking-tight text-left text-4xl w-full md:w-40 lg:text-2xl md:text-right md:text-2xl text-gray-800 lg:text-gray-800`}
   }
 `
 
 const SectionContent = styled.div`
-  ${tw`flex-auto mx-4`}
+  ${tw`flex-auto mx-4 max-w-3xl`}
   & > p {
     ${tw`mb-2 leading-tight`}
     &:first-child {
@@ -232,7 +232,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="CV / Resume" />
-      <Container className="container">
+      <Resume>
         {/* <Profile>
           <PersonalLogo src={Logo} alt="Raimondo Butera personal logo" />
           <ul>
@@ -372,7 +372,7 @@ const IndexPage = () => {
             <List horizontal items={passions.data} />
           </Section>
         </ResumeBody>
-      </Container>
+      </Resume>
     </Layout>
   )
 }
