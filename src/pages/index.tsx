@@ -117,14 +117,14 @@ const Columns = styled.div`
 `
 
 const Column = styled.div`
-  ${tw`inline-block flex-auto mb-4`}
+  ${tw`inline-block flex-auto`}
   @media screen and (min-width: 768px) {
     max-width: ${({ size = "full" }: { size: string }) =>
       size === "compact" ? "10rem" : "100%"};
   }
   ${tw``}
   & > h2 {
-    ${tw`text-lg`}
+    ${tw`text-xl`}
     &:first-child {
       ${tw`mb-1`}
     }
@@ -337,7 +337,7 @@ const IndexPage = () => {
             <List horizontal items={tools.data} />
           </Section>
           <Section title={education.title}>
-            <Columns>
+            <Columns columns={4}>
               {education.data.map(educationLevel => (
                 <Column size="compact">
                   <Dates
