@@ -16,7 +16,7 @@ import Header from "./header"
 import "./layout.css"
 
 const Main = styled.main`
-  ${tw`p-0 m-0 max-w-screen w-full flex flex-col items-center`}
+  ${tw`p-0 m-0 max-w-screen w-screen flex flex-col items-center`}
 `
 
 const Layout = ({ children }) => {

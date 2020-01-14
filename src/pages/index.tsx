@@ -23,16 +23,16 @@ import Logo from "../images/logo/RBxo-emblem.svg"
 import profilePhoto from "../images/rai.jpg"
 
 const Container = styled.article`
-  ${tw`relative w-full max-w-screen px-8`}
+  ${tw`relative w-full max-w-screen px-4`}
 
-  display: grid;
+  /* display: grid;
   grid-template-rows: auto;
   grid-template-columns: auto;
   grid-template-areas: "sidebar" "content";
   @media screen and (min-width: 768px) {
     grid-template-areas: "content sidebar";
     grid-template-columns: 1fr auto;
-  }
+  } */
 
   h2 {
     ${tw`text-gray-800 leading-none`}
@@ -110,20 +110,21 @@ const Columns = styled.div`
     );
     grid-template-rows: auto;
     justify-content: space-between;
+
     grid-row-gap: 1em;
     grid-column-gap: 10%;
   }
 `
 
 const Column = styled.div`
-  ${tw`inline-block flex-auto mb-4`}
+  ${tw`inline-block flex-auto`}
   @media screen and (min-width: 768px) {
     max-width: ${({ size = "full" }: { size: string }) =>
       size === "compact" ? "10rem" : "100%"};
   }
-  ${tw``}
+  ${tw`mb-6 md:mb-3 lg:mb-0`}
   & > h2 {
-    ${tw`text-lg`}
+    ${tw`text-xl`}
     &:first-child {
       ${tw`mb-1`}
     }
@@ -135,16 +136,33 @@ const ListStyle = styled.ul`
   /* grid-auto-flow: row dense; */
   /* grid-template-rows: repeat(1fr); */
 
-  li {
+  /* display: ${({ horizontal }) => (horizontal ? "grid" : "block")} */
+  
+  grid-template-rows: auto;
+  grid-template-columns: repeat(6, auto);
+  width: 100%;
+
+  > li {
     ${tw`leading-snug`}
+    @media screen and (min-width: 768px) {
+      ${({ horizontal }: { horizontal?: boolean }) => {
+        return horizontal ? tw`inline-block mr-12 mb-1 text-gray-400` : ""
+      }};
+    }
   }
 `
 
 type ListEntry = { entry: string; heart?: boolean }
 
-const List = ({ items }: { items: ListEntry }) => {
+const List = ({
+  items,
+  horizontal,
+}: {
+  items: ListEntry
+  horizontal?: boolean
+}) => {
   return (
-    <ListStyle>
+    <ListStyle horizontal={horizontal}>
       {items.map((item: ListEntry) => (
         <li>
           {item.entry}{" "}
@@ -163,7 +181,7 @@ const SectionStyle = styled.section`
   ${tw`flex flex-col md:flex-row my-8`}
 
   & > h1 {
-    ${tw`flex-none mt-3 md:mt-0 mb-6 md:mb-0 mx-3 md:mx-0 leading-none text-left text-2xl w-full md:w-40 lg:w-64 lg:text-2xl md:text-right md:text-xl text-gray-800 lg:text-gray-800`}
+    ${tw`flex-none mt-3 md:mt-0 mb-6 md:mb-0 mx-3 md:mx-0 leading-none tracking-tight text-left text-4xl w-full md:w-40 lg:text-2xl md:text-right md:text-xl text-gray-800 lg:text-gray-800`}
   }
 `
 
@@ -194,21 +212,12 @@ const Section = ({ children, title }: { children: any; title: string }) => {
   )
 }
 
-const ResponsiveLists = styled.section`
-  @media screen and (min-width: 768px) {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: repeat(3, auto);
-    justify-content: start;
-  }
-`
-
 const IndexPage = () => {
   const {
     profile,
     bio,
-    skills,
     tools,
+    skills,
     languages,
     libraries,
     technologies,
@@ -312,22 +321,23 @@ const IndexPage = () => {
               ))}
             </Columns>
           </Section>
-          <ResponsiveLists>
-            <Section title={languages.title}>
-              <List items={languages.data} />
-            </Section>
-            <Section title={libraries.title}>
-              <List items={libraries.data} />
-            </Section>
-            <Section title={technologies.title}>
-              <List items={technologies.data} />
-            </Section>
-          </ResponsiveLists>
+          <Section title="Expertise">
+            <Columns>
+              {[languages, libraries, technologies].map(({ title, data }) => {
+                return (
+                  <Column>
+                    <h2>{title}</h2>
+                    <List items={data} />
+                  </Column>
+                )
+              })}
+            </Columns>
+          </Section>
           <Section title={tools.title}>
             <List horizontal items={tools.data} />
           </Section>
           <Section title={education.title}>
-            <Columns>
+            <Columns columns={4}>
               {education.data.map(educationLevel => (
                 <Column size="compact">
                   <Dates
