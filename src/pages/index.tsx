@@ -23,7 +23,7 @@ import Logo from "../images/logo/RBxo-emblem.svg"
 import Img from "gatsby-image"
 
 const Resume = styled.article`
-  ${tw`relative w-full mx-auto bg-white max-w-screen flex flex-col items-start lg:items-center px-8 md:px-4`}
+  ${tw`w-full flex flex-col px-4`}
 
   h2 {
     ${tw`text-gray-800 leading-none`}
@@ -34,20 +34,20 @@ const Resume = styled.article`
   }
 `
 const Header = styled.header`
-  ${tw`w-full flex flex-col md:flex-row items-center md:items-end justify-between max-w-4xl mb-2`}
+  ${tw`w-full flex flex-col md:flex-row items-center md:items-end justify-between mt-1 mb-2`}
 `
 
 const Greeting = styled.section`
-  ${tw`order-last flex flex-col relative items-center md:items-end max-w-screen overflow-hidden w-full md:ml-16 lg:ml-24 xl:ml-32 my-16 md:my-0`}
+  ${tw`order-last flex flex-col relative items-center md:items-end max-w-screen overflow-hidden w-full my-16 md:my-0`}
   ${tw`md:order-first md:flex-row md:mb-4`}
 `
 
 const Portrait = styled.aside`
-  ${tw`w-24 md:w-32 bg-gray-200 inline-block select-none rounded-full md:float-left md:mr-3 lg:mr-4 overflow-hidden`}
+  ${tw`w-24 md:w-32 bg-gray-200 inline-block select-none rounded-full md:float-left md:mx-3 lg:mx-4 overflow-hidden`}
 `
 
 const Caption = styled.span`
-  ${tw`text-center flex flex-col items-center md:items-start md:pb-4 lg:pb-8 pt-4 md:pt-0`}
+  ${tw`text-center flex flex-col items-center md:items-start md:pb-4 pt-4 md:pt-0`}
   p {
     ${tw`flex flex-row text-3xl items-center m-0 p-0 leading-none`};
     &:first-of-type {
@@ -112,16 +112,6 @@ const Column = styled.div`
 `
 
 const ListStyle = styled.ul`
-  /* display: grid; */
-  /* grid-auto-flow: row dense; */
-  /* grid-template-rows: repeat(1fr); */
-
-  /* display: ${({ horizontal }) => (horizontal ? "grid" : "block")} */
-  
-  grid-template-rows: auto;
-  grid-template-columns: repeat(6, auto);
-  width: 100%;
-
   > li {
     ${tw`leading-snug`}
     @media screen and (min-width: 1024px) {
@@ -166,7 +156,8 @@ const SectionStyle = styled.section`
 `
 
 const SectionContent = styled.div`
-  ${tw`flex-auto mx-4 max-w-3xl`}
+  ${tw`flex-auto mx-4`}
+
   & > p {
     ${tw`mb-2 leading-tight`}
     &:first-child {
