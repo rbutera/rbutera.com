@@ -73,6 +73,7 @@ const ProfileStyle = styled.aside`
   /* ${tw`w-auto absolute top-0 right-0`} */
   ${tw`order-first flex flex-col items-end`};
   ${tw`md:order-last`};
+  ${tw`print:order-last`};
   
   ul {
     ${tw`text-right flex flex-col items-end`};
@@ -149,17 +150,17 @@ const Profile = ({ profile }) => (
 const Columns = styled.div`
   ${tw`flex flex-col`}
   ${tw`lg:flex-row`}
+  grid-template-rows: auto;
+  justify-content: space-between;
+  grid-row-gap: 1em;
+  grid-column-gap: 10%;
+  grid-template-columns: repeat(
+    ${({ columns = 3 }: { columns: Number }) => columns},
+    auto
+  );
+
   @media screen and (min-width: 1024px) {
     display: grid;
-    grid-template-columns: repeat(
-      ${({ columns = 3 }: { columns: Number }) => columns},
-      auto
-    );
-    grid-template-rows: auto;
-    justify-content: space-between;
-
-    grid-row-gap: 1em;
-    grid-column-gap: 10%;
   }
 `
 
