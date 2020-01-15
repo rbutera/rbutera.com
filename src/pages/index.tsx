@@ -24,20 +24,22 @@ import Img from "gatsby-image"
 import Responsive from "../components/responsive"
 
 const Resume = styled.article`
-  ${tw`w-full flex flex-col px-2`}
+  ${tw`w-full flex flex-col px-2 text-gray-800`}
   ${tw`sm:px-4 text-lg`}
   ${tw`md:p-8`}
   ${tw`lg:p-12`}
   ${tw`xl:py-16 xl:px-32`}
   ${tw`print:px-5`}
 
-  h2 {
-    ${tw`text-gray-800 leading-none`}
+  h2, h3 {
+    ${tw`text-gray-700 leading-none`}
   }
+
 
   ul li {
     ${tw`text-gray-800`};
-    ${tw`text-sm leading-none`};
+    ${tw`text-base leading-none`};
+    ${tw`md:text-sm leading-snug`};
     ${tw`print:text-xs print:leading-none`};
     ${tw``}
   }
@@ -83,7 +85,7 @@ const Caption = styled.span`
 
 const PersonalLogo = styled.img`
   ${tw`w-12 mt-2`}
-  ${tw`print:w-8 print:my-2`}
+  ${tw`print:w-8 print:mb-2 print:mt-0`}
 `
 
 const ProfileStyle = styled.aside`
@@ -154,8 +156,17 @@ const Column = styled.div`
   ${tw`lg:mb-0`}
   ${tw`print:mb-0`}
   & > h2 {
-    ${tw`text-md leading-none`}
-    ${tw`print:text-sm`}
+    ${tw`text-lg leading-normal`}
+    ${tw`md:text-base md:leading-none`}
+    ${tw`print:text-sm print:leading-none`}
+    &:first-child {
+      ${tw`mb-1`}
+    }
+  }
+
+    & > h3 {
+    ${tw`text-base mb-1`}
+    ${tw`print:text-xs print:leading-none print:mb-0`}
     &:first-child {
       ${tw`mb-1`}
     }
@@ -173,8 +184,8 @@ const SectionStyle = styled.section`
   ${tw`print:flex-row mb-4`}
 
   & > h1 {
-    ${tw`flex-none mt-3 mb-6 mx-3 leading-none tracking-tight text-left text-4xl w-full text-gray-800`}
-    ${tw`md:mt-0 md:mb-0 md:mx-0 md:w-24 md:text-right md:text-xl md:text-gray-600`}
+    ${tw`flex-none mt-3 mb-6 mx-3 leading-none tracking-tight text-left text-3xl w-full text-gray-800`}
+    ${tw`md:mt-0 md:mb-0 md:mx-0 md:w-24 md:text-right md:text-xl md:text-gray-500`}
     ${tw`lg:w-40 lg:text-2xl`}
     ${tw`print:mt-0 print:mb-0 print:mx-0 print:w-16 print:text-right print:text-xs print:uppercase print:tracking-wide`}
   }
@@ -225,7 +236,7 @@ const List = ({
         <li>
           {item.entry}{" "}
           {item.heart ? (
-            <FontAwesomeIcon icon={faHeart} className="text-sm text-red-300" />
+            <FontAwesomeIcon icon={faHeart} className="text-sm text-red-200" />
           ) : (
             ""
           )}
@@ -367,7 +378,7 @@ const IndexPage = ({ data }) => {
               <p>
                 and I{" "}
                 <FontAwesomeIcon
-                  className="inline-block mx-2 text-red-400 text-xl"
+                  className="inline-block mx-1 text-red-200 text-xl"
                   icon={faHeart}
                 />{" "}
                 innovation.
@@ -427,9 +438,9 @@ const IndexPage = ({ data }) => {
             {education.data.map(educationLevel => (
               <Column size="compact">
                 <Dates start={educationLevel.start} end={educationLevel.end} />
-                <h2>{educationLevel.heading}</h2>
+                <h3>{educationLevel.heading}</h3>
                 {educationLevel.detail.map(line => (
-                  <p className="leading-tight text-gray-800">{line}</p>
+                  <p className="text-gray-800">{line}</p>
                 ))}
               </Column>
             ))}
@@ -441,7 +452,7 @@ const IndexPage = ({ data }) => {
             {sortedExperience.map(item => (
               <Column size="compact">
                 <Dates start={item.start} end={item.end} />
-                <h2 className="mb-1 leading-none ">{item.company}</h2>
+                <h3 className="mb-1">{item.company}</h3>
                 {item.roles.map(line => (
                   <p className="leading-none mb-1 text-gray-800">{line}</p>
                 ))}
