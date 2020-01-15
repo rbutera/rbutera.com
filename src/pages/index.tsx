@@ -162,6 +162,10 @@ const Columns = styled.div`
   @media screen and (min-width: 1024px) {
     display: grid;
   }
+
+  @media print {
+    display: grid;
+  }
 `
 
 const Column = styled.div`
@@ -170,9 +174,14 @@ const Column = styled.div`
     max-width: ${({ size = "full" }: { size: string }) =>
       size === "compact" ? "10rem" : "100%"};
   }
-  ${tw`mb-6 md:mb-3 lg:mb-0`}
+  @media print {
+    max-width: ${({ size = "full" }: { size: string }) =>
+      size === "compact" ? "10rem" : "100%"};
+  }
+  ${tw`mb-6`}
   ${tw`md:mb-3`}
   ${tw`lg:mb-0`}
+  ${tw`print:mb-0`}
   & > h2 {
     ${tw`text-xl`}
     &:first-child {
