@@ -32,7 +32,9 @@ const Resume = styled.article`
   ${tw`print:px-5`}
 
   h2, h3 {
-    ${tw`text-gray-700 leading-none`}
+    ${tw`text-gray-800 leading-none`}
+    ${tw`print:text-gray-700`}
+    ${tw`md:text-gray-700`}
   }
 
 
@@ -84,7 +86,7 @@ const Caption = styled.span`
 `
 
 const PersonalLogo = styled.img`
-  ${tw`w-12 mt-2`}
+  ${tw`w-12 mt-2 mb-2`}
   ${tw`print:w-8 print:mb-2 print:mt-0`}
 `
 
@@ -103,8 +105,8 @@ const ProfileStyle = styled.aside`
       ${tw`md:mb-2`};
       ${tw`print:text-md`};
     }
-    ${tw`flex flex-row items-center text-sm text-gray-700 leading-none`};
-    ${tw`print:text-xs`};
+    ${tw`flex flex-row items-center text-sm text-gray-700 leading-snug`};
+    ${tw`print:text-xs print:leading-none`};
     a {
       ${tw`hover:text-blue-800`}
     }
@@ -156,7 +158,7 @@ const Column = styled.div`
   ${tw`lg:mb-0`}
   ${tw`print:mb-0`}
   & > h2 {
-    ${tw`text-lg leading-normal`}
+    ${tw`text-2xl leading-snug`}
     ${tw`md:text-base md:leading-none`}
     ${tw`print:text-sm print:leading-none`}
     &:first-child {
@@ -179,8 +181,8 @@ const Column = styled.div`
 `
 
 const SectionStyle = styled.section`
-  ${tw`flex flex-col mb-8`}
-  ${tw`md:flex-row`}
+  ${tw`flex flex-col mb-20`}
+  ${tw`md:flex-row md:mb-8`}
   ${tw`print:flex-row mb-4`}
 
   & > h1 {
@@ -236,7 +238,7 @@ const List = ({
         <li>
           {item.entry}{" "}
           {item.heart ? (
-            <FontAwesomeIcon icon={faHeart} className="text-sm text-red-200" />
+            <FontAwesomeIcon icon={faHeart} className="text-sm text-red-400" />
           ) : (
             ""
           )}
@@ -252,7 +254,7 @@ const Profile = ({ profile }) => (
     <ul>
       <li>{profile.name}</li>
       <li>
-        <FontAwesomeIcon className="text-gray-500 mr-2" icon={faEnvelope} />
+        <FontAwesomeIcon className="text-gray-500 mr-1" icon={faEnvelope} />
         <Link to={`contact`}>{profile.email}</Link>
       </li>
       <Responsive>
@@ -261,7 +263,7 @@ const Profile = ({ profile }) => (
             <>
               <li>
                 <FontAwesomeIcon
-                  className="text-gray-500 mr-2"
+                  className="text-gray-500 mr-1"
                   icon={faGlobe}
                 />
                 <a target="_blank" href={`https://${profile.homepage}`}>
@@ -270,7 +272,7 @@ const Profile = ({ profile }) => (
               </li>
               <li>
                 <FontAwesomeIcon
-                  className="text-green-300 mr-2"
+                  className="text-green-300 mr-1"
                   icon={faPhone}
                 />
 
@@ -283,7 +285,7 @@ const Profile = ({ profile }) => (
         }
       </Responsive>
       <li>
-        <FontAwesomeIcon className="text-gray-600 mr-2" icon={faGithub} />
+        <FontAwesomeIcon className="text-gray-600 mr-1" icon={faGithub} />
         <a target="_blank" href={`https://github.com/${profile.github}`}>
           github.com/{profile.github}
         </a>
@@ -295,7 +297,7 @@ const Profile = ({ profile }) => (
             <>
               <li>
                 <FontAwesomeIcon
-                  className="text-blue-300 mr-2"
+                  className="text-blue-300 mr-1"
                   icon={faTwitter}
                 />
                 <a
@@ -307,7 +309,7 @@ const Profile = ({ profile }) => (
               </li>
               <li>
                 <FontAwesomeIcon
-                  className="text-gray-900 mr-2"
+                  className="text-gray-900 mr-1"
                   icon={faMedium}
                 />
                 <a
@@ -378,7 +380,7 @@ const IndexPage = ({ data }) => {
               <p>
                 and I{" "}
                 <FontAwesomeIcon
-                  className="inline-block mx-1 text-red-200 text-xl"
+                  className="inline-block mx-1 text-red-400 text-xl"
                   icon={faHeart}
                 />{" "}
                 innovation.
