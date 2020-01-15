@@ -138,29 +138,36 @@ const Profile = ({ profile }) => (
           github.com/{profile.github}
         </a>
       </li>
-      <li>
-        <FontAwesomeIcon className="text-gray-900 mr-2" icon={faMedium} />
-        <a target="_blank" href={`https://medium.com/@${profile.medium}`}>
-          medium.com/{profile.medium}
-        </a>
-      </li>
-
       <Responsive>
         {matches =>
           matches &&
           !matches.print && (
-            <li>
-              <FontAwesomeIcon
-                className="text-blue-300 mr-2"
-                icon={faTwitter}
-              />
-              <a
-                target="_blank"
-                href={`https://twitter.com/${profile.twitter}`}
-              >
-                {profile.twitter}
-              </a>
-            </li>
+            <>
+              <li>
+                <FontAwesomeIcon
+                  className="text-blue-300 mr-2"
+                  icon={faTwitter}
+                />
+                <a
+                  target="_blank"
+                  href={`https://twitter.com/${profile.twitter}`}
+                >
+                  {profile.twitter}
+                </a>
+              </li>
+              <li>
+                <FontAwesomeIcon
+                  className="text-gray-900 mr-2"
+                  icon={faMedium}
+                />
+                <a
+                  target="_blank"
+                  href={`https://medium.com/@${profile.medium}`}
+                >
+                  medium.com/{profile.medium}
+                </a>
+              </li>
+            </>
           )
         }
       </Responsive>
@@ -260,7 +267,7 @@ const List = ({
 const SectionStyle = styled.section`
   ${tw`flex flex-col mb-8`}
   ${tw`md:flex-row`}
-  ${tw`print:flex-row`}
+  ${tw`print:flex-row mb-4`}
 
   & > h1 {
     ${tw`flex-none mt-3 mb-6 mx-3 leading-none tracking-tight text-left text-4xl w-full text-gray-800`}
