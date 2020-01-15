@@ -40,9 +40,9 @@ const Resume = styled.article`
 `
 const Header = styled.header`
   ${tw`w-full flex flex-col items-center justify-between mt-1 mb-2`}
-  ${tw`md:flex-row md:items-end`}
-  ${tw`lg:mb-6`}
-  ${tw`print:flex-row print:items-end`}
+  ${tw`md:flex-row md:items-end md:mb-6`}
+  ${tw`lg:mb-8`}
+  ${tw`print:flex-row print:items-end print:mb-2`}
 `
 
 const Greeting = styled.section`
@@ -53,14 +53,15 @@ const Greeting = styled.section`
 
 const Portrait = styled.aside`
   ${tw`w-24 bg-gray-200 inline-block select-none rounded-full overflow-hidden`}
-  ${tw`md:w-32 md:float-left md:mx-3`}
-  ${tw`lg:mx-4`}
+  ${tw`md:w-20 md:float-left md:mx-3`}
+  ${tw`lg:w-32 lg:mx-4`}
   ${tw`print:w-16 print:float-left print:mx-4`}
 `
 
 const Caption = styled.span`
   ${tw`text-center flex flex-col items-center pt-4`}
-  ${tw`md:items-start md:pb-4 md:pt-0`}
+  ${tw`md:items-start md:pb-0 md:pt-0`}
+  ${tw`lg:pb-4`}
   ${tw`print:items-start print:pb-1 print:pt-0`}
   p {
     ${tw`flex flex-row text-3xl items-center m-0 p-0 leading-none`};
@@ -98,85 +99,6 @@ const ProfileStyle = styled.aside`
     }
   }
 `
-
-const Profile = ({ profile }) => (
-  <ProfileStyle>
-    <PersonalLogo src={Logo} alt="Raimondo Butera personal logo" />
-    <ul>
-      <li>{profile.name}</li>
-      <li>
-        <FontAwesomeIcon className="text-gray-500 mr-2" icon={faEnvelope} />
-        <Link to={`contact`}>{profile.email}</Link>
-      </li>
-      <Responsive>
-        {matches =>
-          matches.print && (
-            <>
-              <li>
-                <FontAwesomeIcon
-                  className="text-gray-500 mr-2"
-                  icon={faGlobe}
-                />
-                <a target="_blank" href={`https://${profile.homepage}`}>
-                  {profile.homepage}
-                </a>
-              </li>
-              <li>
-                <FontAwesomeIcon
-                  className="text-green-300 mr-2"
-                  icon={faPhone}
-                />
-
-                <a target="_blank" href={`tel:${profile.phone}`}>
-                  {profile.phone}
-                </a>
-              </li>
-            </>
-          )
-        }
-      </Responsive>
-      <li>
-        <FontAwesomeIcon className="text-gray-600 mr-2" icon={faGithub} />
-        <a target="_blank" href={`https://github.com/${profile.github}`}>
-          github.com/{profile.github}
-        </a>
-      </li>
-      <Responsive>
-        {matches =>
-          matches &&
-          !matches.print && (
-            <>
-              <li>
-                <FontAwesomeIcon
-                  className="text-blue-300 mr-2"
-                  icon={faTwitter}
-                />
-                <a
-                  target="_blank"
-                  href={`https://twitter.com/${profile.twitter}`}
-                >
-                  {profile.twitter}
-                </a>
-              </li>
-              <li>
-                <FontAwesomeIcon
-                  className="text-gray-900 mr-2"
-                  icon={faMedium}
-                />
-                <a
-                  target="_blank"
-                  href={`https://medium.com/@${profile.medium}`}
-                >
-                  medium.com/{profile.medium}
-                </a>
-              </li>
-            </>
-          )
-        }
-      </Responsive>
-    </ul>
-  </ProfileStyle>
-)
 
 const Columns = styled.div`
   ${tw`flex flex-col m-0 p-0 leading-none`}
@@ -299,6 +221,85 @@ const SectionContent = styled.div`
   }
 `
 
+const Profile = ({ profile }) => (
+  <ProfileStyle>
+    <PersonalLogo src={Logo} alt="Raimondo Butera personal logo" />
+    <ul>
+      <li>{profile.name}</li>
+      <li>
+        <FontAwesomeIcon className="text-gray-500 mr-2" icon={faEnvelope} />
+        <Link to={`contact`}>{profile.email}</Link>
+      </li>
+      <Responsive>
+        {matches =>
+          matches.print && (
+            <>
+              <li>
+                <FontAwesomeIcon
+                  className="text-gray-500 mr-2"
+                  icon={faGlobe}
+                />
+                <a target="_blank" href={`https://${profile.homepage}`}>
+                  {profile.homepage}
+                </a>
+              </li>
+              <li>
+                <FontAwesomeIcon
+                  className="text-green-300 mr-2"
+                  icon={faPhone}
+                />
+
+                <a target="_blank" href={`tel:${profile.phone}`}>
+                  {profile.phone}
+                </a>
+              </li>
+            </>
+          )
+        }
+      </Responsive>
+      <li>
+        <FontAwesomeIcon className="text-gray-600 mr-2" icon={faGithub} />
+        <a target="_blank" href={`https://github.com/${profile.github}`}>
+          github.com/{profile.github}
+        </a>
+      </li>
+      <Responsive>
+        {matches =>
+          matches &&
+          !matches.print && (
+            <>
+              <li>
+                <FontAwesomeIcon
+                  className="text-blue-300 mr-2"
+                  icon={faTwitter}
+                />
+                <a
+                  target="_blank"
+                  href={`https://twitter.com/${profile.twitter}`}
+                >
+                  {profile.twitter}
+                </a>
+              </li>
+              <li>
+                <FontAwesomeIcon
+                  className="text-gray-900 mr-2"
+                  icon={faMedium}
+                />
+                <a
+                  target="_blank"
+                  href={`https://medium.com/@${profile.medium}`}
+                >
+                  medium.com/{profile.medium}
+                </a>
+              </li>
+            </>
+          )
+        }
+      </Responsive>
+    </ul>
+  </ProfileStyle>
+)
+
 const Dates = ({ start, end }) => {
   return (
     <span className="text-sm uppercase leading-none tracking-wide font-bold text-gray-600 print:text-xs">
@@ -362,7 +363,7 @@ const IndexPage = ({ data }) => {
           <Responsive>
             {matches => (
               <>
-                {(matches.print || matches.lg || matches.xl) && (
+                {(matches.print || matches.lg || matches.xl || matches.md) && (
                   <Profile profile={profile} />
                 )}
               </>
