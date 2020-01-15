@@ -220,7 +220,8 @@ const Column = styled.div`
   }
 
   p {
-    ${tw`text-sm print:leading-none`}
+    ${tw`text-sm`}
+    ${tw`print:text-xs print:leading-none`}
   }
 `
 
@@ -235,7 +236,7 @@ const ListStyle = styled.ul`
     }
     @media print {
       ${({ horizontal }: { horizontal?: boolean }) => {
-        return horizontal ? tw`inline-block mr-12 mb-1 text-gray-400` : ""
+        return horizontal ? tw`inline-block mr-12 mb-0 text-gray-400` : ""
       }};
     }
   }
