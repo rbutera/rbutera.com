@@ -22,9 +22,10 @@ import resumeData from "../data/resume.json"
 import Logo from "../images/logo/RBxo-emblem.svg"
 import Img from "gatsby-image"
 import Responsive from "../components/responsive"
+import { navigate } from "@reach/router"
 
 const Resume = styled.article`
-  ${tw`w-full flex flex-col px-2 text-gray-800`}
+  ${tw`relative z-0 w-full flex flex-col px-2 text-gray-800`}
   ${tw`sm:px-4 text-lg`}
   ${tw`md:p-8`}
   ${tw`lg:p-12`}
@@ -54,7 +55,7 @@ const Header = styled.header`
 `
 
 const Greeting = styled.section`
-  ${tw`order-last flex flex-col relative items-center max-w-screen overflow-hidden w-full my-16`}
+  ${tw`order-last flex flex-col relative items-center max-w-screen overflow-hidden w-full mt-8`}
   ${tw`md:order-first md:flex-row md:mb-4 md:items-end md:my-0`}
   ${tw`print:order-first print:flex-row print:mb-4 print:items-end print:my-0`}
 `
@@ -187,7 +188,7 @@ const SectionStyle = styled.section`
 
   & > h1 {
     ${tw`flex-none mt-3 mb-6 mx-3 leading-none tracking-tight text-left text-3xl w-full text-gray-800`}
-    ${tw`md:mt-0 md:mb-0 md:mx-0 md:w-24 md:text-right md:text-xl md:text-gray-500`}
+    ${tw`md:mt-0 md:mb-0 md:mx-0 md:w-24 md:text-left md:text-right md:text-xl md:text-gray-500`}
     ${tw`lg:w-40 lg:text-2xl`}
     ${tw`print:mt-0 print:mb-0 print:mx-0 print:w-16 print:text-right print:text-xs print:uppercase print:tracking-wide`}
   }
@@ -255,7 +256,9 @@ const Profile = ({ profile }) => (
       <li>{profile.name}</li>
       <li>
         <FontAwesomeIcon className="text-gray-500 mr-1" icon={faEnvelope} />
-        <Link to={`contact`}>{profile.email}</Link>
+        <a target="_blank" href={`mailto://${profile.email}`}>
+          {profile.email}
+        </a>
       </li>
       <Responsive>
         {matches =>
@@ -344,6 +347,74 @@ const Section = ({ children, title }: { children: any; title: string }) => {
   )
 }
 
+const NavButton = styled.a`
+  ${tw`flex flex-row justify-center rounded mb-2 hover:text-blue-600`}
+`
+
+const MobileNav = styled.div`
+  ${tw`flex flex-col items-start text-gray-600 px-6 my-8`}
+`
+
+const ButtonIcon = styled.span`
+  ${tw`rounded-full w-8 h-8 inline-block mr-2`}
+  display: inline-grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto;
+  justify-items: center;
+  align-items: center;
+`
+
+const Button = ({ icon, href, color, children }) => {
+  const className = `bg-${color}`
+  return (
+    <NavButton href={href} target="_blank">
+      <ButtonIcon className={className}>
+        <FontAwesomeIcon icon={icon} className="text-white" />
+      </ButtonIcon>
+      {children}
+    </NavButton>
+  )
+}
+
+const MobileNavigation = ({ profile }) => {
+  return (
+    <MobileNav>
+      <Button
+        icon={faEnvelope}
+        href={`mailto:${profile.email}`}
+        color="gray-900"
+      >
+        {profile.email}
+      </Button>
+      <Button
+        icon={faGithub}
+        href={`https://github.com/${profile.github}`}
+        color="gray-600"
+      >
+        {profile.github}
+      </Button>
+      <Button icon={faPhone} href={`tel:${profile.phone}`} color="green-400">
+        {profile.phone}
+      </Button>
+      <Button
+        icon={faTwitter}
+        href={`https://twitter.com/${profile.twitter}`}
+        color="blue-400"
+      >
+        {profile.twitter}
+      </Button>
+
+      <Button
+        icon={faMedium}
+        href={`https://medium.com/@${profile.medium}`}
+        color="gray-400"
+      >
+        @{profile.medium}
+      </Button>
+    </MobileNav>
+  )
+}
+
 const IndexPage = ({ data }) => {
   const {
     profile,
@@ -364,7 +435,6 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="CV / Resume" />
-
       <Resume>
         <Header>
           <Greeting>
@@ -397,6 +467,14 @@ const IndexPage = ({ data }) => {
             )}
           </Responsive>
         </Header>
+
+        <Responsive>
+          {matches =>
+            matches &&
+            !matches.print &&
+            (matches.xs || matches.sm) && <MobileNavigation profile={profile} />
+          }
+        </Responsive>
 
         <Section title={bio.title}>
           {bio.data.map(line => (
