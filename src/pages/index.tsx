@@ -24,10 +24,12 @@ import Img from "gatsby-image"
 import Responsive from "../components/responsive"
 
 const Resume = styled.article`
-  ${tw`w-full flex flex-col px-4`}
+  ${tw`w-full flex flex-col px-2`}
+  ${tw`sm:px-4`}
   ${tw`md:p-8`}
   ${tw`lg:p-12`}
-  ${tw`xl:p-16`}
+  ${tw`xl:py-16 xl:px-32`}
+  ${tw`print:px-5`}
 
   h2 {
     ${tw`text-gray-800 leading-none`}
@@ -67,9 +69,13 @@ const Caption = styled.span`
   ${tw`print:items-start print:pb-1 print:pt-0`}
   p {
     ${tw`flex flex-row text-3xl items-center m-0 p-0 leading-none`};
+    ${tw`md:text-lg`};
+    ${tw`lg:text-3xl`};
     ${tw`print:text-base`}
     &:first-of-type {
       ${tw`text-2xl text-gray-600 font-medium`}
+      ${tw`md:text-base`};
+      ${tw`lg:text-2xl`};
       ${tw`print:text-sm`}
     }
   }
