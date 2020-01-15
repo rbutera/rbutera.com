@@ -24,14 +24,13 @@
       {
         "category": "Web/App Development",
         "related": [
-          "Front End Development (React)",
-          "Full - Stack Development (MERN / MEAN / Meteor)",
+          "Front-End Development",
+          "Full-Stack Development",
           "Unit Testing",
-          "Test / Behaviour Driven Development (TDD / BDD)",
-          "Progressive Web Apps",
+          "Test Driven Development",
           "Functional Programming",
-          "Hybrid Apps (React Native / Cordova)",
-          "Serverless Applications / Cloud Functions"
+          "Hybrid Apps",
+          "Serverless Applications"
         ]
       },
       {
@@ -39,21 +38,22 @@
         "related": [
           "UX Design",
           "UI Design",
-          "Brand and Logo Design",
+          "Branding",
+          "Logo Design",
+          "Illustration",
           "Typography",
           "Video Editing",
           "Photo Editing",
-          "Narration and Voiceover",
-          "Script Writing"
+          "Narration and Voiceover"
         ]
       },
       {
         "category": "Innovation",
         "related": [
-          "Lean/Agile Methodology",
+          "Lean/Agile",
           "Customer Development",
           "Business Modeling",
-          "Task Management and GTD",
+          "Task Management / GTD",
           "Project Planning",
           "Ideation",
           "A/B Testing"
