@@ -21,6 +21,7 @@ import { sortBy, prop } from "rambda"
 import resumeData from "../data/resume.json"
 import Logo from "../images/logo/RBxo-emblem.svg"
 import Img from "gatsby-image"
+import Responsive from "../components/responsive"
 
 const Resume = styled.article`
   ${tw`w-full flex flex-col px-4`}
@@ -64,7 +65,7 @@ const PersonalLogo = styled.img`
   ${tw`w-12 mt-2`}
 `
 
-const Profile = styled.aside`
+const ProfileStyle = styled.aside`
   /* ${tw`w-auto absolute top-0 right-0`} */
   ${tw`order-first flex flex-col items-end`};
   ${tw`md:order-last`};
@@ -82,6 +83,50 @@ const Profile = styled.aside`
     }
   }
 `
+
+const Profile = ({ profile }) => (
+  <ProfileStyle>
+    <PersonalLogo src={Logo} alt="Raimondo Butera personal logo" />
+    <ul>
+      <li>{profile.name}</li>
+      <li>
+        <FontAwesomeIcon className="text-gray-500 mr-2" icon={faEnvelope} />
+        <Link to={`contact`}>{profile.email}</Link>
+      </li>
+      <li>
+        <FontAwesomeIcon className="text-gray-500 mr-2" icon={faGlobe} />
+        <a target="_blank" href={`https://${profile.homepage}`}>
+          {profile.homepage}
+        </a>
+      </li>
+      <li>
+        <FontAwesomeIcon className="text-green-300 mr-2" icon={faPhone} />
+
+        <a target="_blank" href={`tel:${profile.phone}`}>
+          {profile.phone}
+        </a>
+      </li>
+      <li>
+        <FontAwesomeIcon className="text-gray-600 mr-2" icon={faGithub} />
+        <a target="_blank" href={`https://github.com/${profile.github}`}>
+          github.com/{profile.github}
+        </a>
+      </li>
+      <li>
+        <FontAwesomeIcon className="text-gray-900 mr-2" icon={faMedium} />
+        <a target="_blank" href={`https://medium.com/@${profile.medium}`}>
+          medium.com/{profile.medium}
+        </a>
+      </li>
+      <li>
+        <FontAwesomeIcon className="text-blue-300 mr-2" icon={faTwitter} />
+        <a target="_blank" href={`https://twitter.com/${profile.twitter}`}>
+          {profile.twitter}
+        </a>
+      </li>
+    </ul>
+  </ProfileStyle>
+)
 
 const Columns = styled.div`
   ${tw`flex flex-col`}
@@ -235,74 +280,15 @@ const IndexPage = ({ data }) => {
               </p>
             </Caption>
           </Greeting>
-          <Profile>
-            <PersonalLogo src={Logo} alt="Raimondo Butera personal logo" />
-            <ul>
-              <li>{profile.name}</li>
-              <li>
-                <FontAwesomeIcon
-                  className="text-gray-500 mr-2"
-                  icon={faEnvelope}
-                />
-                <Link to={`contact`}>{profile.email}</Link>
-              </li>
-              <li>
-                <FontAwesomeIcon
-                  className="text-gray-500 mr-2"
-                  icon={faGlobe}
-                />
-                <a target="_blank" href={`https://${profile.homepage}`}>
-                  {profile.homepage}
-                </a>
-              </li>
-              <li>
-                <FontAwesomeIcon
-                  className="text-green-300 mr-2"
-                  icon={faPhone}
-                />
-
-                <a target="_blank" href={`tel:${profile.phone}`}>
-                  {profile.phone}
-                </a>
-              </li>
-              <li>
-                <FontAwesomeIcon
-                  className="text-gray-600 mr-2"
-                  icon={faGithub}
-                />
-                <a
-                  target="_blank"
-                  href={`https://github.com/${profile.github}`}
-                >
-                  github.com/{profile.github}
-                </a>
-              </li>
-              <li>
-                <FontAwesomeIcon
-                  className="text-gray-900 mr-2"
-                  icon={faMedium}
-                />
-                <a
-                  target="_blank"
-                  href={`https://medium.com/@${profile.medium}`}
-                >
-                  medium.com/{profile.medium}
-                </a>
-              </li>
-              <li>
-                <FontAwesomeIcon
-                  className="text-blue-300 mr-2"
-                  icon={faTwitter}
-                />
-                <a
-                  target="_blank"
-                  href={`https://twitter.com/${profile.twitter}`}
-                >
-                  {profile.twitter}
-                </a>
-              </li>
-            </ul>
-          </Profile>
+          <Responsive>
+            {matches => (
+              <>
+                {(matches.print || matches.lg || matches.xl) && (
+                  <Profile profile={profile} />
+                )}
+              </>
+            )}
+          </Responsive>
         </Header>
 
         <Section title={bio.title}>
