@@ -185,12 +185,17 @@ const Columns = styled.div`
   justify-content: space-between;
   grid-row-gap: 1rem;
   grid-column-gap: 10%;
-  grid-template-columns: repeat(
-    ${({ columns = 3 }: { columns: Number }) => columns},
-    auto
-  );
+
+  grid-template-columns: repeat(3, auto);
+  @media screen and (min-width: 768px) {
+    display: grid;
+  }
 
   @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(
+      ${({ columns = 3 }: { columns: Number }) => columns},
+      auto
+    );
     display: grid;
   }
 
@@ -231,7 +236,7 @@ const ListStyle = styled.ul`
   ${tw`leading-none`}
   > li {
     ${tw`leading-snug`}
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 768px) {
       ${({ horizontal }: { horizontal?: boolean }) => {
         return horizontal ? tw`inline-block mr-12 mb-1 text-gray-400` : ""
       }};
@@ -285,7 +290,9 @@ const SectionContent = styled.div`
   ${tw`flex-auto px-4`}
 
   & > p {
-    ${tw`text-sm mb-1 leading-tight`}
+    ${tw`text-base mb-4 leading-tight`}
+    ${tw`md:mb-2`}
+    ${tw`print:text-sm print:mb-1`}
     &:first-child {
       ${tw`relative bottom-1`}
     }
