@@ -57,7 +57,7 @@ const Portrait = styled.aside`
   ${tw`w-24 bg-gray-200 inline-block select-none rounded-full overflow-hidden`}
   ${tw`md:w-20 md:float-left md:mx-3`}
   ${tw`lg:w-32 lg:mx-4`}
-  ${tw`print:w-16 print:float-left print:mx-4`}
+  ${tw`print:w-16 print:float-left print:mx-2`}
 `
 
 const Caption = styled.span`
@@ -305,7 +305,7 @@ const Profile = ({ profile }) => (
 
 const Dates = ({ start, end }) => {
   return (
-    <span className="text-sm uppercase leading-none tracking-wide font-bold text-gray-600 print:text-xs">
+    <span className="text-sm uppercase leading-none tracking-wide font-bold text-gray-500 print:text-xs">
       {start} - {end}
     </span>
   )
