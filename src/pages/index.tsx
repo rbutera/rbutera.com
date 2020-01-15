@@ -176,11 +176,11 @@ const Profile = ({ profile }) => (
 )
 
 const Columns = styled.div`
-  ${tw`flex flex-col`}
+  ${tw`flex flex-col m-0 p-0 leading-none`}
   ${tw`lg:flex-row`}
   grid-template-rows: auto;
   justify-content: space-between;
-  grid-row-gap: 1em;
+  grid-row-gap: 1rem;
   grid-column-gap: 10%;
   grid-template-columns: repeat(
     ${({ columns = 3 }: { columns: Number }) => columns},
@@ -193,6 +193,7 @@ const Columns = styled.div`
 
   @media print {
     display: grid;
+    grid-row-gap: 0;
   }
 `
 
@@ -224,6 +225,7 @@ const Column = styled.div`
 `
 
 const ListStyle = styled.ul`
+  ${tw`leading-none`}
   > li {
     ${tw`leading-snug`}
     @media screen and (min-width: 1024px) {
@@ -289,9 +291,9 @@ const SectionContent = styled.div`
 
 const Dates = ({ start, end }) => {
   return (
-    <p className="text-sm uppercase leading-none tracking-wide font-bold text-gray-600 print:text-xs">
+    <span className="text-sm uppercase leading-none tracking-wide font-bold text-gray-600 print:text-xs">
       {start} - {end}
-    </p>
+    </span>
   )
 }
 
