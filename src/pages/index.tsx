@@ -37,22 +37,26 @@ const Resume = styled.article`
 const Header = styled.header`
   ${tw`w-full flex flex-col items-center justify-between mt-1 mb-2`}
   ${tw`md:flex-row md:items-end`}
+  ${tw`print:flex-row print:items-end`}
 `
 
 const Greeting = styled.section`
   ${tw`order-last flex flex-col relative items-center max-w-screen overflow-hidden w-full my-16`}
   ${tw`md:order-first md:flex-row md:mb-4 md:items-end md:my-0`}
+  ${tw`print:order-first print:flex-row print:mb-4 print:items-end print:my-0`}
 `
 
 const Portrait = styled.aside`
   ${tw`w-24 bg-gray-200 inline-block select-none rounded-full overflow-hidden`}
   ${tw`md:w-32 md:float-left md:mx-3`}
   ${tw`lg:mx-4`}
+  ${tw`print:float-left print:mx-4`}
 `
 
 const Caption = styled.span`
   ${tw`text-center flex flex-col items-center pt-4`}
   ${tw`md:items-start md:pb-4 md:pt-0`}
+  ${tw`print:items-start print:pb-4 print:pt-0`}
   p {
     ${tw`flex flex-row text-3xl items-center m-0 p-0 leading-none`};
     &:first-of-type {
