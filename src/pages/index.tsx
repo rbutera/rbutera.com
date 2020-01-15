@@ -198,6 +198,11 @@ const ListStyle = styled.ul`
         return horizontal ? tw`inline-block mr-12 mb-1 text-gray-400` : ""
       }};
     }
+    @media print {
+      ${({ horizontal }: { horizontal?: boolean }) => {
+        return horizontal ? tw`inline-block mr-12 mb-1 text-gray-400` : ""
+      }};
+    }
   }
 `
 
