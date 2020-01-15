@@ -25,7 +25,7 @@ import Responsive from "../components/responsive"
 
 const Resume = styled.article`
   ${tw`w-full flex flex-col px-2`}
-  ${tw`sm:px-4`}
+  ${tw`sm:px-4 text-lg`}
   ${tw`md:p-8`}
   ${tw`lg:p-12`}
   ${tw`xl:py-16 xl:px-32`}
@@ -46,7 +46,7 @@ const Header = styled.header`
   ${tw`w-full flex flex-col items-center justify-between mt-1 mb-2`}
   ${tw`md:flex-row md:items-end md:mb-6`}
   ${tw`lg:mb-8`}
-  ${tw`print:flex-row print:items-end print:mb-2`}
+  ${tw`print:flex-row print:items-end print:mb-8`}
 `
 
 const Greeting = styled.section`
@@ -64,7 +64,7 @@ const Portrait = styled.aside`
 
 const Caption = styled.span`
   ${tw`text-center flex flex-col items-center pt-4`}
-  ${tw`md:items-start md:pb-0 md:pt-0`}
+  ${tw`md:items-start md:pb-4 md:pt-0`}
   ${tw`lg:pb-4`}
   ${tw`print:items-start print:pb-1 print:pt-0`}
   p {
@@ -83,7 +83,7 @@ const Caption = styled.span`
 
 const PersonalLogo = styled.img`
   ${tw`w-12 mt-2`}
-  ${tw`print:w-8 mt-2`}
+  ${tw`print:w-8 print:my-2`}
 `
 
 const ProfileStyle = styled.aside`
@@ -97,8 +97,9 @@ const ProfileStyle = styled.aside`
   }
   ul li {
     &:first-of-type {
-      ${tw`text-lg font-bold text-gray-800 text-right`};
-      ${tw`print:text-sm`};
+      ${tw`text-lg font-bold text-gray-800 text-right mb-2`};
+      ${tw`md:mb-2`};
+      ${tw`print:text-md`};
     }
     ${tw`flex flex-row items-center text-sm text-gray-700 leading-none`};
     ${tw`print:text-xs`};
@@ -116,8 +117,8 @@ const Columns = styled.div`
   grid-row-gap: 1rem;
   grid-column-gap: 10%;
 
-  grid-template-columns: repeat(3, auto);
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    grid-template-columns: repeat(3, auto);
     display: grid;
   }
 
@@ -131,6 +132,10 @@ const Columns = styled.div`
 
   @media print {
     display: grid;
+    grid-template-columns: repeat(
+      ${({ columns = 3 }: { columns: Number }) => columns},
+      auto
+    );
   }
 `
 
