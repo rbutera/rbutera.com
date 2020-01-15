@@ -32,12 +32,13 @@ const Resume = styled.article`
 
   ul li {
     ${tw`text-gray-800`};
-    ${tw`print:text-sm leading-none`};
+    ${tw`text-sm leading-none`};
   }
 `
 const Header = styled.header`
   ${tw`w-full flex flex-col items-center justify-between mt-1 mb-2`}
   ${tw`md:flex-row md:items-end`}
+  ${tw`lg:mb-6`}
   ${tw`print:flex-row print:items-end`}
 `
 
@@ -68,6 +69,7 @@ const Caption = styled.span`
 
 const PersonalLogo = styled.img`
   ${tw`w-12 mt-2`}
+  ${tw`print:w-8 mt-2`}
 `
 
 const ProfileStyle = styled.aside`
@@ -186,11 +188,15 @@ const Column = styled.div`
   ${tw`lg:mb-0`}
   ${tw`print:mb-0`}
   & > h2 {
-    ${tw`text-md`}
+    ${tw`text-md leading-none`}
+    ${tw`print:text-sm`}
     &:first-child {
-      ${tw`text-lg`}
       ${tw`mb-1`}
     }
+  }
+
+  p {
+    ${tw`text-sm print:leading-none`}
   }
 `
 
@@ -242,18 +248,16 @@ const SectionStyle = styled.section`
 
   & > h1 {
     ${tw`flex-none mt-3 mb-6 mx-3 leading-none tracking-tight text-left text-4xl w-full text-gray-800`}
-    ${tw`md:mt-0 md:mb-0 md:mx-0 md:w-40 md:text-right md:text-2xl`}
-    ${tw`lg:text-gray-600`}
+    ${tw`md:mt-0 md:mb-0 md:mx-0 md:w-40 md:text-right md:text-2xl md:text-gray-600`}
     ${tw`print:mt-0 print:mb-0 print:mx-0 print:w-16 print:text-right print:text-xs print:uppercase print:tracking-wide`}
-  
   }
 `
 
 const SectionContent = styled.div`
-  ${tw`flex-auto mx-4`}
+  ${tw`flex-auto px-4`}
 
   & > p {
-    ${tw`mb-2 leading-tight`}
+    ${tw`text-sm mb-1 leading-tight`}
     &:first-child {
       ${tw`relative bottom-1`}
     }
@@ -262,7 +266,7 @@ const SectionContent = styled.div`
 
 const Dates = ({ start, end }) => {
   return (
-    <p className="text-sm uppercase leading-none tracking-wide font-bold text-gray-600">
+    <p className="text-sm uppercase leading-none tracking-wide font-bold text-gray-600 print:text-xs">
       {start} - {end}
     </p>
   )
@@ -334,7 +338,7 @@ const IndexPage = ({ data }) => {
         <Section title={bio.title}>
           {bio.data.map(line => (
             <p>
-              <ReactMarkdown className="lg:text-lg">{line}</ReactMarkdown>
+              <ReactMarkdown className="xl:text-lg">{line}</ReactMarkdown>
             </p>
           ))}
         </Section>
@@ -344,7 +348,7 @@ const IndexPage = ({ data }) => {
             {skills.data.map(skill => (
               <Column>
                 <h2>{skill.category}</h2>
-                <ul className="leading-snug">
+                <ul>
                   {skill.related.map(item => (
                     <li>{item}</li>
                   ))}
