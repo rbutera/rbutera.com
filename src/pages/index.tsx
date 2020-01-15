@@ -25,6 +25,7 @@ import Responsive from "../components/responsive"
 
 const Resume = styled.article`
   ${tw`w-full flex flex-col px-4`}
+  ${tw`xl:p-16`}
 
   h2 {
     ${tw`text-gray-800 leading-none`}
@@ -33,7 +34,8 @@ const Resume = styled.article`
   ul li {
     ${tw`text-gray-800`};
     ${tw`text-sm leading-none`};
-    ${tw`print:text-xs leading-none`};
+    ${tw`print:text-xs print:leading-none`};
+    ${tw``}
   }
 `
 const Header = styled.header`
