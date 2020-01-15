@@ -33,6 +33,7 @@ const Resume = styled.article`
   ul li {
     ${tw`text-gray-800`};
     ${tw`text-sm leading-none`};
+    ${tw`print:text-xs leading-none`};
   }
 `
 const Header = styled.header`
@@ -193,7 +194,6 @@ const Columns = styled.div`
 
   @media print {
     display: grid;
-    grid-row-gap: 0;
   }
 `
 
@@ -219,7 +219,7 @@ const Column = styled.div`
     }
   }
 
-  p {
+  p, li {
     ${tw`text-sm`}
     ${tw`print:text-xs print:leading-none`}
   }
@@ -364,7 +364,7 @@ const IndexPage = ({ data }) => {
         <Section title={bio.title}>
           {bio.data.map(line => (
             <p>
-              <ReactMarkdown className="xl:text-lg">{line}</ReactMarkdown>
+              <ReactMarkdown className="print:text-xs">{line}</ReactMarkdown>
             </p>
           ))}
         </Section>
