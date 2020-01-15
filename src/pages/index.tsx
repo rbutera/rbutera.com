@@ -32,6 +32,7 @@ const Resume = styled.article`
 
   ul li {
     ${tw`text-gray-800`};
+    ${tw`print:text-sm leading-none`};
   }
 `
 const Header = styled.header`
@@ -50,13 +51,13 @@ const Portrait = styled.aside`
   ${tw`w-24 bg-gray-200 inline-block select-none rounded-full overflow-hidden`}
   ${tw`md:w-32 md:float-left md:mx-3`}
   ${tw`lg:mx-4`}
-  ${tw`print:float-left print:mx-4`}
+  ${tw`print:w-16 print:float-left print:mx-2`}
 `
 
 const Caption = styled.span`
   ${tw`text-center flex flex-col items-center pt-4`}
   ${tw`md:items-start md:pb-4 md:pt-0`}
-  ${tw`print:items-start print:pb-4 print:pt-0`}
+  ${tw`print:items-start print:pb-1 print:pt-0`}
   p {
     ${tw`flex flex-row text-3xl items-center m-0 p-0 leading-none`};
     &:first-of-type {
@@ -81,8 +82,10 @@ const ProfileStyle = styled.aside`
   ul li {
     &:first-of-type {
       ${tw`text-lg font-bold text-gray-800 text-right`};
+      ${tw`print:text-sm`};
     }
-    ${tw`flex flex-row items-center text-sm text-gray-700`};
+    ${tw`flex flex-row items-center text-sm text-gray-700 leading-none`};
+    ${tw`print:text-xs`};
     a {
       ${tw`hover:text-blue-800`}
     }
@@ -183,8 +186,9 @@ const Column = styled.div`
   ${tw`lg:mb-0`}
   ${tw`print:mb-0`}
   & > h2 {
-    ${tw`text-xl`}
+    ${tw`text-md`}
     &:first-child {
+      ${tw`text-lg`}
       ${tw`mb-1`}
     }
   }
@@ -234,11 +238,14 @@ const List = ({
 const SectionStyle = styled.section`
   ${tw`flex flex-col mb-8`}
   ${tw`md:flex-row`}
+  ${tw`print:flex-row`}
 
   & > h1 {
     ${tw`flex-none mt-3 mb-6 mx-3 leading-none tracking-tight text-left text-4xl w-full text-gray-800`}
     ${tw`md:mt-0 md:mb-0 md:mx-0 md:w-40 md:text-right md:text-2xl`}
-    ${tw`lg:text-2xl lg:text-gray-800`}
+    ${tw`lg:text-gray-600`}
+    ${tw`print:mt-0 print:mb-0 print:mx-0 print:w-16 print:text-right print:text-xs print:uppercase print:tracking-wide`}
+  
   }
 `
 
@@ -366,9 +373,7 @@ const IndexPage = ({ data }) => {
             {education.data.map(educationLevel => (
               <Column size="compact">
                 <Dates start={educationLevel.start} end={educationLevel.end} />
-                <h2 className="text-xl leading-none">
-                  {educationLevel.heading}
-                </h2>
+                <h2>{educationLevel.heading}</h2>
                 {educationLevel.detail.map(line => (
                   <p className="leading-tight text-gray-800">{line}</p>
                 ))}
