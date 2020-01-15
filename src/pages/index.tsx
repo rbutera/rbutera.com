@@ -63,7 +63,7 @@ const Portrait = styled.aside`
   ${tw`w-24 bg-gray-200 inline-block select-none rounded-full overflow-hidden`}
   ${tw`md:w-20 md:float-left md:mx-3`}
   ${tw`lg:w-32 lg:mx-4`}
-  ${tw`print:w-16 print:float-left print:mx-2`}
+  ${tw`print:w-16 print:float-left print:mx-3`}
 `
 
 const Caption = styled.span`
@@ -103,7 +103,7 @@ const ProfileStyle = styled.aside`
     &:first-of-type {
       ${tw`text-lg font-bold text-gray-800 text-right mb-2`};
       ${tw`md:mb-2`};
-      ${tw`print:text-md`};
+      ${tw`print:text-sm`};
     }
     ${tw`flex flex-row items-center text-sm text-gray-700 leading-snug`};
     ${tw`print:text-xs print:leading-none`};
