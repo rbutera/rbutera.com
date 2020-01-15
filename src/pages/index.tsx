@@ -93,19 +93,33 @@ const Profile = ({ profile }) => (
         <FontAwesomeIcon className="text-gray-500 mr-2" icon={faEnvelope} />
         <Link to={`contact`}>{profile.email}</Link>
       </li>
-      <li>
-        <FontAwesomeIcon className="text-gray-500 mr-2" icon={faGlobe} />
-        <a target="_blank" href={`https://${profile.homepage}`}>
-          {profile.homepage}
-        </a>
-      </li>
-      <li>
-        <FontAwesomeIcon className="text-green-300 mr-2" icon={faPhone} />
+      <Responsive>
+        {matches =>
+          matches.print && (
+            <>
+              <li>
+                <FontAwesomeIcon
+                  className="text-gray-500 mr-2"
+                  icon={faGlobe}
+                />
+                <a target="_blank" href={`https://${profile.homepage}`}>
+                  {profile.homepage}
+                </a>
+              </li>
+              <li>
+                <FontAwesomeIcon
+                  className="text-green-300 mr-2"
+                  icon={faPhone}
+                />
 
-        <a target="_blank" href={`tel:${profile.phone}`}>
-          {profile.phone}
-        </a>
-      </li>
+                <a target="_blank" href={`tel:${profile.phone}`}>
+                  {profile.phone}
+                </a>
+              </li>
+            </>
+          )
+        }
+      </Responsive>
       <li>
         <FontAwesomeIcon className="text-gray-600 mr-2" icon={faGithub} />
         <a target="_blank" href={`https://github.com/${profile.github}`}>
