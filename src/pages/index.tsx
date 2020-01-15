@@ -52,7 +52,7 @@ const Portrait = styled.aside`
   ${tw`w-24 bg-gray-200 inline-block select-none rounded-full overflow-hidden`}
   ${tw`md:w-32 md:float-left md:mx-3`}
   ${tw`lg:mx-4`}
-  ${tw`print:w-16 print:float-left print:mx-2`}
+  ${tw`print:w-16 print:float-left print:mx-4`}
 `
 
 const Caption = styled.span`
@@ -61,8 +61,10 @@ const Caption = styled.span`
   ${tw`print:items-start print:pb-1 print:pt-0`}
   p {
     ${tw`flex flex-row text-3xl items-center m-0 p-0 leading-none`};
+    ${tw`print:text-base`}
     &:first-of-type {
-      ${tw`text-2xl text-gray-600`}
+      ${tw`text-2xl text-gray-600 font-medium`}
+      ${tw`print:text-sm`}
     }
   }
 `
@@ -142,12 +144,26 @@ const Profile = ({ profile }) => (
           medium.com/{profile.medium}
         </a>
       </li>
-      <li>
-        <FontAwesomeIcon className="text-blue-300 mr-2" icon={faTwitter} />
-        <a target="_blank" href={`https://twitter.com/${profile.twitter}`}>
-          {profile.twitter}
-        </a>
-      </li>
+
+      <Responsive>
+        {matches =>
+          matches &&
+          !matches.print && (
+            <li>
+              <FontAwesomeIcon
+                className="text-blue-300 mr-2"
+                icon={faTwitter}
+              />
+              <a
+                target="_blank"
+                href={`https://twitter.com/${profile.twitter}`}
+              >
+                {profile.twitter}
+              </a>
+            </li>
+          )
+        }
+      </Responsive>
     </ul>
   </ProfileStyle>
 )
