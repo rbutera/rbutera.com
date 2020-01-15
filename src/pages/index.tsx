@@ -25,6 +25,8 @@ import Responsive from "../components/responsive"
 
 const Resume = styled.article`
   ${tw`w-full flex flex-col px-4`}
+  ${tw`md:p-8`}
+  ${tw`lg:p-12`}
   ${tw`xl:p-16`}
 
   h2 {
@@ -154,6 +156,32 @@ const Column = styled.div`
   }
 `
 
+const SectionStyle = styled.section`
+  ${tw`flex flex-col mb-8`}
+  ${tw`md:flex-row`}
+  ${tw`print:flex-row mb-4`}
+
+  & > h1 {
+    ${tw`flex-none mt-3 mb-6 mx-3 leading-none tracking-tight text-left text-4xl w-full text-gray-800`}
+    ${tw`md:mt-0 md:mb-0 md:mx-0 md:w-24 md:text-right md:text-xl md:text-gray-600`}
+    ${tw`lg:w-40 lg:text-2xl`}
+    ${tw`print:mt-0 print:mb-0 print:mx-0 print:w-16 print:text-right print:text-xs print:uppercase print:tracking-wide`}
+  }
+`
+
+const SectionContent = styled.div`
+  ${tw`flex-auto px-4`}
+
+  & > p {
+    ${tw`text-base mb-4 leading-tight`}
+    ${tw`md:mb-2`}
+    ${tw`print:text-sm print:mb-1`}
+    &:first-child {
+      ${tw`relative bottom-1`}
+    }
+  }
+`
+
 const ListStyle = styled.ul`
   ${tw`leading-none`}
   > li {
@@ -195,31 +223,6 @@ const List = ({
     </ListStyle>
   )
 }
-
-const SectionStyle = styled.section`
-  ${tw`flex flex-col mb-8`}
-  ${tw`md:flex-row`}
-  ${tw`print:flex-row mb-4`}
-
-  & > h1 {
-    ${tw`flex-none mt-3 mb-6 mx-3 leading-none tracking-tight text-left text-4xl w-full text-gray-800`}
-    ${tw`md:mt-0 md:mb-0 md:mx-0 md:w-40 md:text-right md:text-2xl md:text-gray-600`}
-    ${tw`print:mt-0 print:mb-0 print:mx-0 print:w-16 print:text-right print:text-xs print:uppercase print:tracking-wide`}
-  }
-`
-
-const SectionContent = styled.div`
-  ${tw`flex-auto px-4`}
-
-  & > p {
-    ${tw`text-base mb-4 leading-tight`}
-    ${tw`md:mb-2`}
-    ${tw`print:text-sm print:mb-1`}
-    &:first-child {
-      ${tw`relative bottom-1`}
-    }
-  }
-`
 
 const Profile = ({ profile }) => (
   <ProfileStyle>
