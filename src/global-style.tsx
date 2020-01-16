@@ -5,10 +5,16 @@ import "./tailwind.css"
 import "./fonts.css"
 
 export default createGlobalStyle`
-  /* apply a natural box layout model to all elements, but allowing components to change */
-  
+  @page {
+      size:  auto a4 portrait;   /* auto is the initial value */
+      margin: 0mm;  /* this affects the margin in the printer settings */
+  }
+  html { 
+      margin: 0mm;  /* this affects the margin on the html before sending to printer */
+  }
   body {
-    ${tw`font-sans text-gray-900 flex flex-col items-center max-w-screen overflow-x-hidden`};
+    ${tw`font-sans text-gray-900 flex flex-col items-center justify-center h-full max-w-screen overflow-x-hidden`};
+    ${tw`print:p-8`}
     font-family: 'aktiv-grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
