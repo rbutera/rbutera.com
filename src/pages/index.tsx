@@ -106,9 +106,10 @@ const ProfileStyle = styled.aside`
       ${tw`md:mb-2`};
       ${tw`print:text-sm`};
     }
-    ${tw`flex flex-row items-center text-sm text-gray-700 leading-snug`};
-    ${tw`print:text-xs print:leading-none`};
+    ${tw`flex flex-row items-center text-sm text-gray-500 leading-snug`};
+    ${tw`print:text-xs print:text-gray-600 print:leading-none`};
     a {
+      ${tw`order-first`}
       ${tw`hover:text-blue-800`}
     }
   }
@@ -251,13 +252,17 @@ const List = ({
   )
 }
 
+const ProfileIcon = styled(FontAwesomeIcon)`
+  ${tw`order-last ml-1`}
+`
+
 const Profile = ({ profile }) => (
   <ProfileStyle>
     <PersonalLogo src={Logo} alt="Raimondo Butera personal logo" />
     <ul>
       <li>{profile.name}</li>
       <li>
-        <FontAwesomeIcon className="text-gray-500 mr-1" icon={faEnvelope} />
+        <ProfileIcon className="text-gray-500" icon={faEnvelope} />
         <a target="_blank" href={`mailto://${profile.email}`}>
           {profile.email}
         </a>
@@ -267,19 +272,13 @@ const Profile = ({ profile }) => (
           matches.print && (
             <>
               <li>
-                <FontAwesomeIcon
-                  className="text-gray-500 mr-1"
-                  icon={faGlobe}
-                />
+                <ProfileIcon className="text-gray-500" icon={faGlobe} />
                 <a target="_blank" href={`https://${profile.homepage}`}>
                   {profile.homepage}
                 </a>
               </li>
               <li>
-                <FontAwesomeIcon
-                  className="text-green-300 mr-1"
-                  icon={faPhone}
-                />
+                <ProfileIcon className="text-green-300" icon={faPhone} />
 
                 <a target="_blank" href={`tel:${profile.phone}`}>
                   {profile.phone}
@@ -290,7 +289,7 @@ const Profile = ({ profile }) => (
         }
       </Responsive>
       <li>
-        <FontAwesomeIcon className="text-gray-600 mr-1" icon={faGithub} />
+        <ProfileIcon className="text-gray-600" icon={faGithub} />
         <a target="_blank" href={`https://github.com/${profile.github}`}>
           github.com/{profile.github}
         </a>
@@ -301,10 +300,7 @@ const Profile = ({ profile }) => (
           !matches.print && (
             <>
               <li>
-                <FontAwesomeIcon
-                  className="text-blue-300 mr-1"
-                  icon={faTwitter}
-                />
+                <ProfileIcon className="text-blue-300" icon={faTwitter} />
                 <a
                   target="_blank"
                   href={`https://twitter.com/${profile.twitter}`}
@@ -313,10 +309,7 @@ const Profile = ({ profile }) => (
                 </a>
               </li>
               <li>
-                <FontAwesomeIcon
-                  className="text-gray-900 mr-1"
-                  icon={faMedium}
-                />
+                <ProfileIcon className="text-gray-900" icon={faMedium} />
                 <a
                   target="_blank"
                   href={`https://medium.com/@${profile.medium}`}
