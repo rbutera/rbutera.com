@@ -26,11 +26,7 @@ class VSensor extends Component<VSensorProps, VSensorState> {
       <VisibilitySensor
         active={active}
         onChange={isVisible =>
-          once &&
-          isVisible &&
-          this.setState({ active: false }, () =>
-            console.log("turned the thing off!")
-          )
+          once && isVisible && this.setState({ active: false })
         }
         {...theRest}
       >

@@ -12,7 +12,12 @@ const Revealer = ({ children }) => {
         ) : (
           <VSensor once partialVisibility>
             {({ isVisible }) => (
-              <Spring delay={300} to={{ opacity: isVisible ? 1 : 0 }}>
+              <Spring
+                delay={100}
+                to={{
+                  opacity: isVisible ? 1 : 0.1,
+                }}
+              >
                 {({ opacity }) => <div style={{ opacity }}>{children}</div>}
               </Spring>
             )}
