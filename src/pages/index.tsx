@@ -23,14 +23,15 @@ import Logo from "../images/logo/RBxo-emblem.svg"
 import Img from "gatsby-image"
 import Responsive from "../components/responsive"
 import { navigate } from "@reach/router"
+import Revealer from "../components/revealer"
 
 const Resume = styled.article`
-  ${tw`relative z-0 w-full flex flex-col px-2 text-gray-800`}
+  ${tw`relative z-0 w-full flex flex-col px-2 text-gray-800 pt-12`}
   ${tw`sm:px-4 text-lg`}
-  ${tw`md:p-8`}
-  ${tw`lg:p-12`}
+  ${tw`md:p-8 md:pt-8`}
+  ${tw`lg:p-12 lg:pt-12`}
   ${tw`xl:py-16 xl:px-32`}
-  ${tw`print:px-5 print:py-0 print:my-0 print:max-h-screen`}
+  ${tw`print:px-5 print:py-0 print:pt-2 print:my-0 print:max-h-screen`}
 
   h2, h3 {
     ${tw`text-gray-800 leading-none`}
@@ -237,7 +238,7 @@ const List = ({
   return (
     <ListStyle horizontal={horizontal}>
       {items.map((item: ListEntry) => (
-        <li>
+        <li key={item.entry}>
           {item.entry}{" "}
           {item.heart ? (
             <FontAwesomeIcon icon={faHeart} className="text-sm text-red-400" />
@@ -341,10 +342,12 @@ const Dates = ({ start, end }) => {
 
 const Section = ({ children, title }: { children: any; title: string }) => {
   return (
-    <SectionStyle>
-      <h1>{title}</h1>
-      <SectionContent>{children}</SectionContent>
-    </SectionStyle>
+    <Revealer>
+      <SectionStyle>
+        <h1>{title}</h1>
+        <SectionContent>{children}</SectionContent>
+      </SectionStyle>
+    </Revealer>
   )
 }
 
@@ -479,7 +482,7 @@ const IndexPage = ({ data }) => {
 
         <Section title={bio.title}>
           {bio.data.map(line => (
-            <p>
+            <p key={line}>
               <ReactMarkdown className="print:text-xs">{line}</ReactMarkdown>
             </p>
           ))}
@@ -487,12 +490,12 @@ const IndexPage = ({ data }) => {
 
         <Section title={skills.title}>
           <Columns>
-            {skills.data.map(skill => (
-              <Column>
+            {skills.data.map((skill, index) => (
+              <Column key={index}>
                 <h2>{skill.category}</h2>
                 <ul>
                   {skill.related.map(item => (
-                    <li>{item}</li>
+                    <li key={item}>{item}</li>
                   ))}
                 </ul>
               </Column>
@@ -503,7 +506,7 @@ const IndexPage = ({ data }) => {
           <Columns>
             {[languages, libraries, technologies].map(({ title, data }) => {
               return (
-                <Column>
+                <Column key={title}>
                   <h2>{title}</h2>
                   <List items={data} />
                 </Column>
@@ -517,11 +520,11 @@ const IndexPage = ({ data }) => {
         <Section title={education.title}>
           <Columns columns={4}>
             {education.data.map(educationLevel => (
-              <Column size="compact">
+              <Column key={educationLevel.heading} size="compact">
                 <Dates start={educationLevel.start} end={educationLevel.end} />
                 <h3>{educationLevel.heading}</h3>
                 {educationLevel.detail.map(line => (
-                  <p>{line}</p>
+                  <p key={line}>{line}</p>
                 ))}
               </Column>
             ))}
@@ -531,11 +534,11 @@ const IndexPage = ({ data }) => {
         <Section title={experience.title}>
           <Columns>
             {sortedExperience.map(item => (
-              <Column size="compact">
+              <Column key={item.company} size="compact">
                 <Dates start={item.start} end={item.end} />
                 <h3 className="mb-1">{item.company}</h3>
                 {item.roles.map(line => (
-                  <p>{line}</p>
+                  <p key={line}>{line}</p>
                 ))}
               </Column>
             ))}
