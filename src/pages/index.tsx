@@ -30,11 +30,11 @@ const Resume = styled.article`
   ${tw`md:p-8`}
   ${tw`lg:p-12`}
   ${tw`xl:py-16 xl:px-32`}
-  ${tw`print:px-5`}
+  ${tw`print:px-5 print:py-0 print:my-0 print:max-h-screen`}
 
   h2, h3 {
     ${tw`text-gray-800 leading-none`}
-    ${tw`print:text-gray-700`}
+    ${tw`print:text-gray-400`}
     ${tw`md:text-gray-700`}
   }
 
@@ -44,14 +44,13 @@ const Resume = styled.article`
     ${tw`text-base leading-none`};
     ${tw`md:text-sm leading-snug`};
     ${tw`print:text-xs print:leading-none`};
-    ${tw``}
   }
 `
 const Header = styled.header`
   ${tw`w-full flex flex-col items-center justify-between mt-1 mb-2`}
   ${tw`md:flex-row md:items-end md:mb-6`}
   ${tw`lg:mb-8`}
-  ${tw`print:flex-row print:items-end print:mb-8`}
+  ${tw`print:flex-row print:items-end print:mb-7`}
 `
 
 const Greeting = styled.section`
@@ -184,33 +183,35 @@ const Column = styled.div`
 const SectionStyle = styled.section`
   ${tw`flex flex-col mb-20`}
   ${tw`md:flex-row md:mb-8`}
-  ${tw`print:flex-row mb-4`}
+  ${tw`print:flex-row print:mb-4`}
+
+  &:last-of-type {
+    ${tw`print:mb-0`}
+  }
 
   & > h1 {
-    ${tw`flex-none mt-3 mb-6 mx-3 leading-none tracking-tight text-left text-3xl w-full text-gray-800`}
+    ${tw`flex-none mt-3 mb-6 mx-3 tracking-tight text-left text-3xl w-full text-gray-00`}
     ${tw`md:mt-0 md:mb-0 md:mx-0 md:w-24 md:text-left md:text-right md:text-xl md:text-gray-500`}
     ${tw`lg:w-40 lg:text-2xl`}
-    ${tw`print:mt-0 print:mb-0 print:mx-0 print:w-16 print:text-right print:text-xs print:uppercase print:tracking-wide`}
+    ${tw`print:mt-0 print:mb-0 print:mx-0 print:w-16 print:text-right print:text-xs print:uppercase print:tracking-wide print:text-gray-300`}
   }
 `
 
 const SectionContent = styled.div`
-  ${tw`flex-auto px-4`}
+  ${tw`flex-auto px-4 leading-none py-0 my-0`}
+  ${tw`lg:pt-2`}
 
   & > p {
     ${tw`text-base mb-4 leading-tight`}
     ${tw`md:mb-2`}
     ${tw`print:text-sm print:mb-1`}
-    &:first-child {
-      ${tw`relative bottom-1`}
-    }
   }
 `
 
 const ListStyle = styled.ul`
   ${tw`leading-none`}
   > li {
-    ${tw`leading-snug`}
+    ${tw`leading-snug print:leading-none`}
     @media screen and (min-width: 768px) {
       ${({ horizontal }: { horizontal?: boolean }) => {
         return horizontal ? tw`inline-block mr-12 mb-1 text-gray-400` : ""
@@ -332,7 +333,7 @@ const Profile = ({ profile }) => (
 
 const Dates = ({ start, end }) => {
   return (
-    <span className="text-sm uppercase leading-none tracking-wide font-bold text-gray-500 print:text-xs">
+    <span className="text-sm uppercase leading-none tracking-wide font-bold text-gray-500 print:text-xs print:text-gray-300">
       {start} - {end}
     </span>
   )
@@ -520,7 +521,7 @@ const IndexPage = ({ data }) => {
                 <Dates start={educationLevel.start} end={educationLevel.end} />
                 <h3>{educationLevel.heading}</h3>
                 {educationLevel.detail.map(line => (
-                  <p className="text-gray-800">{line}</p>
+                  <p>{line}</p>
                 ))}
               </Column>
             ))}
@@ -534,7 +535,7 @@ const IndexPage = ({ data }) => {
                 <Dates start={item.start} end={item.end} />
                 <h3 className="mb-1">{item.company}</h3>
                 {item.roles.map(line => (
-                  <p className="leading-none mb-1 text-gray-800">{line}</p>
+                  <p>{line}</p>
                 ))}
               </Column>
             ))}
