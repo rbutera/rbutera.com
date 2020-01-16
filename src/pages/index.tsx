@@ -190,7 +190,7 @@ const SectionStyle = styled.section`
     ${tw`flex-none mt-3 mb-6 mx-3 leading-none tracking-tight text-left text-3xl w-full text-gray-800`}
     ${tw`md:mt-0 md:mb-0 md:mx-0 md:w-24 md:text-left md:text-right md:text-xl md:text-gray-500`}
     ${tw`lg:w-40 lg:text-2xl`}
-    ${tw`print:mt-0 print:mb-0 print:mx-0 print:w-16 print:text-right print:text-xs print:uppercase print:tracking-wide`}
+    ${tw`print:mt-0 print:mb-0 print:mx-0 print:w-16 print:text-right print:text-xs print:uppercase print:tracking-wide print:text-gray-500`}
   }
 `
 
