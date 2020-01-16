@@ -7,7 +7,17 @@ const Revealer = ({ children }) => {
   return (
     <Responsive>
       {matches =>
-        matches && !matches.print ? <>Not Print: {children}</> : <>{children}</>
+        matches && matches.print ? (
+          <>{children}</>
+        ) : (
+          <VisibilitySensor>
+            {({ isVisible }) => (
+              <Spring delay={300} to={{ opacity: isVisible ? 1 : 0 }}>
+                {({ opacity }) => <div style={{ opacity }}>{children}</div>}
+              </Spring>
+            )}
+          </VisibilitySensor>
+        )
       }
     </Responsive>
   )
