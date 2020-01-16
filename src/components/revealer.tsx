@@ -1,6 +1,6 @@
 import React from "react"
 import { Spring } from "react-spring/renderprops"
-import VisibilitySensor from "react-visibility-sensor"
+import VSensor from "./VSensor"
 import Responsive from "./responsive"
 
 const Revealer = ({ children }) => {
@@ -10,13 +10,13 @@ const Revealer = ({ children }) => {
         matches && matches.print ? (
           <>{children}</>
         ) : (
-          <VisibilitySensor>
+          <VSensor once partialVisibility>
             {({ isVisible }) => (
               <Spring delay={300} to={{ opacity: isVisible ? 1 : 0 }}>
                 {({ opacity }) => <div style={{ opacity }}>{children}</div>}
               </Spring>
             )}
-          </VisibilitySensor>
+          </VSensor>
         )
       }
     </Responsive>
