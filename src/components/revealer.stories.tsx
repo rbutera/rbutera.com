@@ -25,7 +25,7 @@ export default {
 export const normal = () => (
   <>
     <MultipleSections>
-      <Revealer>Reveal this on scroll</Revealer>
+      <Revealer>Revealx this on scroll</Revealer>
     </MultipleSections>
   </>
 )
