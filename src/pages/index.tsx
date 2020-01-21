@@ -15,7 +15,7 @@ import {
   faMedium,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import ReactMarkdown from "react-markdown"
 import { sortBy, prop } from "rambda"
 import resumeData from "../data/resume.json"
@@ -51,7 +51,7 @@ const Header = styled.header`
   ${tw`w-full flex flex-col items-center justify-between mt-1 mb-2`}
   ${tw`md:flex-row md:items-end md:mb-6`}
   ${tw`lg:mb-8`}
-  ${tw`print:flex-row print:items-end print:mb-7`}
+  ${tw`print:flex-row print:items-end print:mb-10`}
 `
 
 const Greeting = styled.section`
@@ -107,7 +107,7 @@ const ProfileStyle = styled.aside`
       ${tw`print:text-sm`};
     }
     ${tw`flex flex-row items-center text-sm text-gray-500 leading-snug`};
-    ${tw`print:text-xs print:text-gray-600 print:leading-none`};
+    ${tw`print:text-xs print:text-gray-400 print:leading-none`};
     a {
       ${tw`order-first`}
       ${tw`hover:text-blue-800`}
@@ -242,7 +242,10 @@ const List = ({
         <li key={item.entry}>
           {item.entry}{" "}
           {item.heart ? (
-            <FontAwesomeIcon icon={faHeart} className="text-sm text-red-400" />
+            <FontAwesomeIcon
+              icon={faHeart}
+              className="text-sm text-red-400 print:text-xs"
+            />
           ) : (
             ""
           )}
