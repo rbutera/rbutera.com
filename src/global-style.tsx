@@ -14,6 +14,7 @@ export default createGlobalStyle`
   }
   body {
     ${tw`font-sans text-gray-900 flex flex-col items-center justify-center h-full max-w-screen overflow-x-hidden`};
+    
     ${tw`print:p-12`}
     font-family: 'aktiv-grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     -webkit-text-size-adjust: 100%;
