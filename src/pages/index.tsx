@@ -22,6 +22,7 @@ import resumeData from "../data/resume.json"
 import Logo from "../images/logo/RBxo-emblem.svg"
 import Img from "gatsby-image"
 import Responsive from "../components/responsive"
+import Bubble from "../components/bubble"
 import { navigate } from "@reach/router"
 import Revealer from "../components/revealer"
 
@@ -328,6 +329,20 @@ const Profile = ({ profile }) => (
   </ProfileStyle>
 )
 
+const CaptionContent = () => (
+  <>
+    <p>Hi, I'm Rai,</p>
+    <p>
+      and I{" "}
+      <FontAwesomeIcon
+        className="inline-block mx-1 text-red-400 text-xl"
+        icon={faHeart}
+      />{" "}
+      innovation.
+    </p>
+  </>
+)
+
 const Dates = ({ start, end }) => {
   return (
     <span className="text-sm uppercase leading-none tracking-wide font-bold text-gray-500 print:text-xs print:text-gray-300">
@@ -415,6 +430,10 @@ const MobileNavigation = ({ profile }) => {
   )
 }
 
+const StyledBubble = styled(Bubble)`
+  ${tw`mt-3`}
+`
+
 const IndexPage = ({ data }) => {
   const {
     profile,
@@ -446,15 +465,18 @@ const IndexPage = ({ data }) => {
             </Portrait>
 
             <Caption>
-              <p>Hi, I'm Rai,</p>
-              <p>
-                and I{" "}
-                <FontAwesomeIcon
-                  className="inline-block mx-1 text-red-400 text-xl"
-                  icon={faHeart}
-                />{" "}
-                innovation.
-              </p>
+              <Responsive>
+                {matches =>
+                  matches.print ||
+                  (!matches.md && !matches.lg && !matches.xl) ? (
+                    <CaptionContent />
+                  ) : (
+                    <StyledBubble>
+                      <CaptionContent />
+                    </StyledBubble>
+                  )
+                }
+              </Responsive>
             </Caption>
           </Greeting>
           <Responsive>
