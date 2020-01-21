@@ -107,7 +107,7 @@ const ProfileStyle = styled.aside`
       ${tw`md:mb-2`};
       ${tw`print:text-sm`};
     }
-    ${tw`flex flex-row items-center text-sm text-gray-500 leading-snug`};
+    ${tw`flex flex-row items-center text-sm text-gray-600 leading-snug`};
     ${tw`print:text-xs print:text-gray-400 print:leading-none`};
     a {
       ${tw`order-first`}
@@ -193,8 +193,8 @@ const SectionStyle = styled.section`
   }
 
   & > h1 {
-    ${tw`flex-none mt-3 mb-6 mx-3 tracking-tight text-left text-3xl w-full text-gray-00`}
-    ${tw`md:mt-0 md:mb-0 md:mx-0 md:w-24 md:text-left md:text-right md:text-xl md:text-gray-500`}
+    ${tw`flex-none mt-3 mb-6 mx-3 tracking-tight text-left text-3xl w-full`}
+    ${tw`md:mt-0 md:mb-0 md:mx-0 md:w-24 md:text-left md:text-right md:text-xl`}
     ${tw`lg:w-40 lg:text-2xl`}
     ${tw`print:mt-0 print:mb-0 print:mx-0 print:w-16 print:text-right print:text-xs print:uppercase print:tracking-wide print:text-gray-300`}
   }
@@ -351,11 +351,20 @@ const Dates = ({ start, end }) => {
   )
 }
 
-const Section = ({ children, title }: { children: any; title: string }) => {
+const Section = ({
+  children,
+  title,
+  color = "text-gray-500",
+}: {
+  children: any
+  title: string
+  color: string
+}) => {
+  const headerClass = `text-gray-500 print:text-gray-300`
   return (
     <Revealer>
-      <SectionStyle>
-        <h1>{title}</h1>
+      <SectionStyle color={color}>
+        <h1 className={headerClass}>{title}</h1>
         <SectionContent>{children}</SectionContent>
       </SectionStyle>
     </Revealer>
@@ -434,6 +443,16 @@ const StyledBubble = styled(Bubble)`
   ${tw`mt-3`}
 `
 
+const sectionColors = [
+  "#718096",
+  "#3182CE",
+  "#48BB78",
+  "#ECC94B",
+  "#ED8936",
+  "#B794F4",
+  "#E53E3E",
+]
+
 const IndexPage = ({ data }) => {
   const {
     profile,
@@ -498,7 +517,7 @@ const IndexPage = ({ data }) => {
           }
         </Responsive>
 
-        <Section title={bio.title}>
+        <Section color={sectionColors[0]} title={bio.title}>
           {bio.data.map(line => (
             <p key={line}>
               <ReactMarkdown className="print:text-xs">{line}</ReactMarkdown>
@@ -506,7 +525,7 @@ const IndexPage = ({ data }) => {
           ))}
         </Section>
 
-        <Section title={skills.title}>
+        <Section color={sectionColors[1]} title={skills.title}>
           <Columns>
             {skills.data.map((skill, index) => (
               <Column key={index}>
@@ -520,7 +539,7 @@ const IndexPage = ({ data }) => {
             ))}
           </Columns>
         </Section>
-        <Section title="Expertise">
+        <Section color={sectionColors[2]} title="Expertise">
           <Columns>
             {[languages, libraries, technologies].map(({ title, data }) => {
               return (
@@ -532,10 +551,10 @@ const IndexPage = ({ data }) => {
             })}
           </Columns>
         </Section>
-        <Section title={tools.title}>
+        <Section color={sectionColors[3]} title={tools.title}>
           <List horizontal items={tools.data} />
         </Section>
-        <Section title={education.title}>
+        <Section color={sectionColors[4]} title={education.title}>
           <Columns columns={4}>
             {education.data.map(educationLevel => (
               <Column key={educationLevel.heading} size="compact">
@@ -549,7 +568,7 @@ const IndexPage = ({ data }) => {
           </Columns>
         </Section>
 
-        <Section title={experience.title}>
+        <Section color={sectionColors[5]} title={experience.title}>
           <Columns>
             {sortedExperience.map(item => (
               <Column key={item.company} size="compact">
@@ -562,7 +581,7 @@ const IndexPage = ({ data }) => {
             ))}
           </Columns>
         </Section>
-        <Section title={passions.title}>
+        <Section color={sectionColors[6]} title={passions.title}>
           <List horizontal items={passions.data} />
         </Section>
       </Resume>

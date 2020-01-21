@@ -3,8 +3,8 @@ import tw from "tailwind.macro"
 import styled from "styled-components"
 
 const Bubble = styled.div`
-  ${tw`relative bg-blue-500 rounded-lg text-white print:text-gray-800 tracking-wide print:bg-white print:p-0 p-2 w-full mx-2 print:m-0`}
-  ${tw`lg:p-4`}
+  ${tw`relative bg-blue-500 rounded-lg text-white print:text-gray-800 tracking-wide print:bg-white print:p-0 p-3 w-full mx-2 print:m-0`}
+  ${tw`lg:p-5`}
   ${tw`leading-none`}
   ${tw`text-lg`}
 
