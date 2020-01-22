@@ -69,7 +69,8 @@
       { "entry": "Java" },
       { "entry": "Haskell" },
       { "entry": "Ruby" },
-      { "entry": "CSS / Sass / PostCSS" }
+      { "entry": "CSS / Sass / PostCSS" },
+      { "entry": "PHP" }
     ]
   },
   "libraries": {

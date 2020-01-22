@@ -245,7 +245,7 @@ const List = ({
           {item.heart ? (
             <FontAwesomeIcon
               icon={faHeart}
-              className="text-sm text-red-400 print:text-xs"
+              className="text-sm text-red-400 print:text-xs print:hidden"
             />
           ) : (
             ""
@@ -335,7 +335,7 @@ const CaptionContent = () => (
     <p>
       and I{" "}
       <FontAwesomeIcon
-        className="inline-block mx-1 text-red-400 text-xl"
+        className="inline-block mx-1 text-red-400 text-xl print:text-md"
         icon={faHeart}
       />{" "}
       innovation.
