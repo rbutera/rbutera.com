@@ -108,7 +108,7 @@ const ProfileStyle = styled.aside`
       ${tw`print:text-sm`};
     }
     ${tw`flex flex-row items-center text-sm text-gray-600 leading-snug`};
-    ${tw`print:text-xs print:text-gray-400 print:leading-none`};
+    ${tw`print:text-xs print:text-gray-500 print:leading-none`};
     a {
       ${tw`order-first`}
       ${tw`hover:text-blue-800`}
@@ -196,7 +196,7 @@ const SectionStyle = styled.section`
     ${tw`flex-none mt-3 mb-6 mx-3 tracking-tight text-left text-3xl w-full`}
     ${tw`md:mt-0 md:mb-0 md:mx-0 md:w-24 md:text-left md:text-right md:text-xl`}
     ${tw`lg:w-40 lg:text-2xl`}
-    ${tw`print:mt-0 print:mb-0 print:mx-0 print:w-16 print:text-right print:text-xs print:uppercase print:tracking-wide print:text-gray-300`}
+    ${tw`print:mt-0 print:mb-0 print:mx-0 print:w-16 print:text-right print:text-xs print:uppercase print:tracking-wide print:text-gray-400`}
   }
 `
 
