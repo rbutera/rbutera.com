@@ -36,7 +36,7 @@ const Resume = styled.article`
 
   h2, h3 {
     ${tw`text-gray-800 leading-none`}
-    ${tw`print:text-gray-400`}
+    ${tw`print:text-gray-600`}
     ${tw`md:text-gray-700`}
   }
 
