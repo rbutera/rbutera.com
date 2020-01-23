@@ -64,7 +64,7 @@
   "languages": {
     "title": "Languages",
     "data": [
-      { "entry": "JavaScript / TypeScript", "heart": true },
+      { "entry": "JavaScript / TypeScript", "star": true },
       { "entry": "C" },
       { "entry": "Java" },
       { "entry": "Haskell" },
@@ -76,13 +76,13 @@
   "libraries": {
     "title": "Libraries + Frameworks",
     "data": [
-      { "entry": "React", "heart": true },
-      { "entry": "RxJS", "heart": true },
-      { "entry": "Redux", "heart": true },
+      { "entry": "React", "star": true },
+      { "entry": "RxJS", "star": true },
+      { "entry": "Redux", "star": true },
       { "entry": "Ramda" },
       { "entry": "Vue" },
       { "entry": "Angular" },
-      { "entry": "Tailwind", "heart": true },
+      { "entry": "Tailwind", "star": true },
       { "entry": "Bootstrap / Bulma" }
     ]
   },
@@ -187,13 +187,13 @@
   "passions": {
     "title": "Passions",
     "data": [
-      { "entry": "The Web", "heart": true },
-      { "entry": "Design Trends", "heart": true },
+      { "entry": "The Web", "star": true },
+      { "entry": "Design Trends", "star": true },
       { "entry": "Livestreaming" },
       { "entry": "Content Creation" },
-      { "entry": "Entrepreneurship and Startups", "heart": true },
+      { "entry": "Entrepreneurship and Startups", "star": true },
       { "entry": "Blockchain and Cryptocurrencies" },
-      { "entry": "Dance", "heart": true },
+      { "entry": "Dance", "star": true },
       { "entry": "Amateur Boxing" },
       { "entry": "Fitness and Nutrition" },
       { "entry": "eSports" }
