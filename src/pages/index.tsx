@@ -9,6 +9,7 @@ import {
   faEnvelope,
   faPhone,
   faGlobe,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons"
 import {
   faGithub,
@@ -228,7 +229,7 @@ const ListStyle = styled.ul`
   }
 `
 
-type ListEntry = { entry: string; heart?: boolean }
+type ListEntry = { entry: string; star?: boolean }
 
 const List = ({
   items,
@@ -242,10 +243,10 @@ const List = ({
       {items.map((item: ListEntry) => (
         <li key={item.entry}>
           {item.entry}{" "}
-          {item.heart ? (
+          {item.star ? (
             <FontAwesomeIcon
-              icon={faHeart}
-              className="text-sm text-red-400 print:text-xs print:hidden"
+              icon={faStar}
+              className="text-sm text-orange-300 print:text-xs"
             />
           ) : (
             ""
