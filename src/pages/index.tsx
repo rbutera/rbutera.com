@@ -57,7 +57,7 @@ const Header = styled.header`
 `
 
 const Greeting = styled.section`
-  ${tw`order-last flex flex-col relative items-center max-w-screen overflow-hidden w-full mt-8`}
+  ${tw`order-last flex flex-col relative items-center overflow-hidden w-full mt-8`}
   ${tw`md:order-first md:flex-row md:mb-4 md:items-end md:my-0`}
   ${tw`print:order-first print:flex-row print:mb-4 print:items-end print:my-0`}
 `
