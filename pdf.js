@@ -9,7 +9,7 @@ async function createPDF() {
   console.log(`building ${outputPath}`)
   // await page.goto("https://localhost:8000", { waitUntil: "networkidle2" })
   // const url = "file://" + process.cwd() + "/" + ".bashrc"
-  await page.goto("http://localhost:9000", { waitUntil: "networkidle2" })
+  await page.goto("http://localhost:8000", { waitUntil: "networkidle2" })
   await page.pdf({ path: outputPath, format: "A4", preferCSSPageSize: true })
   await browser.close()
   console.log("resume.pdf creation complete")
