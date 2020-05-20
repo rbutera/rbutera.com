@@ -9,7 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import tw from "tailwind.macro"
+import tw from "twin.macro"
 import GlobalStyle from "../global-style.tsx"
 
 import Header from "./header"
