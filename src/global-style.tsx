@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components"
-import tw from "tailwind.macro"
+import tw from "twin.macro"
 
 import "./tailwind.css"
 import "./fonts.css"
@@ -11,6 +11,7 @@ export default createGlobalStyle`
   }
   html { 
       margin: 0mm;  /* this affects the margin on the html before sending to printer */
+      overflow-x: hidden;
   }
   body {
     ${tw`font-sans text-gray-900 flex flex-col items-center justify-center h-full max-w-screen overflow-x-hidden`};

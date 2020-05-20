@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import tw from "tailwind.macro"
+import tw from "twin.macro"
 
 const Text = styled.h1`
   ${tw`inline-block w-auto rounded bg-red-600 text-white p-4 tracking-tight select-none`};

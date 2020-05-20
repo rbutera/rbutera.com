@@ -2,7 +2,7 @@ import React from "react"
 import Bubble from "./bubble"
 import { withKnobs, text } from "@storybook/addon-knobs"
 import styled from "styled-components"
-import tw from "tailwind.macro"
+import tw from "twin.macro"
 
 export default {
   title: "Bubble",

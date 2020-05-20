@@ -82,7 +82,7 @@
       { "entry": "Ramda" },
       { "entry": "Vue" },
       { "entry": "Angular" },
-      { "entry": "Tailwind", "star": true },
+      { "entry": "TailwindCSS", "star": true },
       { "entry": "Bootstrap / Bulma" }
     ]
   },
@@ -91,11 +91,10 @@
     "data": [
       { "entry": "JAMStack" },
       { "entry": "Node.js" },
-      { "entry": "Webpack" },
       { "entry": "Babel" },
-      { "entry": "Git + Git Flow" },
+      { "entry": "NestJS" },
+      { "entry": "PostgreSQL" },
       { "entry": "MongoDB" },
-      { "entry": "Websockets" },
       { "entry": "GatsbyJS" },
       { "entry": "Express" }
     ]
@@ -171,10 +170,10 @@
         "roles": ["Front-End Developer"]
       },
       {
-        "start": "2019",
+        "start": "2020",
         "end": "now",
-        "company": "Codecamp",
-        "roles": ["Teacher (Web Development)"]
+        "company": "LexStep.com",
+        "roles": ["Technical Lead"]
       },
       {
         "start": "2019",

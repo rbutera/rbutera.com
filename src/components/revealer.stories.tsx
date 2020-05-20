@@ -1,6 +1,6 @@
 import React from "react"
 import Revealer from "./revealer"
-import tw from "tailwind.macro"
+import tw from "twin.macro"
 import styled from "styled-components"
 
 const Section = styled.section`
