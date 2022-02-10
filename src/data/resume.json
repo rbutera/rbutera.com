@@ -1,25 +1,196 @@
 {
-  "profile": {
-    "name": "Raimondo Butera",
-    "homepage": "rbutera.com",
-    "phone": "+447780688428",
-    "email": "rai@rbutera.com",
-    "github": "rbutera",
-    "medium": "rbutera",
-    "twitter": "rai_butera"
-  },
   "bio": {
-    "title": "Bio",
     "data": [
       "I have been designing and developing websites since 2001… but for many years it was always a hobby, a side-hustle, a ‘distraction’.",
-      "I founded **_Cloakroom_** (a nightlife SPA + iOS app) in 2013 after I decided to stop fighting and start embracing that distraction.",
+      "I founded **_Cloakroom_** (a nightlife SPA + iOS app) in 2013 after I decided to stop fighting and start embracing that ‘distraction‘.",
       "I’ve been hooked on _JavaScript_ and building the next generation of the web ever since.",
-      "In 2016 I decided to go back to university to get a formal qualification… but due to medical reasons in 2018 I ultimately decided to suspend my studies indefinitely.",
-      "I've since recovered and now I'm in control. That means I’m available to channel my energy into creativity and problem solving again, and I'm truly excited to help build magical experiences and create value for innovative startups."
-    ]
+      "The JavaScript/TypeScript and Crypto / Web 3 ecosystems are exciting and constantly evolving, and I love staying on top of trends and leveraging the constant innovation in the space.",
+      "I think that it is important to 'stand on the shoulders of giants' and build upon the learnings of others. Outsource the non-essential, but build efficient and elegant solutions to the core."
+    ],
+    "title": "Bio"
+  },
+  "education": {
+    "data": [
+      {
+        "detail": ["GCSEs: 6A*7A"],
+        "end": 2007,
+        "heading": "Queen Elizabeth's Boys School",
+        "start": 2002
+      },
+      {
+        "detail": ["A-Levels: AAAa"],
+        "end": 2009,
+        "heading": "Mill Hill School",
+        "start": 2007
+      },
+      {
+        "detail": ["Law"],
+        "end": 2013,
+        "heading": "University of Oxford",
+        "start": 2010
+      },
+      {
+        "detail": ["Computer Science & Innovation"],
+        "end": 2018,
+        "heading": "University of Bristol",
+        "start": 2016
+      }
+    ],
+    "title": "Education"
+  },
+  "experience": {
+    "data": [
+      {
+        "company": "Cloakroom Ltd",
+        "end": "2015",
+        "roles": ["Founder/CEO"],
+        "start": "2013"
+      },
+      {
+        "company": "Freelance",
+        "end": "now",
+        "roles": ["Full-Stack Designer/Developer"],
+        "start": "2001"
+      },
+      {
+        "company": "Twitch.tv",
+        "end": "2016",
+        "roles": ["Affiliate Broadcaster"],
+        "start": "2015"
+      },
+      {
+        "company": "True AI Ltd",
+        "end": "2018",
+        "roles": ["Front-End Lead"],
+        "start": "2018"
+      },
+      {
+        "company": "LexStep.com",
+        "end": "now",
+        "roles": ["Technical Lead"],
+        "start": "2020"
+      },
+      {
+        "company": "RSTLSS.org",
+        "end": "2021",
+        "roles": ["Director", "Project Manager"],
+        "start": "2019"
+      }
+    ],
+    "title": "Experience"
+  },
+  "languages": {
+    "data": [
+      {
+        "entry": "JavaScript / TypeScript",
+        "star": true
+      },
+      {
+        "entry": "C"
+      },
+      {
+        "entry": "Java"
+      },
+      {
+        "entry": "Haskell"
+      },
+      {
+        "entry": "Ruby"
+      },
+      {
+        "entry": "CSS / Sass / PostCSS"
+      },
+      {
+        "entry": "PHP"
+      }
+    ],
+    "title": "Languages"
+  },
+  "libraries": {
+    "data": [
+      {
+        "entry": "React",
+        "star": true
+      },
+      {
+        "entry": "RxJS",
+        "star": true
+      },
+      {
+        "entry": "Redux",
+        "star": true
+      },
+      {
+        "entry": "Ramda"
+      },
+      {
+        "entry": "NestJS"
+      },
+      {
+        "entry": "Vue"
+      },
+      {
+        "entry": "Angular"
+      },
+      {
+        "entry": "TailwindCSS",
+        "star": true
+      },
+      {
+        "entry": "Bootstrap / Bulma"
+      }
+    ],
+    "title": "Libraries + Frameworks"
+  },
+  "passions": {
+    "data": [
+      {
+        "entry": "The Web",
+        "star": true
+      },
+      {
+        "entry": "Design Trends",
+        "star": true
+      },
+      {
+        "entry": "Livestreaming"
+      },
+      {
+        "entry": "Entrepreneurship and Startups",
+        "star": true
+      },
+      {
+        "entry": "Blockchain, Cryptocurrencies, Web 3"
+      },
+      {
+        "entry": "Content Creation"
+      },
+      {
+        "entry": "Dance",
+        "star": true
+      },
+      {
+        "entry": "Amateur Boxing"
+      },
+      {
+        "entry": "Fitness and Nutrition"
+      },
+      {
+        "entry": "eSports"
+      }
+    ],
+    "title": "Passions"
+  },
+  "profile": {
+    "name": "Raimondo Butera",
+    "email": "rai@rbutera.com",
+    "github": "rbutera",
+    "homepage": "rbutera.com",
+    "medium": "rbutera",
+    "phone": "+447780688428",
+    "twitter": "rai_butera"
   },
   "skills": {
-    "title": "Skills",
     "data": [
       {
         "category": "Web/App Development",
@@ -51,6 +222,7 @@
         "category": "Innovation",
         "related": [
           "Lean/Agile",
+          "Project Management",
           "Customer Development",
           "Business Modeling",
           "Task Management / GTD",
@@ -59,143 +231,62 @@
           "A/B Testing"
         ]
       }
-    ]
-  },
-  "languages": {
-    "title": "Languages",
-    "data": [
-      { "entry": "JavaScript / TypeScript", "star": true },
-      { "entry": "C" },
-      { "entry": "Java" },
-      { "entry": "Haskell" },
-      { "entry": "Ruby" },
-      { "entry": "CSS / Sass / PostCSS" },
-      { "entry": "PHP" }
-    ]
-  },
-  "libraries": {
-    "title": "Libraries + Frameworks",
-    "data": [
-      { "entry": "React", "star": true },
-      { "entry": "RxJS", "star": true },
-      { "entry": "Redux", "star": true },
-      { "entry": "Ramda" },
-      { "entry": "Vue" },
-      { "entry": "Angular" },
-      { "entry": "TailwindCSS", "star": true },
-      { "entry": "Bootstrap / Bulma" }
-    ]
+    ],
+    "title": "Skills"
   },
   "technologies": {
-    "title": "Tools/Systems/Stacks",
     "data": [
-      { "entry": "JAMStack" },
-      { "entry": "Node.js" },
-      { "entry": "Babel" },
-      { "entry": "NestJS" },
-      { "entry": "PostgreSQL" },
-      { "entry": "MongoDB" },
-      { "entry": "GatsbyJS" },
-      { "entry": "Express" }
-    ]
+      {
+        "entry": "JAMStack"
+      },
+      {
+        "entry": "Node.js"
+      },
+      {
+        "entry": "Babel"
+      },
+      {
+        "entry": "Postgres"
+      },
+      {
+        "entry": "MongoDB"
+      },
+      {
+        "entry": "GatsbyJS"
+      },
+      {
+        "entry": "Express"
+      },
+      {
+        "entry": "Next.js"
+      }
+    ],
+    "title": "Tools/Systems/Stacks"
   },
   "tools": {
-    "title": "Tools",
-    "data": [
-      { "entry": "vscode" },
-      { "entry": "Photoshop" },
-      { "entry": "Illustrator" },
-      { "entry": "Premiere Pro" },
-      { "entry": "XD" },
-      { "entry": "Figma" },
-      { "entry": "Sketch" },
-      { "entry": "Framer X" },
-      { "entry": "OBS" }
-    ]
-  },
-  "education": {
-    "title": "Education",
     "data": [
       {
-        "start": 2002,
-        "end": 2007,
-        "heading": "Queen Elizabeth's Boys School",
-        "detail": ["GCSEs: 6A*7A"]
+        "entry": "vscode"
       },
       {
-        "start": 2007,
-        "end": 2009,
-        "heading": "Mill Hill School",
-        "detail": ["A-Levels: AAAa"]
+        "entry": "vim"
       },
       {
-        "start": 2010,
-        "end": 2013,
-        "heading": "University of Oxford",
-        "detail": ["Law"]
+        "entry": "Photoshop / Illustrator / Premiere Pro"
       },
       {
-        "start": 2016,
-        "end": 2018,
-        "heading": "University of Bristol",
-        "detail": ["Computer Science & Innovation"]
+        "entry": "Cypress (Automated Testing)"
+      },
+      {
+        "entry": "Sketch / Figma / Adobe XD"
+      },
+      {
+        "entry": "Framer X"
+      },
+      {
+        "entry": "OBS"
       }
-    ]
-  },
-  "experience": {
-    "title": "Experience",
-    "data": [
-      {
-        "start": "2013",
-        "end": "2015",
-        "company": "Cloakroom Ltd",
-        "roles": ["Founder/CEO"]
-      },
-      {
-        "start": "2001",
-        "end": "now",
-        "company": "Freelance",
-        "roles": ["Designer/Developer"]
-      },
-      {
-        "start": "2015",
-        "end": "2016",
-        "company": "Twitch.tv",
-        "roles": ["Affiliate Broadcaster"]
-      },
-      {
-        "start": "2018",
-        "end": "2018",
-        "company": "True AI Ltd",
-        "roles": ["Front-End Developer"]
-      },
-      {
-        "start": "2020",
-        "end": "now",
-        "company": "LexStep.com",
-        "roles": ["Technical Lead"]
-      },
-      {
-        "start": "2019",
-        "end": "now",
-        "company": "RSTLSS.org",
-        "roles": ["Director", "Project Manager"]
-      }
-    ]
-  },
-  "passions": {
-    "title": "Passions",
-    "data": [
-      { "entry": "The Web", "star": true },
-      { "entry": "Design Trends", "star": true },
-      { "entry": "Livestreaming" },
-      { "entry": "Content Creation" },
-      { "entry": "Entrepreneurship and Startups", "star": true },
-      { "entry": "Blockchain and Cryptocurrencies" },
-      { "entry": "Dance", "star": true },
-      { "entry": "Amateur Boxing" },
-      { "entry": "Fitness and Nutrition" },
-      { "entry": "eSports" }
-    ]
+    ],
+    "title": "Tools"
   }
 }
