@@ -42,12 +42,12 @@ Do not put raw CV extracts or private contact details in the repository. Choose 
 1. Rai's name, clear positioning, a short introduction, and links to selected work and contact.
 2. Compact evidence strip using specific roles or achievements.
 3. Rennet as a substantial project chapter with actual product imagery.
-4. easyJet and LexStep stories showing delivery and leadership, with Chaching as supporting product work.
+4. A full Chaching feature, followed by easyJet via Focused Labs and LexStep stories showing delivery and leadership.
 5. Concise experience timeline, personal introduction, and direct contact path.
 
 ## Next design milestone
 
-Prepare a desktop/mobile opening and one complete Rennet chapter using real copy and imagery. Compare a faithful Mistral adaptation with two restrained variations in blue/pink balance and typography. Choose the visual direction before building the full site. A short browser motion study should test the opening transition before animation spreads across the page.
+Rai selected the second displayed concept, the pink-led editorial direction in `design/selected-direction.png`, and requested a full Chaching feature above easyJet via Focused Labs. The first implementation now includes both product sections, commercial experience, about, and contact. Build and automated checks pass. Browser verification remains blocked as detailed in `../design-qa.md`.
 
 Visual grounding: an existing Rennet marketing capture is available at /Users/rai/dev/rennet/apps/marketing/public/product/lens-decisions-dark.png. Use it as a reference for the concept, and verify freshness before production publication. Gather the strongest public-safe commercial story next. The user should assess the design with real evidence rather than placeholder case studies.
 
