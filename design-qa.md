@@ -1,31 +1,29 @@
 # Design QA
 
-final result: blocked
+final result: passed
 
-Source visual truth: `docs/design/selected-direction.png`, the second displayed concept. Desktop and mobile compositions share one reference sheet. Rai subsequently requested a full Chaching feature before easyJet via Focused Labs.
+Verified 2026-09-13 after filesystem/network permissions were restored. Scope: local portfolio rendering and interactions; Cloudflare deployment is pending.
 
-Implementation: static Astro page in `src/pages/index.astro`, production output in `dist`. No browser-rendered implementation screenshot is available. The approved content and visual styles were preserved during the migration; native scripts replace React's menu and dialog handlers.
+## Reference and evidence
 
-## Blocker
+Source: `docs/design/selected-direction.png`, the second displayed concept. Its desktop and mobile panels were compared together with implementation captures. The reference is a composition sheet rather than an exact browser viewport. Comparisons therefore use corresponding hero and project regions, not a pixel-perfect whole-sheet overlay.
 
-The production build succeeds, but the local preview server cannot bind `127.0.0.1:4173`: the session returns `listen EPERM`. A self-contained offline HTML preview was then prepared in `/private/tmp/rbutera-portfolio-preview.html`; the in-app browser rejected its file URL under its URL policy. No bypass was attempted.
+Production screenshots: `docs/design/qa/desktop.png` (1280 × 720) and `docs/design/qa/mobile.png` (390 × 844), both at device pixel ratio 1. Captured from the built Astro output at http://127.0.0.1:4174. Full-page development captures were also inspected, but scroll-linked reveals make offscreen content dim in those captures; viewport captures are the retained visual evidence.
 
-Rechecked after the Astro migration: `pnpm dev --host 127.0.0.1 --port 4173` exited before becoming ready. No running preview process remains. A clean frozen-lockfile offline installation and build/tests passed in `/private/tmp/rbutera-astro-clean.UPr4mk`, and the main checkout also passed under Node 24.20.0, matching CI's Node major. These verify static output, not browser rendering or interactions.
+The oversized name, ruled navigation, dark ground, split desktop hero, stacked mobile hero, and pink/blue artwork follow the selected composition. Implementation typography is lighter than the concept and the mobile CTAs share a row at 390px; these are minor fidelity differences, not clipping or readability defects. Product screenshots are uncropped and open in native dialogs. Chaching has a full feature before easyJet via Focused Labs, as requested after concept selection.
 
-Viewport, implementation pixel dimensions, device density, matched-state screenshots, full-view comparisons, and focused visual comparisons are unavailable. Browser interaction and console checks remain unverified. This is not a visual pass.
+## Browser checks
 
-## Required visual checks
+- No horizontal overflow at 1280px, 390px, or 320px; images loaded without broken assets.
+- Mobile menu opens, closes on navigation, and closes on Escape with focus restored to its button.
+- Rennet dialog opens and Escape closes it, restoring focus to its trigger. Chaching dashboard and receipt dialogs open and close through their visible controls, including at 320px.
+- Internal navigation changes the expected fragment; the Chaching heading remains below the sticky header and fully opaque after scrolling.
+- Product, GitHub, and email hrefs point to the intended destinations. No email was sent.
+- Production browser console contained no logged errors.
+- Scroll motion works in the checked browser. The reduced-motion CSS override disables animation, transitions, and smooth scrolling; OS preference emulation was not available, so that setting was verified in source only.
 
-- Typography: compare headline weight, wrapping, and tracking with the selected reference at desktop and 390px mobile.
-- Layout: check the split hero, project spacing, navigation at narrow widths, and absence of horizontal overflow at 320px.
-- Color: confirm pink/blue balance and text contrast in the actual renderer.
-- Imagery: confirm generated hero crop, screenshot legibility, mobile image cropping, and image dialog sizing.
-- Copy: confirm approved work order and verify personal positioning with Rai. Commercial claims are CV-derived. Product captures are existing marketing assets, not fresh live captures.
+No P0/P1/P2 visual or interaction defects observed in this scope. Cross-browser and physical-device testing remain outside these checks.
 
-## Interaction checks still required
+## Build verification
 
-Open/close mobile navigation, Escape and focus restoration, internal anchors below the sticky header, screenshot dialogs by keyboard and pointer, email link, product links, scroll-linked motion, and reduced-motion behavior.
-
-## Comparison history
-
-No visual comparison was possible. No P0/P1/P2 finding is claimed resolved through screenshots. Run the local server in a session that permits it, capture desktop and mobile, compare against the source sheet, then fix visible issues before setting this report to passed.
+`pnpm test` passed both static-output checks. GitHub Actions run 34751104037 independently passed frozen-lockfile installation, build, tests, and artifact upload under Node 24. Deployment was deliberately skipped until Cloudflare credentials are configured.
