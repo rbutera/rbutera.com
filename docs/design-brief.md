@@ -6,7 +6,7 @@ Updated 2026-09-13.
 
 The 2026 refresh of Rai Butera's online CV and portfolio. Help a visitor understand Rai's engineering judgment, inspect evidence of his work, and make contact.
 
-Working assumption pending Rai's answer: senior and lead engineering hiring teams are the primary audience. Consulting clients and product collaborators are secondary.
+Senior and lead engineering hiring teams are the primary audience, accepted by Rai on 2026-09-13. Consulting clients and product collaborators are secondary.
 
 Draft positioning: senior engineer and former tech lead building products and tools that make complex software work easier to ship and review. Agent-driven development is a distinctive thread, supported by broader commercial delivery experience.
 
@@ -49,7 +49,7 @@ Do not put raw CV extracts or private contact details in the repository. Choose 
 
 Prepare a desktop/mobile opening and one complete Rennet chapter using real copy and imagery. Compare a faithful Mistral adaptation with two restrained variations in blue/pink balance and typography. Choose the visual direction before building the full site. A short browser motion study should test the opening transition before animation spreads across the page.
 
-Open input: primary audience. Then gather one Rennet capture and the strongest public-safe commercial story. The user should assess the design with real evidence rather than placeholder case studies.
+Visual grounding: an existing Rennet marketing capture is available at /Users/rai/dev/rennet/apps/marketing/public/product/lens-decisions-dark.png. Use it as a reference for the concept, and verify freshness before production publication. Gather the strongest public-safe commercial story next. The user should assess the design with real evidence rather than placeholder case studies.
 
 ## Sources
 
