@@ -1,4 +1,4 @@
-# Prototype Instructions
+# Portfolio instructions
 
 Rai selected the pink-led option in `docs/design/selected-direction.png`. Preserve that direction and the work order: Rennet, Chaching, easyJet via Focused Labs, LexStep. Chaching gets a full feature section. Senior/lead engineering hiring teams are the primary audience.
 
@@ -8,4 +8,4 @@ Before making substantial visual changes, use the Product Design plugin's `get-c
 
 When implementing from a selected generated mock, treat that image as the source of truth for layout, component anatomy, density, spacing, color, typography, visible content, and hierarchy.
 
-Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts/prepare-sites-build.mjs`, and `tests/sites-worker.test.mjs` intact so the same local prototype can be handed to Sites. Before a Sites handoff, run `npm run build` and `npm run test:sites`; the build must leave `dist/client/index.html`, `dist/server/index.js`, and `dist/.openai/hosting.json`.
+Build the static site with Astro in `src/pages/` and `src/components/`. Preserve the approved design. Use native browser scripts for the small interactions; no React runtime is needed. Run `pnpm test` to build and check the deployable `dist/` output. Cloudflare Pages CI/CD lives in `.github/workflows/pages.yml`; domain and credentials setup is documented in `docs/deployment.md`.

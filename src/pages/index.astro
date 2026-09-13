@@ -1,89 +1,32 @@
-import { useEffect, useRef, useState } from "react";
-
-const navigation = [
-  ["Work", "#work"],
-  ["Experience", "#experience"],
-  ["About", "#about"],
-  ["Contact", "#contact"],
-];
-
-function ProductImage({ src, alt, className = "" }) {
-  const dialog = useRef(null);
-  return (
-    <>
-      <button
-        className={`product-image ${className}`}
-        onClick={() => dialog.current.showModal()}
-        aria-label={`Enlarge ${alt}`}
-      >
-        <img src={src} alt={alt} loading="lazy" />
-        <span className="image-hint">View full screen</span>
-      </button>
-      <dialog
-        ref={dialog}
-        className="image-dialog"
-        aria-label={alt}
-        onClick={(event) => {
-          if (event.target === event.currentTarget) dialog.current.close();
-        }}
-      >
-        <form method="dialog">
-          <button className="button">Close image</button>
-        </form>
-        <img src={src} alt={alt} />
-      </dialog>
-    </>
-  );
-}
-
-export function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuButton = useRef(null);
-  useEffect(() => {
-    function closeOnEscape(event) {
-      if (event.key === "Escape" && menuOpen) {
-        setMenuOpen(false);
-        menuButton.current.focus();
-      }
-    }
-    document.addEventListener("keydown", closeOnEscape);
-    return () => document.removeEventListener("keydown", closeOnEscape);
-  }, [menuOpen]);
-  return (
-    <>
-      <a className="skip-link" href="#main">
+---
+import ProductImage from '../components/ProductImage.astro';
+import '../styles.css';
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Rai Butera. Senior engineer and product builder. Selected work in developer tools, full-stack engineering, and technical leadership." />
+<meta name="theme-color" content="#101014" />
+<link rel="canonical" href="https://rbutera.com/" />
+<title>Rai Butera — Senior engineer. Product builder.</title>
+</head><body>
+<a class="skip-link" href="#main">
         Skip to content
       </a>
-      <header className="site-header">
-        <a className="wordmark" href="#top" onClick={() => setMenuOpen(false)}>
+      <header class="site-header">
+        <a class="wordmark" href="#top">
           Rai Butera.
         </a>
-        <button
-          ref={menuButton}
-          className="menu-toggle"
-          aria-expanded={menuOpen}
-          aria-controls="navigation"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? "Close" : "Menu"}
-        </button>
-        <nav
-          id="navigation"
-          className={menuOpen ? "navigation is-open" : "navigation"}
-          aria-label="Main navigation"
-        >
-          {navigation.map(([label, href]) => (
-            <a key={href} href={href} onClick={() => setMenuOpen(false)}>
-              {label}
-            </a>
-          ))}
-        </nav>
-      </header>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button>
+<nav id="navigation" class="navigation" aria-label="Main navigation"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+</header>
       <main id="main">
-        <section id="top" className="hero" aria-labelledby="intro-title">
-          <div className="name-row">
+        <section id="top" class="hero" aria-labelledby="intro-title">
+          <div class="name-row">
             <h1 id="intro-title">Rai Butera.</h1>
-            <p className="eyebrow name-note">
+            <p class="eyebrow name-note">
               Engineering
               <br />
               Products
@@ -91,8 +34,8 @@ export function App() {
               Better software
             </p>
           </div>
-          <div className="hero-body">
-            <div className="hero-copy">
+          <div class="hero-body">
+            <div class="hero-copy">
               <h2>
                 Senior engineer.
                 <br />
@@ -102,15 +45,15 @@ export function App() {
                 I build products and the tools to make complex software easier
                 to ship and review.
               </p>
-              <div className="actions">
-                <a className="button primary" href="#work">
+              <div class="actions">
+                <a class="button primary" href="#work">
                   Explore my work
                 </a>
-                <a className="text-link" href="#contact">
+                <a class="text-link" href="#contact">
                   Get in touch
                 </a>
               </div>
-              <p className="eyebrow hero-footnote">
+              <p class="eyebrow hero-footnote">
                 Ideas
                 <br />
                 Systems
@@ -118,9 +61,9 @@ export function App() {
                 People
               </p>
             </div>
-            <div className="hero-art">
-              <img src="/images/hero-grid.png" alt="" fetchPriority="high" />
-              <span className="eyebrow art-caption">
+            <div class="hero-art">
+              <img src="/images/hero-grid.png" alt="" fetchpriority="high" />
+              <span class="eyebrow art-caption">
                 Build
                 <br />
                 Review
@@ -129,7 +72,7 @@ export function App() {
               </span>
             </div>
           </div>
-          <nav className="work-strip" aria-label="Selected work">
+          <nav class="work-strip" aria-label="Selected work">
             <a href="#rennet">Rennet</a>
             <a href="#chaching">Chaching</a>
             <a href="#easyjet">
@@ -141,19 +84,19 @@ export function App() {
         <div id="work">
           <section
             id="rennet"
-            className="project section"
+            class="project section"
             aria-labelledby="rennet-title"
           >
-            <div className="project-heading reveal">
+            <div class="project-heading reveal">
               <div>
-                <p className="eyebrow">01 / Independent product</p>
+                <p class="eyebrow">01 / Independent product</p>
                 <h2 id="rennet-title">Rennet</h2>
                 <h3>
                   Making code
-                  <br className="desktop-break" /> review keep up.
+                  <br class="desktop-break" /> review keep up.
                 </h3>
               </div>
-              <p className="eyebrow marginal-note">
+              <p class="eyebrow marginal-note">
                 Code
                 <br />
                 Context
@@ -161,13 +104,13 @@ export function App() {
                 Better decisions
               </p>
             </div>
-            <div className="project-intro reveal">
+            <div class="project-intro reveal">
               <p>
                 I built Rennet to make large changes easier to understand,
                 question, and review.
               </p>
               <a
-                className="button primary"
+                class="button primary"
                 href="https://rennet.dev/"
                 target="_blank"
                 rel="noreferrer"
@@ -175,7 +118,7 @@ export function App() {
                 Explore Rennet
               </a>
             </div>
-            <figure className="project-figure reveal">
+            <figure class="project-figure reveal">
               <ProductImage
                 src="/images/rennet-review.png"
                 alt="Rennet review showing engineering decisions linked to source code"
@@ -185,8 +128,8 @@ export function App() {
                 product capture.
               </figcaption>
             </figure>
-            <div className="project-detail">
-              <p className="eyebrow">The work behind the interface</p>
+            <div class="project-detail">
+              <p class="eyebrow">The work behind the interface</p>
               <p>
                 Generating more code makes understanding the change more
                 important. Rennet brings specialised review lenses and
@@ -197,12 +140,12 @@ export function App() {
           </section>
           <section
             id="chaching"
-            className="project section chaching"
+            class="project section chaching"
             aria-labelledby="chaching-title"
           >
-            <div className="project-heading reveal">
+            <div class="project-heading reveal">
               <div>
-                <p className="eyebrow">02 / Independent product</p>
+                <p class="eyebrow">02 / Independent product</p>
                 <h2 id="chaching-title">Chaching</h2>
                 <h3>
                   Your agents run.
@@ -210,7 +153,7 @@ export function App() {
                   The meter does too.
                 </h3>
               </div>
-              <p className="eyebrow marginal-note">
+              <p class="eyebrow marginal-note">
                 Token spend
                 <br />
                 Cache hits
@@ -218,14 +161,14 @@ export function App() {
                 Actual receipts
               </p>
             </div>
-            <div className="project-intro reveal">
+            <div class="project-intro reveal">
               <p>
                 A cash register for coding agents. I built Chaching to make
                 token spend and cache costs visible, from the terminal to the
                 receipt.
               </p>
               <a
-                className="button primary"
+                class="button primary"
                 href="https://chaching.fyi/"
                 target="_blank"
                 rel="noreferrer"
@@ -233,7 +176,7 @@ export function App() {
                 Explore Chaching
               </a>
             </div>
-            <div className="chaching-images reveal">
+            <div class="chaching-images reveal">
               <figure>
                 <ProductImage
                   src="/images/chaching-dashboard.png"
@@ -243,7 +186,7 @@ export function App() {
                   The dashboard. Spend across tools, at a glance.
                 </figcaption>
               </figure>
-              <figure className="receipt">
+              <figure class="receipt">
                 <ProductImage
                   src="/images/chaching-receipt.png"
                   alt="Chaching sample receipt itemising token spend and cache savings"
@@ -251,8 +194,8 @@ export function App() {
                 <figcaption>And yes, it prints a receipt.</figcaption>
               </figure>
             </div>
-            <div className="project-detail">
-              <p className="eyebrow">Accounting with a point of view</p>
+            <div class="project-detail">
+              <p class="eyebrow">Accounting with a point of view</p>
               <p>
                 Cache reads and writes still cost money. Chaching makes those
                 details legible through a live terminal dashboard, a web view,
@@ -264,20 +207,20 @@ export function App() {
         </div>
         <section
           id="experience"
-          className="section experience"
+          class="section experience"
           aria-labelledby="experience-title"
         >
-          <p className="eyebrow">03 / Commercial work</p>
+          <p class="eyebrow">03 / Commercial work</p>
           <h2 id="experience-title">
             Built with teams.
             <br />
             Shipped into production.
           </h2>
-          <article id="easyjet" className="experience-row reveal">
+          <article id="easyjet" class="experience-row reveal">
             <div>
-              <p className="eyebrow">Senior full-stack engineering</p>
+              <p class="eyebrow">Senior full-stack engineering</p>
               <h3>easyJet</h3>
-              <p className="muted">via Focused Labs</p>
+              <p class="muted">via Focused Labs</p>
             </div>
             <div>
               <h4>Modernising while delivering.</h4>
@@ -289,9 +232,9 @@ export function App() {
               </p>
             </div>
           </article>
-          <article id="lexstep" className="experience-row reveal">
+          <article id="lexstep" class="experience-row reveal">
             <div>
-              <p className="eyebrow">Tech Lead / 2020–2025</p>
+              <p class="eyebrow">Tech Lead / 2020–2025</p>
               <h3>LexStep</h3>
             </div>
             <div>
@@ -308,10 +251,10 @@ export function App() {
         </section>
         <section
           id="about"
-          className="section about"
+          class="section about"
           aria-labelledby="about-title"
         >
-          <p className="eyebrow">04 / A little context</p>
+          <p class="eyebrow">04 / A little context</p>
           <div>
             <h2 id="about-title">
               I like knowing
@@ -329,7 +272,7 @@ export function App() {
               Building and using them keeps that feedback loop short.
             </p>
             <a
-              className="text-link"
+              class="text-link"
               href="https://github.com/rbutera"
               target="_blank"
               rel="noreferrer"
@@ -340,16 +283,16 @@ export function App() {
         </section>
         <section
           id="contact"
-          className="section contact"
+          class="section contact"
           aria-labelledby="contact-title"
         >
-          <p className="eyebrow">Have something in mind?</p>
+          <p class="eyebrow">Have something in mind?</p>
           <h2 id="contact-title">
             Let’s build
             <br />
             something good.
           </h2>
-          <a className="contact-email" href="mailto:rai@rbutera.com">
+          <a class="contact-email" href="mailto:rai@rbutera.com">
             rai@rbutera.com
           </a>
           <p>
@@ -359,12 +302,11 @@ export function App() {
       </main>
       <footer>
         <a href="#top">Rai Butera.</a>
-        <span className="eyebrow">© 2026</span>
+        <span class="eyebrow">© 2026</span>
         <a href="https://github.com/rbutera" target="_blank" rel="noreferrer">
           GitHub
         </a>
         <a href="#top">Back to top</a>
       </footer>
-    </>
-  );
-}
+    <script src="../interactions.js"></script>
+</body></html>

@@ -1,0 +1,12 @@
+---
+const { src, alt } = Astro.props;
+const id = src.split('/').pop().replace('.png', '');
+---
+<a class="product-image" href={src} data-dialog={id} aria-label={`Enlarge ${alt}`}>
+  <img src={src} alt={alt} loading="lazy" />
+  <span class="image-hint">View full screen</span>
+</a>
+<dialog id={id} class="image-dialog" aria-label={alt}>
+  <form method="dialog"><button class="button">Close image</button></form>
+  <img src={src} alt={alt} loading="lazy" />
+</dialog>

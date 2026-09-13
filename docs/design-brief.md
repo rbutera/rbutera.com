@@ -47,7 +47,7 @@ Do not put raw CV extracts or private contact details in the repository. Choose 
 
 ## Next design milestone
 
-Rai selected the second displayed concept, the pink-led editorial direction in `design/selected-direction.png`, and requested a full Chaching feature above easyJet via Focused Labs. The first implementation now includes both product sections, commercial experience, about, and contact. Build and automated checks pass. Browser verification remains blocked as detailed in `../design-qa.md`.
+Rai selected the second displayed concept, the pink-led editorial direction in `design/selected-direction.png`, and requested a full Chaching feature above easyJet via Focused Labs. The implementation includes both product sections, commercial experience, about, and contact. It now uses Astro static generation and a Cloudflare Pages workflow. Build and automated checks pass. Browser verification remains blocked as detailed in `../design-qa.md`.
 
 Visual grounding: an existing Rennet marketing capture is available at /Users/rai/dev/rennet/apps/marketing/public/product/lens-decisions-dark.png. Use it as a reference for the concept, and verify freshness before production publication. Gather the strongest public-safe commercial story next. The user should assess the design with real evidence rather than placeholder case studies.
 

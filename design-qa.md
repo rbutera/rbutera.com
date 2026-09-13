@@ -4,11 +4,13 @@ final result: blocked
 
 Source visual truth: `docs/design/selected-direction.png`, the second displayed concept. Desktop and mobile compositions share one reference sheet. Rai subsequently requested a full Chaching feature before easyJet via Focused Labs.
 
-Implementation: React page in `src/App.jsx`, production output in `dist/client`. No browser-rendered implementation screenshot is available.
+Implementation: static Astro page in `src/pages/index.astro`, production output in `dist`. No browser-rendered implementation screenshot is available. The approved content and visual styles were preserved during the migration; native scripts replace React's menu and dialog handlers.
 
 ## Blocker
 
 The production build succeeds, but the local preview server cannot bind `127.0.0.1:4173`: the session returns `listen EPERM`. A self-contained offline HTML preview was then prepared in `/private/tmp/rbutera-portfolio-preview.html`; the in-app browser rejected its file URL under its URL policy. No bypass was attempted.
+
+Rechecked after the Astro migration: `pnpm dev --host 127.0.0.1 --port 4173` exited before becoming ready. No running preview process remains. A clean frozen-lockfile offline installation and build/tests passed in `/private/tmp/rbutera-astro-clean.UPr4mk`, and the main checkout also passed under Node 24.20.0, matching CI's Node major. These verify static output, not browser rendering or interactions.
 
 Viewport, implementation pixel dimensions, device density, matched-state screenshots, full-view comparisons, and focused visual comparisons are unavailable. Browser interaction and console checks remain unverified. This is not a visual pass.
 
