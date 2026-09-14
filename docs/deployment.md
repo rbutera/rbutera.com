@@ -39,4 +39,6 @@ For a content rollback, revert the relevant commit and push `main`; the pipeline
 - [Direct Upload with CI](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/)
 - [Pages custom domains](https://developers.cloudflare.com/pages/configuration/custom-domains/)
 
-Verified 2026-09-13: `main` pushed and set as default. [CI run 34751104037](https://github.com/rbutera/rbutera.com/actions/runs/34751104037) passed its clean dependency installation, build, tests, and artifact upload. Deployment was skipped as intended: no Cloudflare secrets or enable variable are configured. Cloudflare project creation and a live deployment remain pending.
+Verified 2026-09-14: GitHub Actions secrets are configured and `CLOUDFLARE_PAGES_ENABLED=true`. [Run 34865393943](https://github.com/rbutera/rbutera.com/actions/runs/34865393943) passed both build and deployment. The production site is available at https://rbutera-com.pages.dev. Every push to `main` now builds, tests, and deploys the same tested artifact.
+
+The active Cloudflare zone has `rbutera.com` associated with the Pages project. Its two previous proxied A records (`98.84.224.111` and `18.208.88.157`) were replaced with one proxied CNAME to `rbutera-com.pages.dev`. Other DNS records were untouched. For a hosting rollback, restore those two A records in place of the CNAME. Custom-domain validation is pending immediately after cutover.
